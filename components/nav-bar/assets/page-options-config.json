@@ -4,9 +4,11 @@
     "MATERIAL_ICON_NAME": "home"
   },
   "ABOUT": {
-    "ORDER": 1
+    "ORDER": 1,
+    "MATERIAL_ICON_NAME": "info"
   },
   "LANGUAGES": {
-    "ORDER": 2
+    "ORDER": 2,
+    "MATERIAL_ICON_NAME": "code"
   }
 }

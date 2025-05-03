@@ -20,12 +20,13 @@
   transition: color 0.3s;
 }
 
-.material-icons {
-  margin-right: 8px;
+nav .nav-link .material-icons {
+  margin-right: 6px;
   font-size: 22px;
-  vertical-align: middle;
   color: #3498db;
   transition: transform 0.3s ease;
+  position: relative;
+  bottom: 2px;
 }
 
 .nav-link:hover,

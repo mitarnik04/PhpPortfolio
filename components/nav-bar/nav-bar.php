@@ -46,6 +46,7 @@ class NavBarComponent implements IComponent
             return ($left->options->order ?? PHP_INT_MAX) <=> ($right->options->order ?? PHP_INT_MAX);
         });
 
+        //TODO: Maybe add ability to only use material icon as navigation element ??
         foreach ($pages as $page) {
             echo '<a href="' . $page->path . '" class="nav-link">';
 

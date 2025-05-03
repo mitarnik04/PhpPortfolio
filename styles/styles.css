@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #3498db;
+  --primary-hover: #2980b9;
+  --secondary-color: #2c3e50;
+  --muted-text: #7f8c8d;
+  --standard-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,6 +24,7 @@ body {
   padding: 20px;
 }
 
+/* Layout Container */
 .container {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 16px;
@@ -23,9 +32,10 @@ body {
   max-width: 700px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--standard-shadow);
 }
 
+/* Profile Image */
 .profile-pic {
   width: 120px;
   height: 120px;
@@ -35,19 +45,21 @@ body {
   margin-bottom: 20px;
 }
 
+/* Headings */
 h1 {
   font-size: 2.8em;
   margin-bottom: 10px;
-  color: #2c3e50;
+  color: var(--secondary-color);
 }
 
 h2 {
   font-weight: 300;
   font-size: 1.8em;
   margin-bottom: 20px;
-  color: #7f8c8d;
+  color: var(--muted-text);
 }
 
+/* Paragraphs */
 p {
   font-size: 1.2em;
   line-height: 1.6;
@@ -55,8 +67,9 @@ p {
   color: #555;
 }
 
+/* Social Links */
 .social-links a {
-  color: #3498db;
+  color: var(--primary-color);
   text-decoration: none;
   margin: 0 12px;
   font-weight: bold;
@@ -64,14 +77,15 @@ p {
 }
 
 .social-links a:hover {
-  color: #2980b9;
+  color: var(--primary-hover);
 }
 
+/* Contact Button */
 .contact-button {
   display: inline-block;
   margin-top: 30px;
   padding: 14px 28px;
-  background-color: #3498db;
+  background-color: var(--primary-color);
   color: #fff;
   border-radius: 8px;
   text-decoration: none;
@@ -80,9 +94,10 @@ p {
 }
 
 .contact-button:hover {
-  background-color: #2980b9;
+  background-color: var(--primary-hover);
 }
 
+/* Language List */
 .language-list {
   margin-top: 30px;
   text-align: left;
@@ -97,7 +112,7 @@ p {
 }
 
 .language-category h2 {
-  color: #3498db;
+  color: var(--primary-color);
   margin-bottom: 10px;
 }
 
@@ -106,6 +121,7 @@ p {
   line-height: 1.5;
 }
 
+/* Header Section (Nav + Language Toggle) */
 .header-bar {
   display: flex;
   align-items: center;
