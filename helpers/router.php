@@ -2,6 +2,12 @@
 class Router
 {
 
+    /**
+     * Initializes routing by resolving the current URI to a view file.
+     *
+     * @param string[] $routeEndpoints    List of valid route names (e.g., ['about', 'contact'])
+     * @param string   $defaultEndpoint   Fallback route to use for root path ('/')
+     */
     static function initialize(array $routeEndpoints, string $defaultEndpoint): void
     {
         $uri = parse_url($_SERVER['REQUEST_URI'])["path"];

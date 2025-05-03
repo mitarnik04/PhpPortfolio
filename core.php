@@ -50,7 +50,7 @@ $allowedPages = SpaUtils::getPages();
     (new NavBarComponent())->render(new NavBarOptions($paths));
 
     require_once(__DIR__ . '/components/language-toggle.php');
-    (new LanguageToggle())->render(new LanguageToggleOptions($language, $availableLanguages));
+    (new LanguageToggleComponent())->render(new LanguageToggleOptions($language, $availableLanguages));
     ?>
 
     <div id="spa-content">
