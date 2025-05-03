@@ -1,9 +1,9 @@
 <?php
 
-require_once(__DIR__ . '/user-settings.php');
-require_once(__DIR__ . '/helpers/translation.php');
-require_once(__DIR__ . '/helpers/translation-utils.php');
-require_once(__DIR__ . '/helpers/spa-utils.php');
+require_once __DIR__ . '/user-settings.php';
+require_once __DIR__ . '/helpers/translation.php';
+require_once __DIR__ . '/helpers/translation-utils.php';
+require_once __DIR__ . '/helpers/spa-utils.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
@@ -39,7 +39,7 @@ $allowedPages = SpaUtils::getPages();
 <body>
 
     <?php
-    require_once(__DIR__ . '/components/nav-bar.php');
+    require_once __DIR__ . '/components/nav-bar.php';
 
     $paths = [];
 
@@ -49,13 +49,13 @@ $allowedPages = SpaUtils::getPages();
 
     (new NavBarComponent())->render(new NavBarOptions($paths));
 
-    require_once(__DIR__ . '/components/language-toggle.php');
+    require_once __DIR__ . '/components/language-toggle.php';
     (new LanguageToggleComponent())->render(new LanguageToggleOptions($language, $availableLanguages));
     ?>
 
     <div id="spa-content">
         <?php
-        include(__DIR__ . '/helpers/router.php');
+        require_once __DIR__ . '/helpers/router.php';
 
         //TODO: Maybe do not hardcode default endpoint ? 
         Router::initialize($allowedPages, 'home');

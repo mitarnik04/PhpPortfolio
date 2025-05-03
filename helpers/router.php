@@ -15,7 +15,7 @@ class Router
         $pathFormat = __DIR__ . '/../views/%s.php';
 
         if ($uri == '/') {
-            require(sprintf($pathFormat, $defaultEndpoint));
+            require sprintf($pathFormat, $defaultEndpoint);
             return;
         }
 

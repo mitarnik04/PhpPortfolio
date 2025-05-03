@@ -43,7 +43,7 @@ class UserSettings
             self::LANGUAGE_PROP_NAME => $userSettings->language,
         ];
 
-        require_once(__DIR__ . '/helpers/timespan.php');
+        require_once __DIR__ . '/helpers/timespan.php';
 
 
         $json = json_encode($userSettingsObj);
