@@ -1,21 +1,21 @@
 .language-toggle {
-  margin-bottom: 20px;
-  font-weight: bold;
   font-size: 1em;
 }
 
-.language-toggle a {
-  color: #f1c40f;
-  text-decoration: none;
-  margin: 0 8px;
-  transition: color 0.3s ease;
+.language-toggle select {
+  padding: 6px 10px;
+  font-size: 1em;
+  font-weight: bold;
+  border: 2px solid #3498db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #3498db;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
 }
 
-.language-toggle a.active {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-.language-toggle a:hover {
-  color: #ffffff;
+.language-toggle select:focus {
+  outline: none;
+  border-color: #e67e22;
+  color: #2c3e50;
 }

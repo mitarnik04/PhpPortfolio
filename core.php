@@ -39,24 +39,26 @@ $allowedPages = SpaUtils::getPages();
 
 <body>
 
-    <?php
-    require_once __DIR__ . '/components/nav-bar/nav-bar.php';
+    <div class="header-bar">
+        <?php
+        require_once __DIR__ . '/components/nav-bar/nav-bar.php';
 
-    $paths = [];
+        $paths = [];
 
-    foreach ($allowedPages as $allowedPage) {
-        $paths[] = new Page(
-            '/' . $allowedPage,
-            Translation::getTranslation('SPA_SETUP:' . strtoupper($allowedPage), $language),
-            $allowedPage
-        );
-    }
+        foreach ($allowedPages as $allowedPage) {
+            $paths[] = new Page(
+                '/' . $allowedPage,
+                Translation::getTranslation('SPA_SETUP:' . strtoupper($allowedPage), $language),
+                $allowedPage
+            );
+        }
 
-    (new NavBarComponent())->render(new NavBarOptions($paths));
+        (new NavBarComponent())->render(new NavBarOptions($paths));
 
-    require_once __DIR__ . '/components/language-toggle/language-toggle.php';
-    (new LanguageToggleComponent())->render(new LanguageToggleOptions($language, $availableLanguages));
-    ?>
+        require_once __DIR__ . '/components/language-toggle/language-toggle.php';
+        (new LanguageToggleComponent())->render(new LanguageToggleOptions($language, $availableLanguages));
+        ?>
+    </div>
 
     <div id="spa-content">
         <?php

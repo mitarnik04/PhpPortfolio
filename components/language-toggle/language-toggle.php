@@ -49,15 +49,19 @@ class LanguageToggleComponent implements IComponent
         $selectedLanguage = $configuredOptions[LanguageToggleOptions::OPT_KEY_SELECTED_LANGUAGE];
         $selectableLanguages = $configuredOptions[LanguageToggleOptions::OPT_KEY_SELECTABLE_LANGUAGES];
 
-        echo '<div class="language-toggle">';
+        echo '<form class="language-toggle" method="get">';
+        echo '<select name="lang" onchange="this.form.submit()">';
+
         foreach ($selectableLanguages as $languageOption) {
-            $linkClass = ($selectedLanguage == $languageOption) ? 'active' : '';
+            $selectedAttr = ($selectedLanguage == $languageOption) ? 'selected' : '';
             $loToUpper = strtoupper($languageOption);
 
             echo <<<HTML
-                    <a href="?lang={$languageOption}" class="{$linkClass}">{$loToUpper}</a>
+                    <option value="{$languageOption}" {$selectedAttr}>{$loToUpper}</option>
                  HTML;
         }
-        echo '</div>';
+
+        echo '</select>';
+        echo '</form>';
     }
 }
