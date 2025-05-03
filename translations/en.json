@@ -1,20 +1,26 @@
 {
-  "GREETING": "Hello I'm Mitar",
-  "OCCUPATION_TITLE": "Full stack developer with focus on backend",
-  "STUFF_I_DO_DESCRIPTION": "I can build a full stack web site for you or add new features to your website or RESTful API. I am passionate about coding and building awesome new features",
-  "GET_IN_TOUCH": "Get in Touch",
-  "PAGE_HOME": "Home",
-  "PAGE_LANGUAGES": "Programming Languages",
-  "PAGE_ABOUT": "About",
-  "LANGUAGES_TITLE": "Programming Languages",
-  "CSHARP_NET_ECOSYSTEM": "C# & .NET Ecosystem",
-  "CSHARP_NET_ECOSYSTEM_DESCRIPTION": "ASP.NET (Core), Entity Framework (Core), full-stack capabilities",
-  "FRONTEND": "Frontend",
-  "FRONTEND_DESCRIPTION": "HTML, CSS, JavaScript, Angular",
-  "DATABASES": "Databases",
-  "DATABASES_DESCRIPTION": "PostgreSQL, SQLite, SQL Server, MariaDB",
-  "VERSION_CTRL_TOOLING": "Version Control & Tooling",
-  "VERSION_CTRL_TOOLING_DESCRIPTION": "Git, GitHub, Azure-DevOps, CLI utilities",
-  "OTHERS": "Others",
-  "OTHERS_DESCRIPTION": "PHP"
+  "HOME_PAGE": {
+    "GREETING": "Hello I'm Mitar",
+    "OCCUPATION_TITLE": "Full stack developer with focus on backend",
+    "STUFF_I_DO_DESCRIPTION": "I can build a full stack web site for you or add new features to your website or RESTful API. I am passionate about coding and building awesome new features",
+    "GET_IN_TOUCH": "Get in Touch"
+  },
+  "SPA_SETUP": {
+    "HOME": "Home",
+    "LANGUAGES": "Programming Languages",
+    "ABOUT": "About"
+  },
+  "LANGUAGES_PAGE": {
+    "TITLE": "Programming Languages",
+    "CSHARP_NET_ECOSYSTEM": "C# & .NET Ecosystem",
+    "CSHARP_NET_ECOSYSTEM_DESCRIPTION": "ASP.NET (Core), Entity Framework (Core), full-stack capabilities",
+    "FRONTEND": "Frontend",
+    "FRONTEND_DESCRIPTION": "HTML, CSS, JavaScript, Angular",
+    "DATABASES": "Databases",
+    "DATABASES_DESCRIPTION": "PostgreSQL, SQLite, SQL Server, MariaDB",
+    "VERSION_CTRL_TOOLING": "Version Control & Tooling",
+    "VERSION_CTRL_TOOLING_DESCRIPTION": "Git, GitHub, Azure-DevOps, CLI utilities",
+    "OTHERS": "Others",
+    "OTHERS_DESCRIPTION": "PHP"
+  }
 }

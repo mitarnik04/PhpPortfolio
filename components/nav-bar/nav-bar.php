@@ -1,20 +1,7 @@
 <?php
 
-require_once(__DIR__ . '/component.php');
-
-
-class Page
-{
-    public string $path;
-    public string $name;
-
-    public function __construct(string $path, string $name)
-    {
-        $this->path = $path;
-        $this->name = $name;
-    }
-}
-
+require_once __DIR__ . '/../component.php';
+require_once __DIR__ . '/assets/page.php';
 
 class NavBarOptions implements IComponentOptions
 {
@@ -22,7 +9,7 @@ class NavBarOptions implements IComponentOptions
     const OPT_KEY_PAGES = "pages";
 
     /**
-     * @var Page[] Pages used to build the navigation (path → href, name → label)
+     * @var Page[] Pages used to build the navigation (path → href)
      */
     public array $pages = [];
 
@@ -50,11 +37,26 @@ class NavBarComponent implements IComponent
         }
 
 
+        /** @var Page[] $pages */
         $pages = $options->getAllOptions()[NavBarOptions::OPT_KEY_PAGES];
 
         echo '<nav class="main-nav">';
+
+        usort($pages, function ($left, $right) {
+            return ($left->options->order ?? PHP_INT_MAX) <=> ($right->options->order ?? PHP_INT_MAX);
+        });
+
         foreach ($pages as $page) {
-            echo '<a href="' . $page->path . '" class="nav-link">' . $page->name . '</a>';
+            echo '<a href="' . $page->path . '" class="nav-link">';
+
+            $materialIconName = $page->options->materialIconName ?? '';
+
+            if (!empty($materialIconName)) {
+                echo '<span class="material-icons" aria-hidden="true">' . htmlspecialchars($materialIconName) . '</span>';
+            }
+
+            echo '<span class="link-text">' . htmlspecialchars($page->label) . '</span>';
+            echo '</a>';
         }
         echo '</nav>';
     }

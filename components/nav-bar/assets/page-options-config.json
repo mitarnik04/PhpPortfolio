@@ -1,0 +1,12 @@
+{
+  "HOME": {
+    "ORDER": 0,
+    "MATERIAL_ICON_NAME": "home"
+  },
+  "ABOUT": {
+    "ORDER": 1
+  },
+  "LANGUAGES": {
+    "ORDER": 2
+  }
+}

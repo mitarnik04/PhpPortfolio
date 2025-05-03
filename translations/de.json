@@ -1,20 +1,26 @@
 {
-  "GREETING": "Hallo ich bin Mitar",
-  "OCCUPATION_TITLE": "Full-Stack Entwickler mit Focus auf Backend",
-  "STUFF_I_DO_DESCRIPTION": "Ich kann eine Full-Stack Webseite für Sie bauen oder neue Features hinzufügen. Ich habe eine Leidenschaft für das Programmieren und Entwickeln neuer Funktionen",
-  "GET_IN_TOUCH": "Treten Sie in Kontakt",
-  "PAGE_HOME": "Home",
-  "PAGE_LANGUAGES": "Programmiersprachen",
-  "PAGE_ABOUT": "Über",
-  "LANGUAGES_TITLE": "Programmiersprachen",
-  "CSHARP_NET_ECOSYSTEM": "C#- & .NET-Ökosystem",
-  "CSHARP_NET_ECOSYSTEM_DESCRIPTION": "ASP.NET (Core), Entity Framework (Core), Full-Stack-Fähigkeiten",
-  "FRONTEND": "Frontend",
-  "FRONTEND_DESCRIPTION": "HTML, CSS, JavaScript, Angular",
-  "DATABASES": "Datenbanken",
-  "DATABASES_DESCRIPTION": "PostgreSQL, SQLite, SQL Server, MariaDB",
-  "VERSION_CTRL_TOOLING": "Versionskontrolle & Tools",
-  "VERSION_CTRL_TOOLING_DESCRIPTION": "Git, GitHub, Azure-DevOps, CLI-Werkzeuge",
-  "OTHERS": "Sonstiges",
-  "OTHERS_DESCRIPTION": "PHP"
+  "HOME_PAGE": {
+    "GREETING": "Hallo ich bin Mitar",
+    "OCCUPATION_TITLE": "Full-Stack Entwickler mit Focus auf Backend",
+    "STUFF_I_DO_DESCRIPTION": "Ich kann eine Full-Stack Webseite für Sie bauen oder neue Features hinzufügen. Ich habe eine Leidenschaft für das Programmieren und Entwickeln neuer Funktionen",
+    "GET_IN_TOUCH": "Treten Sie in Kontakt"
+  },
+  "SPA_SETUP": {
+    "HOME": "Home",
+    "LANGUAGES": "Programmiersprachen",
+    "ABOUT": "Über"
+  },
+  "LANGUAGES_PAGE": {
+    "TITLE": "Programmiersprachen",
+    "CSHARP_NET_ECOSYSTEM": "C#- & .NET-Ökosystem",
+    "CSHARP_NET_ECOSYSTEM_DESCRIPTION": "ASP.NET (Core), Entity Framework (Core), Full-Stack-Fähigkeiten",
+    "FRONTEND": "Frontend",
+    "FRONTEND_DESCRIPTION": "HTML, CSS, JavaScript, Angular",
+    "DATABASES": "Datenbanken",
+    "DATABASES_DESCRIPTION": "PostgreSQL, SQLite, SQL Server, MariaDB",
+    "VERSION_CTRL_TOOLING": "Versionskontrolle & Tools",
+    "VERSION_CTRL_TOOLING_DESCRIPTION": "Git, GitHub, Azure-DevOps, CLI-Werkzeuge",
+    "OTHERS": "Sonstiges",
+    "OTHERS_DESCRIPTION": "PHP"
+  }
 }

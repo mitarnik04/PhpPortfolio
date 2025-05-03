@@ -33,23 +33,28 @@ $allowedPages = SpaUtils::getPages();
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/language-toggle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Mitar's Portfolio</title>
 </head>
 
 <body>
 
     <?php
-    require_once __DIR__ . '/components/nav-bar.php';
+    require_once __DIR__ . '/components/nav-bar/nav-bar.php';
 
     $paths = [];
 
     foreach ($allowedPages as $allowedPage) {
-        $paths[] = new Page('/' . $allowedPage, Translation::getTranslation('PAGE_' . strtoupper($allowedPage), $language));
+        $paths[] = new Page(
+            '/' . $allowedPage,
+            Translation::getTranslation('SPA_SETUP:' . strtoupper($allowedPage), $language),
+            $allowedPage
+        );
     }
 
     (new NavBarComponent())->render(new NavBarOptions($paths));
 
-    require_once __DIR__ . '/components/language-toggle.php';
+    require_once __DIR__ . '/components/language-toggle/language-toggle.php';
     (new LanguageToggleComponent())->render(new LanguageToggleOptions($language, $availableLanguages));
     ?>
 

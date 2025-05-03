@@ -17,6 +17,10 @@ class Translation
             self::loadTranslation($language);
         }
 
+        if (str_contains($key, ':')) {
+            return self::getNestedTranslation($key, $language);
+        }
+
         return self::$translations[$language][$key];
     }
 
@@ -26,11 +30,23 @@ class Translation
         $translations = [];
 
         if (!tryGetJsonContent(__DIR__ . '/../translations/' . $language . '.json', $translations)) {
-
             error_log('Could not get translation for language: ' . $language);
             return;
         }
 
         self::$translations[$language] = $translations;
+    }
+
+    private static function getNestedTranslation(string $key, string $language): string
+    {
+        $partialKeys = explode(':', $key);
+        $currentPosition = self::$translations[$language];
+        foreach ($partialKeys as $partialKey) {
+            if (!is_array($currentPosition)) {
+                throw new InvalidArgumentException("Invalid translation key: " . $key);
+            }
+            $currentPosition = $currentPosition[$partialKey];
+        }
+        return $currentPosition;
     }
 }
