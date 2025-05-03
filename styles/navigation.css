@@ -6,7 +6,8 @@
   padding: 12px 24px;
   border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  width: fit-content;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .nav-link {
@@ -26,7 +27,7 @@ nav .nav-link .material-icons {
   color: #3498db;
   transition: transform 0.3s ease;
   position: relative;
-  bottom: 2px;
+  bottom: 0.9px;
 }
 
 .nav-link:hover,

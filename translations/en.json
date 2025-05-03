@@ -8,7 +8,7 @@
   "SPA_SETUP": {
     "HOME": "Home",
     "LANGUAGES": "Programming Languages",
-    "ABOUT": "About"
+    "WORK-EXPIRIENCE": "Work Expirience"
   },
   "LANGUAGES_PAGE": {
     "TITLE": "Programming Languages",
@@ -22,5 +22,15 @@
     "VERSION_CTRL_TOOLING_DESCRIPTION": "Git, GitHub, Azure-DevOps, CLI utilities",
     "OTHERS": "Others",
     "OTHERS_DESCRIPTION": "PHP"
+  },
+  "WORK_EXP_PAGE": {
+    "TITLE": "Work Experience",
+    "SUBTITLE": "Clients, Projects & Teamwork",
+    "NEOGEO_TITLE": "Software Engineer – Neo Geo New Media GmbH",
+    "NEOGEO_TAGLINE": "Microsoft Gold Partner",
+    "NEOGEO_DESC": "Contributed to large-scale enterprise projects for major clients such as Schmitz Cargobull AG. Worked closely with interdisciplinary teams in a Microsoft Gold Partner environment, focusing on scalable, robust solutions.",
+    "FOCUS_TITLE": "Software Consultant – Focus Consulting AG",
+    "FOCUS_TAGLINE": "Trusted by Leading Swiss Banks",
+    "FOCUS_DESC": "Delivered consulting and software solutions for some of the largest Swiss banks, including CS Bank. Gained extensive experience collaborating across diverse teams in high-security, high-stakes environments."
   }
 }

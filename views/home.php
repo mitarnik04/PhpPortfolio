@@ -18,7 +18,7 @@ $language = $userSettings->getLanguage();
     <!-- //TODO: Move this into translation file ??  -->
     <div class="social-links">
         <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mitar-nikolic-79a2151a5">LinkedIn</a>
         <a href="#">Twitter</a>
     </div>
 

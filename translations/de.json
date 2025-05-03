@@ -8,7 +8,7 @@
   "SPA_SETUP": {
     "HOME": "Home",
     "LANGUAGES": "Programmiersprachen",
-    "ABOUT": "Über"
+    "WORK-EXPIRIENCE": "Arbeitserfahrung"
   },
   "LANGUAGES_PAGE": {
     "TITLE": "Programmiersprachen",
@@ -22,5 +22,15 @@
     "VERSION_CTRL_TOOLING_DESCRIPTION": "Git, GitHub, Azure-DevOps, CLI-Werkzeuge",
     "OTHERS": "Sonstiges",
     "OTHERS_DESCRIPTION": "PHP"
+  },
+  "WORK_EXP_PAGE": {
+    "TITLE": "Berufserfahrung",
+    "SUBTITLE": "Kunden, Projekte & Zusammenarbeit",
+    "NEOGEO_TITLE": "Software Engineer – Neo Geo New Media GmbH",
+    "NEOGEO_TAGLINE": "Microsoft Gold Partner",
+    "NEOGEO_DESC": "Beteiligung an groß angelegten Unternehmensprojekten für namhafte Kunden wie Schmitz Cargobull AG. Enge Zusammenarbeit mit interdisziplinären Teams in einer Microsoft Gold Partner-Umgebung, mit Fokus auf skalierbare und robuste Lösungen.",
+    "FOCUS_TITLE": "Software Consultant – Focus Consulting AG",
+    "FOCUS_TAGLINE": "Vertrauen von führenden Schweizer Banken",
+    "FOCUS_DESC": "Beratung und Entwicklung von Softwarelösungen für einige der größten Schweizer Banken, darunter die CS Bank. Umfassende Erfahrung in der Zusammenarbeit mit verschiedenen Teams in hochsicheren und anspruchsvollen Umfeldern."
   }
 }
