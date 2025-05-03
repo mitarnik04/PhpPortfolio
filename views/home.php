@@ -15,6 +15,7 @@ $language = $userSettings->getLanguage();
 
     <p><?php echo Translation::getTranslation('STUFF_I_DO_DESCRIPTION', $language) ?></p>
 
+    <!-- //TODO: Move this into translation file ??  -->
     <div class="social-links">
         <a href="#">GitHub</a>
         <a href="#">LinkedIn</a>
