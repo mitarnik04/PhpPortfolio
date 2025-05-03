@@ -8,13 +8,10 @@ class TranslationUtils
     static function getAvailableTranslations(): array
     {
         if (empty(self::$translationNames)) {
-
-            $translationFiles = array_map('basename', glob(__DIR__ . '/../translations/*.json'));
-
-            foreach ($translationFiles as $translationFile) {
-                //Removes last five chars which in this case is ".json"
-                self::$translationNames[] = substr($translationFile, 0, -5);;
-            }
+            self::$translationNames = array_map(function ($fullPath) {
+                $translationFileName = basename($fullPath);
+                return substr($translationFileName, 0, -5);
+            }, glob(__DIR__ . '/../translations/*.json'));
         }
 
         return self::$translationNames;

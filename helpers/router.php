@@ -4,7 +4,6 @@ class Router
 
     static function initialize(array $routeEndpoints, string $defaultEndpoint): void
     {
-
         $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
         //%s = string
         $pathFormat = __DIR__ . '/../views/%s.php';

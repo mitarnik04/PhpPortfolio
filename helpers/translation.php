@@ -23,13 +23,14 @@ class Translation
     private static function loadTranslation(string $language): void
     {
 
-        $translation = [];
+        $translations = [];
 
-        if (!tryGetJsonContent(__DIR__ . '/../translations/' . $language . '.json', $translation)) {
+        if (!tryGetJsonContent(__DIR__ . '/../translations/' . $language . '.json', $translations)) {
+
             error_log('Could not get translation for language: ' . $language);
             return;
         }
 
-        self::$translations[$language] = $translation;
+        self::$translations[$language] = $translations;
     }
 }

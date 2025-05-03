@@ -44,7 +44,7 @@ $allowedPages = SpaUtils::getPages();
     $paths = [];
 
     foreach ($allowedPages as $allowedPage) {
-        $paths[] = new Path('/' . $allowedPage, Translation::getTranslation('PAGE_' . strtoupper($allowedPage), $language));
+        $paths[] = new Page('/' . $allowedPage, Translation::getTranslation('PAGE_' . strtoupper($allowedPage), $language));
     }
 
     (new NavBarComponent())->render(new NavBarOptions($paths));

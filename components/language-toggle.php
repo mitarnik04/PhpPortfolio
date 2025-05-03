@@ -4,6 +4,10 @@ require_once(__DIR__ . '/component.php');
 
 class LanguageToggleOptions implements IComponentOptions
 {
+
+    const OPT_KEY_SELECTED_LANGUAGE =   'selectedLanguage';
+    const OPT_KEY_AVAILABLE_LANGUAGES =  'availableLanguages';
+
     public string $selectedLanguage;
     public array $availableLanguages;
 
@@ -16,8 +20,8 @@ class LanguageToggleOptions implements IComponentOptions
     public function getAllOptions(): array
     {
         return [
-            'selectedLanguage' => $this->selectedLanguage,
-            'availableLanguages' => $this->availableLanguages
+            self::OPT_KEY_SELECTED_LANGUAGE => $this->selectedLanguage,
+            self::OPT_KEY_AVAILABLE_LANGUAGES => $this->availableLanguages
         ];
     }
 }
@@ -29,8 +33,8 @@ class LanguageToggle implements IComponent
     {
 
         $configuredOptions = $options->getAllOptions();
-        $selectedLanguage = $configuredOptions['selectedLanguage'];
-        $selectableLanguages = $configuredOptions['availableLanguages'];
+        $selectedLanguage = $configuredOptions[LanguageToggleOptions::OPT_KEY_SELECTED_LANGUAGE];
+        $selectableLanguages = $configuredOptions[LanguageToggleOptions::OPT_KEY_AVAILABLE_LANGUAGES];
 
         require_once(__DIR__ . '/../helpers/translation-utils.php');
 

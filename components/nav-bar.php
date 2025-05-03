@@ -3,7 +3,7 @@
 require_once(__DIR__ . '/component.php');
 
 
-class Path
+class Page
 {
     public string $path;
     public string $name;
@@ -18,16 +18,19 @@ class Path
 
 class NavBarOptions implements IComponentOptions
 {
-    public array $paths = [];
 
-    public function __construct(array $paths)
+    const OPT_KEY_PAGES = "pages";
+
+    public array $pages = [];
+
+    public function __construct(array $pages)
     {
-        $this->paths = $paths;
+        $this->pages = $pages;
     }
 
     public function getAllOptions(): array
     {
-        return ['paths' => $this->paths];
+        return [self::OPT_KEY_PAGES => $this->pages];
     }
 }
 
@@ -37,11 +40,11 @@ class NavBarComponent implements IComponent
     function render(IComponentOptions $options)
     {
 
-        $paths = $options->getAllOptions()['paths'];
+        $pages = $options->getAllOptions()[NavBarOptions::OPT_KEY_PAGES];
 
         echo '<nav class="main-nav">';
-        foreach ($paths as $path) {
-            echo '<a href="' . $path->path . '" class="nav-link">' . $path->name . '</a>';
+        foreach ($pages as $page) {
+            echo '<a href="' . $page->path . '" class="nav-link">' . $page->name . '</a>';
         }
         echo '</nav>';
     }
