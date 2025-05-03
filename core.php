@@ -22,15 +22,6 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
 
 $allowedPages = SpaUtils::getPages();
 
-//TODO: How to handle default without hardcoding it ?
-$page = $_GET['page'] ?? 'home';
-$pageFile = __DIR__ . "/views/{$page}.php";
-
-if (!in_array($page, $allowedPages) || !file_exists($pageFile)) {
-    $page = 'home'; // Default page if not found
-    $pageFile = __DIR__ . "/views/home.php";
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +31,8 @@ if (!in_array($page, $allowedPages) || !file_exists($pageFile)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="styles/language-toggle.css">
     <title>Mitar's Portfolio</title>
 </head>
 
@@ -51,7 +44,7 @@ if (!in_array($page, $allowedPages) || !file_exists($pageFile)) {
     $paths = [];
 
     foreach ($allowedPages as $allowedPage) {
-        $paths[] = new Path('base.php?page=' . $allowedPage, Translation::getTranslation('PAGE_' . strtoupper($allowedPage), $language));
+        $paths[] = new Path('/' . $allowedPage, Translation::getTranslation('PAGE_' . strtoupper($allowedPage), $language));
     }
 
     (new NavBarComponent())->render(new NavBarOptions($paths));
@@ -61,7 +54,12 @@ if (!in_array($page, $allowedPages) || !file_exists($pageFile)) {
     ?>
 
     <div id="spa-content">
-        <?php include($pageFile); ?>
+        <?php
+        include(__DIR__ . '/helpers/router.php');
+
+        //TODO: Maybe do not hardcode default endpoint ? 
+        Router::initialize($allowedPages, 'home');
+        ?>
     </div>
 
 </body>

@@ -1,0 +1,21 @@
+.language-toggle {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.language-toggle a {
+  color: #f1c40f;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.language-toggle a.active {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.language-toggle a:hover {
+  color: #ffffff;
+}

@@ -1,0 +1,18 @@
+.main-nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  margin: 0 15px;
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white;
+  text-decoration: underline;
+}
