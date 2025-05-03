@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/utils.php';
 
-
+//TODO: Maybe rework this in the future together with TranslationUtils ?
 class SpaUtils
 {
     private static $pages = [];
