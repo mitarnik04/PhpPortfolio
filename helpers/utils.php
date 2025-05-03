@@ -10,3 +10,14 @@ function tryGetJsonContent(string $path, array &$jsonContentResult): bool
     $jsonContentResult = json_decode(file_get_contents($path), true);
     return true;
 }
+
+function getFileNames(string $filePattern, bool $removeFileExtension)
+{
+    return array_map(function ($fullPath) use ($removeFileExtension) {
+        $result = basename($fullPath);
+        if ($removeFileExtension) {
+            $result = pathinfo($result, PATHINFO_FILENAME);
+        }
+        return $result;
+    }, glob($filePattern));
+}

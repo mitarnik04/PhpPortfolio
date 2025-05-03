@@ -49,8 +49,6 @@ class LanguageToggleComponent implements IComponent
         $selectedLanguage = $configuredOptions[LanguageToggleOptions::OPT_KEY_SELECTED_LANGUAGE];
         $selectableLanguages = $configuredOptions[LanguageToggleOptions::OPT_KEY_SELECTABLE_LANGUAGES];
 
-        require_once(__DIR__ . '/../helpers/translation-utils.php');
-
         echo '<div class="language-toggle">';
         foreach ($selectableLanguages as $languageOption) {
             $linkClass = ($selectedLanguage == $languageOption) ? 'active' : '';

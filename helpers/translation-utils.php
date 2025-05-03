@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/utils.php';
 
 class TranslationUtils
 {
@@ -8,10 +9,7 @@ class TranslationUtils
     static function getAvailableTranslations(): array
     {
         if (empty(self::$translationNames)) {
-            self::$translationNames = array_map(function ($fullPath) {
-                $translationFileName = basename($fullPath);
-                return substr($translationFileName, 0, -5);
-            }, glob(__DIR__ . '/../translations/*.json'));
+            self::$translationNames = getFileNames(__DIR__ . '/../translations/*.json', true);
         }
 
         return self::$translationNames;
