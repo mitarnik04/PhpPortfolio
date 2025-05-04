@@ -1,10 +1,6 @@
 /* IMPORTANT: relies on styles.css being loaded beforehand*/
 
 .card-container {
-  /* Doesn't use flexbox.css because it should be ready to use out of the box */
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
   text-align: left;
   margin-top: 30px;
 }

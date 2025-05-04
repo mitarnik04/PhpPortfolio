@@ -8,7 +8,7 @@ $language = $userSettings->getLanguage();
 <div class="container">
     <h1><?= Translation::getTranslation('LANGUAGES_PAGE:TITLE', $language); ?></h1>
 
-    <div class="card-container">
+    <div class="flex f-dr-c f-g-20px card-container">
 
         <?php
         require_once __DIR__ . '/../components/card/card.php';

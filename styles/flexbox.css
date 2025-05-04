@@ -22,3 +22,7 @@
 .f-w {
   flex-wrap: wrap;
 }
+
+.f-g-20px {
+  gap: 20px;
+}
