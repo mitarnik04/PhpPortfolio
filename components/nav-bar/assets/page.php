@@ -19,7 +19,7 @@ class PageOptionsFacotry
 
     private static function tryGetOrLoadConfig(): bool
     {
-        if (!tryGetJsonContent(__DIR__ . '/page-options-config.json', self::$configuration)) {
+        if (!tryGetJsonContent(__DIR__ . '/../configs/page-options-config.json', self::$configuration)) {
             error_log("No config file present for PageOptions");
             return false;
         }
