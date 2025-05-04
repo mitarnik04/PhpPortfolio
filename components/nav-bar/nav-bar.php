@@ -49,8 +49,7 @@ class NavBarComponent implements IComponent
                 <a href="<?= $page->path ?>" class="nav-link">
                     <?php
                     $materialIconName = $page->options->materialIconName ?? '';
-                    if (!empty($materialIconName)):
-                    ?>
+                    if (!empty($materialIconName)): ?>
                         <span class="material-icons" aria-hidden="true"><?= htmlspecialchars($materialIconName) ?></span>
                     <?php endif; ?>
 
