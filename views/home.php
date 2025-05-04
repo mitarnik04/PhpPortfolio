@@ -7,7 +7,9 @@ $language = $userSettings->getLanguage();
 
 
 <div class="container">
-    <img src="images/serious_pic.jpg" alt="Your Profile Picture" class="profile-pic">
+    <div class="profile-pic-wrapper">
+        <img src="images/serious_pic.jpg" alt="Your Profile Picture" class="profile-pic">
+    </div>
 
     <h1><?= Translation::getTranslation('HOME_PAGE:GREETING', $language) ?></h1>
 
