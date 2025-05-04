@@ -21,33 +21,6 @@ body {
   padding: 20px;
 }
 
-/* Flexbox utility classes */
-.f-dr-c {
-  display: flex;
-  flex-direction: column;
-}
-
-.f-ai-c {
-  display: flex;
-  align-items: center;
-}
-
-.f-jc-c {
-  display: flex;
-  justify-content: center;
-}
-
-.f-c-c {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.f-w {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 /* Layout Container */
 .container {
   background-color: rgba(255, 255, 255, 0.9);
@@ -132,4 +105,24 @@ p {
 .header-bar {
   gap: 20px;
   padding: 20px;
+}
+
+/* Responsiveness for small screens */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
 }

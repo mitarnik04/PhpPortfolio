@@ -30,6 +30,7 @@ $allowedPages = SpaUtils::getPages();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/flexbox.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/language-toggle.css">
@@ -38,9 +39,9 @@ $allowedPages = SpaUtils::getPages();
     <title>Mitar's Portfolio</title>
 </head>
 
-<body class="f-c-c f-dr-c">
+<body class="flex f-c-c f-dr-c">
 
-    <div class="f-c-c f-w header-bar">
+    <div class="flex f-c-c f-w header-bar">
         <?php
         require_once __DIR__ . '/components/nav-bar/nav-bar.php';
 

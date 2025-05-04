@@ -1,0 +1,24 @@
+.flex {
+  display: flex;
+}
+
+.f-dr-c {
+  flex-direction: column;
+}
+
+.f-ai-c {
+  align-items: center;
+}
+
+.f-jc-c {
+  justify-content: center;
+}
+
+.f-c-c {
+  align-items: center;
+  justify-content: center;
+}
+
+.f-w {
+  flex-wrap: wrap;
+}

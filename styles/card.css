@@ -1,6 +1,10 @@
 /* IMPORTANT: relies on styles.css being loaded beforehand*/
 
 .card-container {
+  /* Doesn't use flexbox.css because it should be ready to use out of the box */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   text-align: left;
   margin-top: 30px;
 }
@@ -9,7 +13,6 @@
   background-color: rgba(255, 255, 255, 0.95);
   padding: 24px;
   border-radius: 12px;
-  margin-bottom: 20px;
   box-shadow: var(--standard-shadow);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
