@@ -40,25 +40,24 @@ class NavBarComponent implements IComponent
         /** @var Page[] $pages */
         $pages = $options->getAllOptions()[NavBarOptions::OPT_KEY_PAGES];
 
-        echo '<nav class="main-nav">';
-
         usort($pages, function ($left, $right) {
             return ($left->options->order ?? PHP_INT_MAX) <=> ($right->options->order ?? PHP_INT_MAX);
         });
+?>
+        <nav class="main-nav">
+            <?php foreach ($pages as $page): ?>
+                <a href="<?= $page->path ?>" class="nav-link">'
+                    <?php
+                    $materialIconName = $page->options->materialIconName ?? '';
+                    if (!empty($materialIconName)):
+                    ?>
+                        <span class="material-icons" aria-hidden="true"><?= htmlspecialchars($materialIconName) ?></span>
+                    <?php endif; ?>
 
-        //TODO: Maybe add ability to only use material icon as navigation element ??
-        foreach ($pages as $page) {
-            echo '<a href="' . $page->path . '" class="nav-link">';
-
-            $materialIconName = $page->options->materialIconName ?? '';
-
-            if (!empty($materialIconName)) {
-                echo '<span class="material-icons" aria-hidden="true">' . htmlspecialchars($materialIconName) . '</span>';
-            }
-
-            echo '<span class="link-text">' . htmlspecialchars($page->label) . '</span>';
-            echo '</a>';
-        }
-        echo '</nav>';
+                    <span class="link-text"><?= $page->label ?></span>
+                </a>
+            <?php endforeach; ?>
+        </nav>
+<?php
     }
 }
