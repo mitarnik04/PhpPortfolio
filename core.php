@@ -33,6 +33,7 @@ $allowedPages = SpaUtils::getPages();
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/language-toggle.css">
+    <link rel="stylesheet" href="styles/card.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Mitar's Portfolio</title>
 </head>

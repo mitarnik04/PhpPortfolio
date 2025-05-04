@@ -11,7 +11,7 @@ class NavBarOptions implements IComponentOptions
     /**
      * @var Page[] Pages used to build the navigation (path → href)
      */
-    public array $pages = [];
+    private array $pages = [];
 
     public function __construct(array $pages)
     {

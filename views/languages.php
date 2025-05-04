@@ -8,51 +8,38 @@ $language = $userSettings->getLanguage();
 <div class="container">
     <h1><?php echo Translation::getTranslation('LANGUAGES_PAGE:TITLE', $language); ?></h1>
 
-    <div class="language-list">
+    <div class="card-container">
 
-        <div class="language-category">
-            <h2>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:CSHARP_NET_ECOSYSTEM', $language); ?>
-            </h2>
-            <p>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:CSHARP_NET_ECOSYSTEM_DESCRIPTION', $language); ?>
-            </p>
-        </div>
+        <?php
+        require_once __DIR__ . '/../components/card/card.php';
 
-        <div class="language-category">
-            <h2>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:FRONTEND', $language); ?>
-            </h2>
-            <p>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:FRONTEND_DESCRIPTION', $language); ?>
-            </p>
-        </div>
+        (new CardComponent())->render(new CardOptions(
+            Translation::getTranslation('LANGUAGES_PAGE:CSHARP_NET_ECOSYSTEM', $language),
+            Translation::getTranslation('LANGUAGES_PAGE:CSHARP_NET_ECOSYSTEM_DESCRIPTION', $language)
+        ));
 
-        <div class="language-category">
-            <h2>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:DATABASES', $language); ?>
-            </h2>
-            <p>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:DATABASES_DESCRIPTION', $language); ?>
-            </p>
-        </div>
+        (new CardComponent())->render(new CardOptions(
+            Translation::getTranslation('LANGUAGES_PAGE:FRONTEND', $language),
+            Translation::getTranslation('LANGUAGES_PAGE:FRONTEND_DESCRIPTION', $language)
+        ));
 
-        <div class="language-category">
-            <h2>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:VERSION_CTRL_TOOLING', $language); ?>
-            </h2>
-            <p>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:VERSION_CTRL_TOOLING_DESCRIPTION', $language); ?>
-            </p>
-        </div>
+        (new CardComponent())->render(new CardOptions(
+            Translation::getTranslation('LANGUAGES_PAGE:DATABASES', $language),
+            Translation::getTranslation('LANGUAGES_PAGE:DATABASES_DESCRIPTION', $language)
+        ));
 
-        <div class="language-category">
-            <h2>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:OTHERS', $language); ?>
-            </h2>
-            <p>
-                <?php echo Translation::getTranslation('LANGUAGES_PAGE:OTHERS_DESCRIPTION', $language); ?>
-            </p>
-        </div>
+        (new CardComponent())->render(new CardOptions(
+            Translation::getTranslation('LANGUAGES_PAGE:VERSION_CTRL_TOOLING', $language),
+            Translation::getTranslation('LANGUAGES_PAGE:VERSION_CTRL_TOOLING_DESCRIPTION', $language)
+        ));
+
+        (new CardComponent())->render(new CardOptions(
+            Translation::getTranslation('LANGUAGES_PAGE:OTHERS', $language),
+            Translation::getTranslation('LANGUAGES_PAGE:OTHERS_DESCRIPTION', $language)
+        ));
+
+        ?>
+
     </div>
+
 </div>
