@@ -1,7 +1,4 @@
 .main-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #ffffff;
   padding: 12px 24px;
   border-radius: 8px;
@@ -11,8 +8,6 @@
 }
 
 .nav-link {
-  display: flex;
-  align-items: center;
   margin: 0 18px;
   color: #3498db;
   text-decoration: none;

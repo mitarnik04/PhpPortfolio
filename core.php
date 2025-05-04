@@ -38,9 +38,9 @@ $allowedPages = SpaUtils::getPages();
     <title>Mitar's Portfolio</title>
 </head>
 
-<body>
+<body class="f-c-c f-dr-c">
 
-    <div class="header-bar">
+    <div class="f-c-c f-w header-bar">
         <?php
         require_once __DIR__ . '/components/nav-bar/nav-bar.php';
 

@@ -44,9 +44,9 @@ class NavBarComponent implements IComponent
             return ($left->options->order ?? PHP_INT_MAX) <=> ($right->options->order ?? PHP_INT_MAX);
         });
 ?>
-        <nav class="main-nav">
+        <nav class="f-c-c main-nav">
             <?php foreach ($pages as $page): ?>
-                <a href="<?= $page->path ?>" class="nav-link">
+                <a href="<?= $page->path ?>" class="f-ai-c nav-link">
                     <?php
                     $materialIconName = $page->options->materialIconName ?? '';
                     if (!empty($materialIconName)): ?>

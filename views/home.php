@@ -7,7 +7,7 @@ $language = $userSettings->getLanguage();
 
 
 <div class="container">
-    <div class="profile-pic-wrapper">
+    <div class="f-jc-c profile-pic-wrapper">
         <img src="images/serious_pic.jpg" alt="Your Profile Picture" class="profile-pic">
     </div>
 

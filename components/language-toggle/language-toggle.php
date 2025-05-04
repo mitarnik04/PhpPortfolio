@@ -50,7 +50,7 @@ class LanguageToggleComponent implements IComponent
         $selectableLanguages = $configuredOptions[LanguageToggleOptions::OPT_KEY_SELECTABLE_LANGUAGES];
 
 ?>
-        <form class="language-toggle" method="get" action="">
+        <form class="f-ai-c language-toggle" method="get" action="">
             <select name="lang" onchange="this.form.submit()">
                 <?php
 

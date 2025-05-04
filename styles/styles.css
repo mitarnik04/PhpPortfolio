@@ -1,3 +1,4 @@
+/* General */
 :root {
   --primary-color: #3498db;
   --primary-hover: #2980b9;
@@ -16,12 +17,35 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   background: linear-gradient(to bottom right, #f7f7f7, #e3e3e3);
   color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
   padding: 20px;
+}
+
+/* Flexbox utility classes */
+.f-dr-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.f-ai-c {
+  display: flex;
+  align-items: center;
+}
+
+.f-jc-c {
+  display: flex;
+  justify-content: center;
+}
+
+.f-c-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-w {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Layout Container */
@@ -37,8 +61,6 @@ body {
 
 /* Profile Image */
 .profile-pic-wrapper {
-  display: flex;
-  justify-content: center;
   margin-bottom: 20px;
   /* slightly "Nudge" the picture to the left
    since it visually appears to not be centered.
@@ -47,7 +69,6 @@ body {
 }
 
 .profile-pic {
-  display: block;
   width: 120px;
   height: 120px;
   object-fit: cover;
@@ -109,10 +130,6 @@ p {
 
 /* Header Section (Nav + Language Toggle) */
 .header-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   gap: 20px;
   padding: 20px;
 }
