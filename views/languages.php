@@ -6,7 +6,7 @@ $language = $userSettings->getLanguage();
 ?>
 
 <div class="container">
-    <h1><?php echo Translation::getTranslation('LANGUAGES_PAGE:TITLE', $language); ?></h1>
+    <h1><?= Translation::getTranslation('LANGUAGES_PAGE:TITLE', $language); ?></h1>
 
     <div class="card-container">
 
