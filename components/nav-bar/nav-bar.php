@@ -46,7 +46,7 @@ class NavBarComponent implements IComponent
 ?>
         <nav class="main-nav">
             <?php foreach ($pages as $page): ?>
-                <a href="<?= $page->path ?>" class="nav-link">'
+                <a href="<?= $page->path ?>" class="nav-link">
                     <?php
                     $materialIconName = $page->options->materialIconName ?? '';
                     if (!empty($materialIconName)):
