@@ -7,21 +7,23 @@ class CardOptions implements IComponentOptions
 
     public function __construct(
         private string $title,
-        private string $tagline = '',
         private string $description,
+        private string $tagline = '',
     ) {}
 
     public function getTitle()
     {
         return $this->title;
     }
-    public function getTagline()
-    {
-        return $this->tagline;
-    }
+
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function getTagline()
+    {
+        return $this->tagline;
     }
 }
 

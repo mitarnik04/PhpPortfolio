@@ -3,7 +3,7 @@ function tryGetJsonContent(string $path, array &$jsonContentResult): bool
 {
     if (!file_exists($path)) {
 
-        error_log('JSON-file not found');
+        error_log('JSON-file not found. PATH: ' . $path);
         return false;
     }
 

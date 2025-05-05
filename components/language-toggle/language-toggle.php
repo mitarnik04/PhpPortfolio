@@ -39,19 +39,13 @@ class LanguageToggleComponent implements IComponent
 ?>
         <form class="flex f-ai-c language-toggle" method="get" action="">
             <select name="lang" onchange="this.form.submit()">
-                <?php
+                <?php foreach ($selectableLanguages as $languageOption): ?>
 
-                foreach ($selectableLanguages as $languageOption):
-
-                    $selectedAttr = ($selectedLanguage == $languageOption) ? 'selected' : '';
-                    $loToUpper = strtoupper($languageOption);
-                ?>
-                    <option value="<?= $languageOption ?>" <?= $selectedAttr ?>>
-                        <?= $loToUpper ?>
+                    <option value="<?= $languageOption ?>" <?= ($selectedLanguage == $languageOption) ? 'selected' : '' ?>>
+                        <?= strtoupper($languageOption) ?>
                     </option>
 
                 <?php endforeach; ?>
-
             </select>
         </form>
 <?php
