@@ -7,9 +7,7 @@ class LanguageToggleOptions implements IComponentOptions
     public function __construct(
         private string $selectedLanguage,
 
-        /**
-         * @var array<string> List of ISO 639-1 language codes (e.g., ["en", "de", "fr"])
-         */
+        /** @var array<string> List of ISO 639-1 language codes (e.g., ["en", "de", "fr"]) */
         private array $selectableLanguages
     ) {}
 
