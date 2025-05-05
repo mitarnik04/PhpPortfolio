@@ -19,7 +19,7 @@ class Router
 
     public function route(): void
     {
-        $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         //%s = string
         $pathFormat = __DIR__ . '/../views/%s.php';
 
