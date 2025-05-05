@@ -4,11 +4,6 @@ require_once __DIR__ . '/../component.php';
 
 class LanguageToggleOptions implements IComponentOptions
 {
-
-    const OPT_KEY_SELECTED_LANGUAGE =   'selectedLanguage';
-
-    const OPT_KEY_SELECTABLE_LANGUAGES =  'availableLanguages';
-
     public function __construct(
         private string $selectedLanguage,
 
@@ -18,22 +13,20 @@ class LanguageToggleOptions implements IComponentOptions
         private array $selectableLanguages
     ) {}
 
-
-    public function getAllOptions(): array
+    public function getSelectedLanguage()
     {
-        return [
-            self::OPT_KEY_SELECTED_LANGUAGE => $this->selectedLanguage,
-            self::OPT_KEY_SELECTABLE_LANGUAGES => $this->selectableLanguages
-        ];
+        return $this->selectedLanguage;
+    }
+
+    public function getSelectableLanguages()
+    {
+        return $this->selectableLanguages;
     }
 }
 
 class LanguageToggleComponent implements IComponent
 {
 
-    /**
-     * @param LanguageToggleOptions $options
-     */
     public function render(IComponentOptions $options): void
     {
         if (!($options instanceof LanguageToggleOptions)) {
@@ -42,9 +35,8 @@ class LanguageToggleComponent implements IComponent
             );
         }
 
-        $configuredOptions = $options->getAllOptions();
-        $selectedLanguage = $configuredOptions[LanguageToggleOptions::OPT_KEY_SELECTED_LANGUAGE];
-        $selectableLanguages = $configuredOptions[LanguageToggleOptions::OPT_KEY_SELECTABLE_LANGUAGES];
+        $selectedLanguage = $options->getSelectedLanguage();
+        $selectableLanguages = $options->getSelectableLanguages();
 
 ?>
         <form class="flex f-ai-c language-toggle" method="get" action="">

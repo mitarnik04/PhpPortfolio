@@ -4,38 +4,30 @@ require_once __DIR__ . '/../component.php';
 
 class CardOptions implements IComponentOptions
 {
-    const OPT_KEY_TITLE = 'title';
-    const OPT_KEY_TAGLINE = 'tagline';
-    const OPT_KEY_DESCRIPTION = 'description';
 
-    private string $title;
-    private string $tagline = '';
-    private string $description;
+    public function __construct(
+        private string $title,
+        private string $tagline = '',
+        private string $description,
+    ) {}
 
-    public function __construct(string $title, string $description, string $tagline = '')
+    public function getTitle()
     {
-        $this->title = $title;
-        $this->description = $description;
-        $this->tagline = $tagline;
+        return $this->title;
     }
-
-    public function getAllOptions(): array
+    public function getTagline()
     {
-        return
-            [
-                self::OPT_KEY_TITLE => $this->title,
-                self::OPT_KEY_TAGLINE => $this->tagline,
-                self::OPT_KEY_DESCRIPTION => $this->description
-            ];
+        return $this->tagline;
+    }
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
 
 class CardComponent implements IComponent
 {
 
-    /**
-     * @param CardOptions $options
-     */
     function render(IComponentOptions $options): void
     {
         if (!($options instanceof CardOptions)) {
@@ -44,9 +36,9 @@ class CardComponent implements IComponent
             );
         }
 
-        $title = $options->getAllOptions()[CardOptions::OPT_KEY_TITLE];
-        $tagline = $options->getAllOptions()[CardOptions::OPT_KEY_TAGLINE];
-        $description = $options->getAllOptions()[CardOptions::OPT_KEY_DESCRIPTION];
+        $title = $options->getTitle();
+        $tagline = $options->getTagline();
+        $description = $options->getDescription();
 ?>
 
         <div class="card">
