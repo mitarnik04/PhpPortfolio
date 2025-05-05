@@ -11,17 +11,17 @@ class CardOptions implements IComponentOptions
         private string $tagline = '',
     ) {}
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    public function getTagline()
+    public function getTagline(): string
     {
         return $this->tagline;
     }
