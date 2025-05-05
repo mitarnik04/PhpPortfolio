@@ -57,7 +57,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
             );
         }
 
-        (new NavBarComponent())->render(new NavBarOptions($paths));
+        (new NavBarComponent())->render(new NavBarOptions(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), $paths));
 
         require_once __DIR__ . '/components/language-toggle/language-toggle.php';
         (new LanguageToggleComponent())->render(new LanguageToggleOptions($language, $availableLanguages));

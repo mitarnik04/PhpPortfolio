@@ -1,6 +1,4 @@
-:root {
-  --primary-color: #3498db;
-}
+/* IMPORTANT: relies on styles.css being loaded beforehand*/
 
 .language-toggle {
   background-color: #ffffff;
@@ -19,5 +17,5 @@
 .language-toggle select:focus {
   outline: none;
   border: 2px solid var(--primary-color);
-  color: #2c3e50;
+  color: var(--secondary-color);
 }

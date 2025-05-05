@@ -1,3 +1,5 @@
+/* IMPORTANT: relies on styles.css being loaded beforehand*/
+
 .main-nav {
   background-color: #ffffff;
   padding: 12px 24px;
@@ -9,31 +11,28 @@
 
 .nav-link {
   margin: 0 18px;
-  color: #3498db;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
   transition: color 0.3s;
 }
 
+.nav-link:hover,
+.nav-link.active {
+  color: var(--secondary-color);
+}
+
 nav .nav-link .material-icons {
   margin-right: 6px;
   font-size: 22px;
-  color: #3498db;
+  color: var(--primary-color);
   transition: transform 0.3s ease;
   position: relative;
   bottom: 0.9px;
 }
 
-.nav-link:hover,
-.nav-link.active {
-  color: #2c3e50;
-}
-
-.nav-link:hover .material-icons {
+.nav-link:hover .material-icons,
+.nav-link.active .material-icons {
   transform: scale(1.2);
-}
-
-.nav-link.active {
-  color: #e67e22;
 }
