@@ -41,9 +41,13 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     <div class="flex f-c-c f-w header-bar">
         <?php
         require_once __DIR__ . '/components/nav-bar/nav-bar.php';
+        require_once __DIR__ . '/helpers/router.php';
 
         $paths = [];
         $allowedPages = Metadata::getLoadableViews();
+
+        //TODO: Maybe do not hardcode default endpoint ? 
+        $router = Router::initialize($allowedPages, 'home');
 
         foreach ($allowedPages as $allowedPage) {
             $paths[] = new Page(
@@ -61,12 +65,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     </div>
 
     <div id="spa-content">
-        <?php
-        require_once __DIR__ . '/helpers/router.php';
-
-        //TODO: Maybe do not hardcode default endpoint ? 
-        Router::initialize($allowedPages, 'home');
-        ?>
+        <?php $router->route() ?>
     </div>
 
 </body>

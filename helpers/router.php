@@ -2,24 +2,38 @@
 class Router
 {
 
+    /** @var array<string> $routeEndpoints */
+    private array $routeEndpoints;
+
+    private string $defaultEndpoint;
+
+    private function __construct(array $routeEndpoints, string $defaultEndpoint)
+    {
+        $this->routeEndpoints = $routeEndpoints;
+        $this->defaultEndpoint = $defaultEndpoint;
+    }
+
     /**
-     * Initializes routing by resolving the current URI to a view file.
-     *
-     * @param string[] $routeEndpoints    List of valid route names (e.g., ['about', 'contact'])
+     * @param array<string> $routeEndpoints    List of valid route names (e.g., ['about', 'contact'])
      * @param string   $defaultEndpoint   Fallback route to use for root path ('/')
      */
-    static function initialize(array $routeEndpoints, string $defaultEndpoint): void
+    public static function initialize(array $routeEndpoints, string $defaultEndpoint): Router
+    {
+        return new Router($routeEndpoints, $defaultEndpoint);
+    }
+
+    public function route(): void
     {
         $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
         //%s = string
         $pathFormat = __DIR__ . '/../views/%s.php';
 
         if ($uri == '/') {
-            require sprintf($pathFormat, $defaultEndpoint);
+            require sprintf($pathFormat, $this->defaultEndpoint);
             return;
         }
 
-        foreach ($routeEndpoints as $routeEndpoint) {
+        foreach ($this->routeEndpoints as $routeEndpoint) {
             if ($uri == '/' . $routeEndpoint) {
                 require(sprintf($pathFormat, $routeEndpoint));
                 break;

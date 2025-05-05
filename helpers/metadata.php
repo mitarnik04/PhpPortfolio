@@ -10,9 +10,8 @@ class Metadata
     /** @var array<string> */
     private static array $viewFileNames;
 
-    /**
-     * @return array<string>
-     */
+
+    /** @return array<string> */
     public static function getAvailableLanguages(): array
     {
         if (!isset(self::$translationFileNames)) {
@@ -22,9 +21,7 @@ class Metadata
         return self::$translationFileNames;
     }
 
-    /**
-     * @return array<string>
-     */
+    /** @return array<string> */
     public static function getLoadableViews(): array
     {
         if (!isset(self::$viewFileNames)) {

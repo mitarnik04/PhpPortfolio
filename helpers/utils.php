@@ -11,9 +11,7 @@ function tryGetJsonContent(string $path, array &$jsonContentResult): bool
     return true;
 }
 
-/**
- * @return array<string>
- */
+/** @return array<string> */
 function getFileNames(string $filePattern, bool $removeFileExtension): array
 {
     return array_map(function ($fullPath) use ($removeFileExtension) {
