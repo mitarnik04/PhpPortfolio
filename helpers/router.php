@@ -2,16 +2,11 @@
 class Router
 {
 
-    /** @var array<string> $routeEndpoints */
-    private array $routeEndpoints;
-
-    private string $defaultEndpoint;
-
-    private function __construct(array $routeEndpoints, string $defaultEndpoint)
-    {
-        $this->routeEndpoints = $routeEndpoints;
-        $this->defaultEndpoint = $defaultEndpoint;
-    }
+    private function __construct(
+        /** @var array<string> $routeEndpoints */
+        private array $routeEndpoints,
+        private string $defaultEndpoint,
+    ) {}
 
     /**
      * @param array<string> $routeEndpoints    List of valid route names (e.g., ['about', 'contact'])
@@ -35,7 +30,7 @@ class Router
 
         foreach ($this->routeEndpoints as $routeEndpoint) {
             if ($uri == '/' . $routeEndpoint) {
-                require(sprintf($pathFormat, $routeEndpoint));
+                require sprintf($pathFormat, $routeEndpoint);
                 break;
             }
         }

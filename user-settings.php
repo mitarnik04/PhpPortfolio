@@ -27,7 +27,7 @@ class UserSettings
         }
 
 
-        require_once('helpers/timespan.php');
+        require_once __DIR__ . '/helpers/timespan.php';
 
         $userSettings = new UserSettings();
         self::updateOrCreateCookie($userSettings);

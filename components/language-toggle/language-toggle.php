@@ -9,18 +9,15 @@ class LanguageToggleOptions implements IComponentOptions
 
     const OPT_KEY_SELECTABLE_LANGUAGES =  'availableLanguages';
 
-    private string $selectedLanguage;
+    public function __construct(
+        private string $selectedLanguage,
 
-    /**
-     * @var array<string> List of ISO 639-1 language codes (e.g., ["en", "de", "fr"])
-     */
-    private array $selectableLanguages;
+        /**
+         * @var array<string> List of ISO 639-1 language codes (e.g., ["en", "de", "fr"])
+         */
+        private array $selectableLanguages
+    ) {}
 
-    public function __construct(string $selectedLanguage, array $selectableLanguages)
-    {
-        $this->selectedLanguage = $selectedLanguage;
-        $this->selectableLanguages = $selectableLanguages;
-    }
 
     public function getAllOptions(): array
     {

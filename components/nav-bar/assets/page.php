@@ -31,30 +31,23 @@ class PageOptionsFacotry
 
 class PageOptions
 {
-    public readonly int $order;
-    public readonly string $materialIconName;
-
-    public function __construct(int $order, string $materialIconName = '')
-    {
-        $this->order = $order;
-        $this->materialIconName = $materialIconName;
-    }
+    public function __construct(
+        public readonly int $order,
+        public readonly string $materialIconName = '',
+    ) {}
 }
 
 
 class Page
 {
-    public string $path;
-    public string $label;
-    public PageOptions $options;
-
-    public function __construct(string $path, string $label, string $pageName, ?PageOptions $options = null)
-    {
-        $this->path = $path;
-        $this->label = $label;
+    public function __construct(
+        public string $path,
+        public string $label,
+        string $pageName,
+        public ?PageOptions $options = null,
+    ) {
         if (empty($options)) {
             $options = PageOptionsFacotry::fromJsonConfig($pageName);
         }
-        $this->options = $options;
     }
 }

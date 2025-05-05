@@ -8,15 +8,12 @@ class NavBarOptions implements IComponentOptions
 
     const OPT_KEY_PAGES = "pages";
 
-    /**
-     * @var Page[] Pages used to build the navigation (path → href)
-     */
-    private array $pages = [];
-
-    public function __construct(array $pages)
-    {
-        $this->pages = $pages;
-    }
+    public function __construct(
+        /**
+         * @var Page[] Pages used to build the navigation (path → href)
+         */
+        private array $pages = [],
+    ) {}
 
     public function getAllOptions(): array
     {
