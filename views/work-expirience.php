@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../helpers/translation.php";
+require_once DIR_HELPERS . "/translation.php";
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
@@ -13,7 +13,7 @@ $language = $userSettings->getLanguage();
 
         <?php
 
-        require_once __DIR__ . '/../components/card/card.php';
+        require_once DIR_COMPONENTS . '/card/card.php';
 
         (new CardComponent())->render(new CardOptions(
             Translation::getTranslation('WORK_EXP_PAGE:NEOGEO_TITLE', $language),

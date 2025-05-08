@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../helpers/translation.php';
+require_once DIR_HELPERS . '/translation.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
@@ -11,7 +11,7 @@ $language = $userSettings->getLanguage();
     <div class="flex f-dr-c f-g-20px card-container">
 
         <?php
-        require_once __DIR__ . '/../components/card/card.php';
+        require_once DIR_COMPONENTS . '/card/card.php';
 
         (new CardComponent())->render(new CardOptions(
             Translation::getTranslation('LANGUAGES_PAGE:CSHARP_NET_ECOSYSTEM', $language),

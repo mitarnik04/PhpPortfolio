@@ -27,7 +27,7 @@ class UserSettings
         }
 
 
-        require_once __DIR__ . '/helpers/timespan.php';
+        require_once DIR_HELPERS . '/timespan.php';
 
         $userSettings = new UserSettings();
         self::updateOrCreateCookie($userSettings);
@@ -43,7 +43,7 @@ class UserSettings
             self::LANGUAGE_PROP_NAME => $userSettings->language,
         ];
 
-        require_once __DIR__ . '/helpers/timespan.php';
+        require_once DIR_HELPERS . '/timespan.php';
 
 
         $json = json_encode($userSettingsObj);

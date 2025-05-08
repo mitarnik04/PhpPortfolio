@@ -1,8 +1,8 @@
 <?php
 
 require_once __DIR__ . '/user-settings.php';
-require_once __DIR__ . '/helpers/translation.php';
-require_once __DIR__ . '/helpers/metadata.php';
+require_once DIR_HELPERS . '/translation.php';
+require_once DIR_HELPERS . '/metadata.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
@@ -40,8 +40,8 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
 
     <div class="flex f-c-c f-w header-bar">
         <?php
-        require_once __DIR__ . '/components/nav-bar/nav-bar.php';
-        require_once __DIR__ . '/helpers/router.php';
+        require_once DIR_COMPONENTS . '/nav-bar/nav-bar.php';
+        require_once DIR_HELPERS . '/router.php';
 
         $paths = [];
         $allowedPages = Metadata::getLoadableViews();
@@ -59,7 +59,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
 
         (new NavBarComponent())->render(new NavBarOptions(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), $paths));
 
-        require_once __DIR__ . '/components/language-toggle/language-toggle.php';
+        require_once DIR_COMPONENTS . '/language-toggle/language-toggle.php';
         (new LanguageToggleComponent())->render(new LanguageToggleOptions($language, $availableLanguages));
         ?>
     </div>

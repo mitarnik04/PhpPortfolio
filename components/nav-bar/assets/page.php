@@ -17,7 +17,7 @@ class PageOptionsFacotry
 
     private static function tryGetOrLoadConfig(): bool
     {
-        require_once __DIR__ . '/../../../helpers/utils.php';
+        require_once DIR_HELPERS . '/utils.php';
 
         return tryGetJsonContent(__DIR__ . '/../configs/page-config.json', self::$configuration);
     }

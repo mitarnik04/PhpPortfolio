@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../component.php';
+require_once DIR_COMPONENTS . '/component.php';
 require_once __DIR__ . '/assets/page.php';
 
 class NavBarOptions implements IComponentOptions
