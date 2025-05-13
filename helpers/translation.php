@@ -35,11 +35,6 @@ class Translation
 
         $translations = [];
 
-        // if (!tryGetJsonContent(__DIR__ . '/../translations/' . $language . '.json', $translations)) {
-        //     error_log('Could not get translation for language: ' . $language);
-        //     return;
-        // }
-
         if (!tryGetJsonContent(call_user_func($this->getTranslationFile, $language), $translations)) {
             error_log('Could not get translation for language: ' . $language);
             return;

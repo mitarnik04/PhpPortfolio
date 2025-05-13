@@ -4,10 +4,9 @@ require_once DIR_COMPONENTS . '/component.php';
 
 class LanguageToggleOptions implements IComponentOptions
 {
+    /** @param array<string> $selectableLanguages List of ISO 639-1 language codes (e.g., ["en", "de", "fr"]) */
     public function __construct(
         private string $selectedLanguage,
-
-        /** @var array<string> List of ISO 639-1 language codes (e.g., ["en", "de", "fr"]) */
         private array $selectableLanguages
     ) {}
 

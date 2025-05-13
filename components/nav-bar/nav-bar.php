@@ -6,10 +6,9 @@ require_once __DIR__ . '/assets/page.php';
 class NavBarOptions implements IComponentOptions
 {
 
+    /** @param array<Page> $pages */
     public function __construct(
         private string $currentPath,
-
-        /** @var array<Page> */
         private array $pages = [],
     ) {}
 

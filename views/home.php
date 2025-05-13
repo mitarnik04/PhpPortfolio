@@ -20,9 +20,9 @@ $translation = InstanceProvider::get(Translation::class);
 
     <!-- //TODO: Move this into translation file ??  -->
     <div class="social-links">
-        <a href="#">GitHub</a>
+        <a href="https://github.com/mitarnik04">GitHub</a>
         <a href="https://www.linkedin.com/in/mitar-nikolic-79a2151a5">LinkedIn</a>
-        <a href="#">Twitter</a>
+        <a href="https://www.instagram.com/mitar_nik/">Instagram</a>
     </div>
 
     <a href="mailto:you@example.com" class="contact-button">

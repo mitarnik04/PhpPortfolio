@@ -42,11 +42,9 @@ class UserSettings
         $userSettingsObj = [
             self::LANGUAGE_PROP_NAME => $userSettings->language,
         ];
+        $json = json_encode($userSettingsObj);
 
         require_once DIR_HELPERS . '/timespan.php';
-
-
-        $json = json_encode($userSettingsObj);
         setcookie(self::COOKIE_NAME, $json, Timespan::oneYear(), "/");
     }
 
