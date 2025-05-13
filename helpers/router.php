@@ -2,35 +2,37 @@
 class Router
 {
 
+    /** 
+     * @param array<string> $routeEndpoints
+     * @param callable(string $pageName): string $getFullPagePath 
+     * */
     private function __construct(
-        /** @var array<string> $routeEndpoints */
         private array $routeEndpoints,
         private string $defaultEndpoint,
+        private $getFullPagePath
     ) {}
 
     /**
      * @param array<string> $routeEndpoints    List of valid route names (e.g., ['about', 'contact'])
      * @param string   $defaultEndpoint   Fallback route to use for root path ('/')
      */
-    public static function initialize(array $routeEndpoints, string $defaultEndpoint): Router
+    public static function initialize(array $routeEndpoints, string $defaultEndpoint, callable $getFullPagePath): Router
     {
-        return new Router($routeEndpoints, $defaultEndpoint);
+        return new Router($routeEndpoints, $defaultEndpoint, $getFullPagePath);
     }
 
     public function route(): void
     {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        //%s = string
-        $pathFormat = __DIR__ . '/../views/%s.php';
 
         if ($uri == '/') {
-            require sprintf($pathFormat, $this->defaultEndpoint);
+            require call_user_func($this->getFullPagePath, $this->defaultEndpoint);
             return;
         }
 
         foreach ($this->routeEndpoints as $routeEndpoint) {
             if ($uri == '/' . $routeEndpoint) {
-                require sprintf($pathFormat, $routeEndpoint);
+                require call_user_func($this->getFullPagePath, $routeEndpoint);
                 break;
             }
         }

@@ -6,10 +6,16 @@ require_once __DIR__ . '/../user-settings.php';
 
 class Translation
 {
-    private static $translations = [];
+    private static array $translations = [];
 
 
-    public static function getTranslation(string $key, string $language): string
+    /** @param callable(string $language): string $getTranslationFile */
+    public function __construct(
+        private $getTranslationFile,
+    ) {}
+
+
+    public function getTranslation(string $key, string $language): string
     {
 
         if (!isset(self::$translations[$language])) {
@@ -24,15 +30,21 @@ class Translation
         return self::$translations[$language][$key];
     }
 
-    private static function loadTranslation(string $language): void
+    private function loadTranslation(string $language): void
     {
 
         $translations = [];
 
-        if (!tryGetJsonContent(__DIR__ . '/../translations/' . $language . '.json', $translations)) {
+        // if (!tryGetJsonContent(__DIR__ . '/../translations/' . $language . '.json', $translations)) {
+        //     error_log('Could not get translation for language: ' . $language);
+        //     return;
+        // }
+
+        if (!tryGetJsonContent(call_user_func($this->getTranslationFile, $language), $translations)) {
             error_log('Could not get translation for language: ' . $language);
             return;
         }
+
 
         self::$translations[$language] = $translations;
     }
