@@ -26,13 +26,13 @@ class Router
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         if ($uri == '/') {
-            require call_user_func($this->getFullPagePath, $this->defaultEndpoint);
+            require ($this->getFullPagePath)($this->defaultEndpoint);
             return;
         }
 
         foreach ($this->routeEndpoints as $routeEndpoint) {
             if ($uri == '/' . $routeEndpoint) {
-                require call_user_func($this->getFullPagePath, $routeEndpoint);
+                require ($this->getFullPagePath)($routeEndpoint);
                 break;
             }
         }

@@ -35,7 +35,7 @@ class Translation
 
         $translations = [];
 
-        if (!tryGetJsonContent(call_user_func($this->getTranslationFile, $language), $translations)) {
+        if (!tryGetJsonContent(($this->getTranslationFile)($language), $translations)) {
             error_log('Could not get translation for language: ' . $language);
             return;
         }
