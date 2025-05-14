@@ -15,7 +15,7 @@ class Translation
     ) {}
 
 
-    public function getTranslation(string $key, string $language): string
+    public function get(string $key, string $language): string
     {
 
         if (!isset(self::$translations[$language])) {

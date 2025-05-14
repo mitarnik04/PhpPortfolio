@@ -54,7 +54,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
         foreach ($allowedPages as $allowedPage) {
             $paths[] = new Page(
                 '/' . $allowedPage,
-                $translation->getTranslation('SPA_SETUP:' . strtoupper($allowedPage), $language),
+                $translation->get('SPA_SETUP:' . strtoupper($allowedPage), $language),
                 $allowedPage
             );
         }

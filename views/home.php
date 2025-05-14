@@ -12,11 +12,11 @@ $translation = InstanceProvider::get(Translation::class);
         <img src="images/serious_pic.jpg" alt="Your Profile Picture" class="profile-pic">
     </div>
 
-    <h1><?= $translation->getTranslation('HOME_PAGE:GREETING', $language) ?></h1>
+    <h1><?= $translation->get('HOME_PAGE:GREETING', $language) ?></h1>
 
-    <h2><?= $translation->getTranslation('HOME_PAGE:OCCUPATION_TITLE', $language) ?></h2>
+    <h2><?= $translation->get('HOME_PAGE:OCCUPATION_TITLE', $language) ?></h2>
 
-    <p><?= $translation->getTranslation('HOME_PAGE:STUFF_I_DO_DESCRIPTION', $language) ?></p>
+    <p><?= $translation->get('HOME_PAGE:STUFF_I_DO_DESCRIPTION', $language) ?></p>
 
     <!-- //TODO: Move this into translation file ??  -->
     <div class="social-links">
@@ -26,6 +26,6 @@ $translation = InstanceProvider::get(Translation::class);
     </div>
 
     <a href="mailto:you@example.com" class="contact-button">
-        <?= $translation->getTranslation('HOME_PAGE:GET_IN_TOUCH', $language) ?>
+        <?= $translation->get('HOME_PAGE:GET_IN_TOUCH', $language) ?>
     </a>
 </div>
