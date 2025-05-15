@@ -27,6 +27,7 @@ class NavBarOptions implements IComponentOptions
 class NavBarComponent implements IComponent
 {
 
+    /** @param NavBarOptions $options */
     function render(IComponentOptions $options): void
     {
         if (!($options instanceof NavBarOptions)) {

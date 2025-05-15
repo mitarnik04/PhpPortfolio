@@ -84,21 +84,33 @@ p {
   color: var(--primary-hover);
 }
 
-/* Contact Button */
-.contact-button {
+/* Buttons */
+.button-base {
   display: inline-block;
-  margin-top: 30px;
-  padding: 14px 28px;
   background-color: var(--primary-color);
   color: #fff;
+  border: none;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.contact-button:hover {
+.button-base:hover {
   background-color: var(--primary-hover);
+}
+
+.contact-button {
+  margin-top: 30px;
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+.form-submit {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
 }
 
 /* Header Section (Nav + Language Toggle) */

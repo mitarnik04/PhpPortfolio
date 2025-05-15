@@ -24,6 +24,7 @@ class LanguageToggleOptions implements IComponentOptions
 class LanguageToggleComponent implements IComponent
 {
 
+    /** @param LanguageToggleOptions $options */
     public function render(IComponentOptions $options): void
     {
         if (!($options instanceof LanguageToggleOptions)) {

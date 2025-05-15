@@ -30,6 +30,7 @@ class CardOptions implements IComponentOptions
 class CardComponent implements IComponent
 {
 
+    /** @param CardOptions $options */
     function render(IComponentOptions $options): void
     {
         if (!($options instanceof CardOptions)) {

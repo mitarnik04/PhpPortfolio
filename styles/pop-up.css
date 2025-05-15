@@ -1,0 +1,93 @@
+/* IMPORTANT: relies on styles.css being loaded beforehand*/
+
+.popup-overlay {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+}
+
+.popup-overlay:target {
+  display: flex;
+}
+
+.popup {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: var(--standard-shadow);
+  text-align: left;
+  position: relative;
+  color: #333;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Close button */
+.popup-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-close .material-icons {
+  font-size: 28px;
+  vertical-align: middle;
+}
+
+.popup-close:hover {
+  color: #d00;
+}
+
+/* Header with icon and title */
+.popup-header {
+  gap: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #ddd;
+}
+
+.popup-header-icon {
+  font-size: 28px;
+  color: var(--primary-color);
+}
+
+.popup-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin: 0;
+}
+
+/* Optional: match button spacing inside popup */
+.popup button,
+.popup a.button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover,
+.popup a.button:hover {
+  background-color: var(--primary-hover);
+}
+
+.popup-error {
+  color: #d00; /* red color */
+}

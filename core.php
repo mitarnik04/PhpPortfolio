@@ -34,6 +34,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/language-toggle.css">
     <link rel="stylesheet" href="styles/card.css">
+    <link rel="stylesheet" href="styles/pop-up.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Mitar's Portfolio</title>
 </head>

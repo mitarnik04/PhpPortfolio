@@ -6,7 +6,6 @@ $language = $userSettings->getLanguage();
 $translation = InstanceProvider::get(Translation::class);
 ?>
 
-
 <div class="container">
     <div class="flex f-jc-c profile-pic-wrapper">
         <img src="images/serious_pic.jpg" alt="Your Profile Picture" class="profile-pic">
@@ -25,7 +24,20 @@ $translation = InstanceProvider::get(Translation::class);
         <a href="https://www.instagram.com/mitar_nik/">Instagram</a>
     </div>
 
-    <a href="mailto:you@example.com" class="contact-button">
+
+    <?php
+    require_once DIR_COMPONENTS . '/pop-up/pop-up.php';
+    $popUp = new PopUpComponent();
+
+    $popUp->render(new PopUpOptions(
+        'contact-form',
+        __DIR__ . '/pop-ups/contact-form.php',
+        PopUpType::Form,
+        'This is a test'
+    ));
+    ?>
+
+    <a href="#<?= $popUp->name ?>" class="button-base contact-button">
         <?= $translation->get('HOME_PAGE:GET_IN_TOUCH', $language) ?>
     </a>
 </div>
