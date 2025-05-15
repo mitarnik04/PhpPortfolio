@@ -49,7 +49,6 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
         $router = InstanceProvider::get(Router::class);
         $translation = InstanceProvider::get(Translation::class);
 
-
         $allowedPages = Metadata::getLoadableViews();
         foreach ($allowedPages as $allowedPage) {
             $paths[] = new Page(

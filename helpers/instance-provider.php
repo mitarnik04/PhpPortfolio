@@ -1,10 +1,21 @@
 <?php
 
+/**
+ * @template T
+ */
 class InstanceProvider
 {
+    /**
+     * @var array<class-string, object>
+     */
     private static array $instances = [];
 
 
+    /**
+     * @template TClass of object
+     * @param class-string<TClass> $class
+     * @return TClass
+     */
     public static function get(string $class): mixed
     {
 
@@ -15,6 +26,10 @@ class InstanceProvider
         return self::$instances[$class];
     }
 
+    /**
+     * @param class-string $class
+     * @param object $instance
+     */
     public static function add(string $class, mixed $instance): void
     {
 
