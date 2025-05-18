@@ -1,5 +1,5 @@
 <?php
-require_once  DIR_HELPERS . "/translation.php";
+require_once  DIR_HELPERS . '/translation.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
@@ -30,10 +30,10 @@ $translation = InstanceProvider::get(Translation::class);
     $popUp = new PopUpComponent();
 
     $popUp->render(new PopUpOptions(
-        'contact-form',
-        __DIR__ . '/pop-ups/contact-form.php',
+        'contact',
+        __DIR__ . '/pop-ups/contact.php',
         PopUpType::Form,
-        'This is a test'
+        $translation->get('CONTACT:TITLE', $language)
     ));
     ?>
 

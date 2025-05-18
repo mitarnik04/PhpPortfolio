@@ -1,6 +1,7 @@
 <?php
 define('DIR_COMPONENTS', __DIR__ . '/components');
 define('DIR_HELPERS', __DIR__ . '/helpers');
+define('DIR_VALIDATORS', __DIR__ . '/validators');
 
 require_once DIR_HELPERS . '/instance-provider.php';
 require_once DIR_HELPERS . '/router.php';

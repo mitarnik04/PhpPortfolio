@@ -32,5 +32,25 @@
     "FOCUS_TITLE": "Software Consultant – Focus Consulting AG",
     "FOCUS_TAGLINE": "Trusted by Leading Swiss Banks",
     "FOCUS_DESC": "Delivered consulting and software solutions for some of the largest Swiss banks, including CS Bank. Gained extensive experience collaborating across diverse teams in high-security, high-stakes environments."
+  },
+  "CONTACT": {
+    "TITLE": "Contact form",
+    "NAME": "Name",
+    "EMAIL": "E-Mail",
+    "MESSAGE": "Message",
+    "SEND": "Senden",
+    "PROMPT": {
+      "ENTER_VALID_NAME": "Please enter a valid name (letters, spaces, apostrophes, and hyphens are allowed).",
+      "ENTER_MESSAGE": "Please enter a message explaining the details of your request."
+    }
+  },
+  "ERROR": {
+    "NAME_EMPTY": "Please enter your name.",
+    "NAME_DOES_NOT_CONTAIN_ANY_LETTERS": "Your name must include at least one letter.",
+    "NAME_UNALLOWED_CHARS": "Please use only letters, spaces, apostrophes, or hyphens in your name.",
+    "EMAIL_EMPTY": "Please enter your email address.",
+    "EMAIL_INVALID_FORMAT": "Please enter a valid email address.",
+    "MESSAGE_EMPTY": "Please enter your message.",
+    "MESSAGE_TOO_SHORT": "Your message must be at least 10 characters long."
   }
 }

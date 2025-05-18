@@ -8,11 +8,11 @@ class PageOptionsFacotry
     public static function fromJsonConfig(string $pageName): PageOptions
     {
         if (!self::tryGetOrLoadConfig()) {
-            throw new RuntimeException("config file could not be loaded correctly");
+            throw new RuntimeException('config file could not be loaded correctly');
         }
 
         $pageConfig = self::$configuration[strtoupper($pageName)];
-        return new PageOptions($pageConfig["ORDER"], $pageConfig["MATERIAL_ICON_NAME"] ?? '');
+        return new PageOptions($pageConfig['ORDER'], $pageConfig['MATERIAL_ICON_NAME'] ?? '');
     }
 
     private static function tryGetOrLoadConfig(): bool

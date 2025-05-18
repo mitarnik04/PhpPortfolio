@@ -1,5 +1,5 @@
 <?php
-require_once DIR_HELPERS . "/translation.php";
+require_once DIR_HELPERS . '/translation.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();

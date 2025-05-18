@@ -1,10 +1,10 @@
 <?php
 class UserSettings
 {
-    const COOKIE_NAME = "userSettings";
-    const LANGUAGE_PROP_NAME  = "language";
+    const COOKIE_NAME = 'userSettings';
+    const LANGUAGE_PROP_NAME  = 'language';
 
-    private string $language = "en";
+    private string $language = 'en';
 
     public function getLanguage(): string
     {
@@ -45,7 +45,7 @@ class UserSettings
         $json = json_encode($userSettingsObj);
 
         require_once DIR_HELPERS . '/timespan.php';
-        setcookie(self::COOKIE_NAME, $json, Timespan::oneYear(), "/");
+        setcookie(self::COOKIE_NAME, $json, Timespan::oneYear(), '/');
     }
 
     private static function readUserSettingsFromCookie(): UserSettings

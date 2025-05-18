@@ -36,7 +36,7 @@ class Translation
         $translations = [];
 
         if (!tryGetJsonContent(($this->getTranslationFile)($language), $translations)) {
-            error_log('Could not get translation for language: ' . $language);
+            error_log("Could not get translation for language: $language");
             return;
         }
 
@@ -50,7 +50,7 @@ class Translation
         $currentPosition = self::$translations[$language];
         foreach ($partialKeys as $partialKey) {
             if (!is_array($currentPosition)) {
-                throw new InvalidArgumentException("Invalid translation key: " . $key);
+                throw new InvalidArgumentException("Invalid translation key: $key");
             }
             $currentPosition = $currentPosition[$partialKey];
         }

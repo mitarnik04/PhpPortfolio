@@ -68,7 +68,6 @@
   margin: 0;
 }
 
-/* Optional: match button spacing inside popup */
 .popup button,
 .popup a.button {
   margin-top: 20px;
@@ -89,5 +88,5 @@
 }
 
 .popup-error {
-  color: #d00; /* red color */
+  color: var(error-color);
 }
