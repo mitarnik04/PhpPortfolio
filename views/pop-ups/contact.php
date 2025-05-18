@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
     </div>
 <?php endif; ?>
 
-<form action="" method="post" novalidate>
+<form action="" method="post">
     <div class="form-group">
         <label for="firstname"><?= $translation->get('CONTACT:FIRSTNAME', $language) ?></label>
         <input
