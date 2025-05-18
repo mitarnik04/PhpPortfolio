@@ -35,7 +35,8 @@
   },
   "CONTACT": {
     "TITLE": "Kontaktformular",
-    "NAME": "Name",
+    "FIRSTNAME": "Vorname",
+    "LASTNAME": "Nachname",
     "EMAIL": "E-Mail",
     "MESSAGE": "Nachricht",
     "SEND": "Senden",
@@ -45,9 +46,12 @@
     }
   },
   "ERROR": {
-    "NAME_EMPTY": "Bitte geben Sie Ihren Namen ein.",
-    "NAME_DOES_NOT_CONTAIN_ANY_LETTERS": "Ihr Name muss mindestens einen Buchstaben enthalten.",
-    "NAME_UNALLOWED_CHARS": "Bitte verwenden Sie in Ihrem Namen nur Buchstaben, Leerzeichen, Apostrophe oder Bindestriche.",
+    "FIRST_NAME_EMPTY": "Bitte geben Sie Ihren Vornamen ein.",
+    "FIRST_NAME_DOES_NOT_CONTAIN_ANY_LETTERS": "Ihr Vorname muss mindestens einen Buchstaben enthalten.",
+    "FIRST_NAME_UNALLOWED_CHARS": "Bitte verwenden Sie in Ihrem Vornamen nur Buchstaben, Leerzeichen, Apostrophe oder Bindestriche.",
+    "LAST_NAME_EMPTY": "Bitte geben Sie Ihren Nachnamen ein.",
+    "LAST_NAME_DOES_NOT_CONTAIN_ANY_LETTERS": "Ihr Nachname muss mindestens einen Buchstaben enthalten.",
+    "LAST_NAME_UNALLOWED_CHARS": "Bitte verwenden Sie in Ihrem Nachnamen nur Buchstaben, Leerzeichen, Apostrophe oder Bindestriche.",
     "EMAIL_EMPTY": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
     "EMAIL_INVALID_FORMAT": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
     "MESSAGE_EMPTY": "Bitte geben Sie Ihre Nachricht ein.",

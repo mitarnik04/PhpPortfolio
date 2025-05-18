@@ -11,12 +11,13 @@ $translation = InstanceProvider::get(Translation::class);
 
 require_once DIR_VALIDATORS . '/contact-validator.php';
 if (isset($_POST['submit'])) {
-    $name = $_POST["name"];
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
     $email = $_POST["email"];
     $message = $_POST["message"];
 
     $validator = new ContactValidator();
-    $errors = $validator->validate(new ContactValidationRequest($name, $email, $message));
+    $errors = $validator->validate(new ContactValidationRequest($firstname, $lastname, $email, $message));
 }
 ?>
 
@@ -32,19 +33,34 @@ if (isset($_POST['submit'])) {
     </div>
 <?php endif; ?>
 
-<form action="" method="post">
+<form action="" method="post" novalidate>
     <div class="form-group">
-        <label for="name"><?= $translation->get('CONTACT:NAME', $language) ?></label>
+        <label for="firstname"><?= $translation->get('CONTACT:FIRSTNAME', $language) ?></label>
         <input
             class="form-input"
-            id="name"
-            name="name"
+            id="firstname"
+            name="firstname"
             type="text"
             required
             minlength="2"
             maxlength="50"
             pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\- ]+$"
-            title="<?= $translation->get('CONTACT:PROMPT:ENTER_VALID_NAME', $language) ?>">
+            title="<?= $translation->get('CONTACT:PROMPT:ENTER_VALID_NAME', $language) ?>"
+            value="<?= isset($firstname) ? htmlspecialchars($firstname, ENT_QUOTES) : '' ?>">
+    </div>
+    <div class="form-group">
+        <label for="lastname"><?= $translation->get('CONTACT:LASTNAME', $language) ?></label>
+        <input
+            class="form-input"
+            id="lastname"
+            name="lastname"
+            type="text"
+            required
+            minlength="2"
+            maxlength="50"
+            pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\- ]+$"
+            title="<?= $translation->get('CONTACT:PROMPT:ENTER_VALID_NAME', $language) ?>"
+            value="<?= isset($lastname) ? htmlspecialchars($lastname, ENT_QUOTES) : '' ?>">
     </div>
 
     <div class="form-group">
@@ -55,7 +71,8 @@ if (isset($_POST['submit'])) {
             name="email"
             type="email"
             required
-            maxlength="100">
+            maxlength="100"
+            value="<?= isset($email) ? htmlspecialchars($email, ENT_QUOTES) : '' ?>">
     </div>
 
     <div class="form-group">
@@ -67,7 +84,7 @@ if (isset($_POST['submit'])) {
             rows="5"
             required
             minlength="10"
-            title="<?= $translation->get('CONTACT:PROMPT:ENTER_MESSAGE', $language) ?>"></textarea>
+            title="<?= $translation->get('CONTACT:PROMPT:ENTER_MESSAGE', $language) ?>"><?= isset($message) ? htmlspecialchars($message, ENT_QUOTES) : '' ?></textarea>
     </div>
 
     <input type="submit" name="submit" value="<?= $translation->get('CONTACT:SEND', $language) ?>" class="button-base form-submit">
