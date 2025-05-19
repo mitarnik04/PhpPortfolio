@@ -14,7 +14,6 @@ class PopUpOptions implements IComponentOptions
 
 class PopUpComponent implements IComponent
 {
-
     public readonly string $name;
 
     /** @param PopUpOptions $options */
@@ -29,9 +28,10 @@ class PopUpComponent implements IComponent
         $this->name = $options->name;
 ?>
 
-        <div id="<?= $options->name ?>" class="f-c-c popup-overlay">
+        <div id="<?= $options->name ?>" class="f-c-c popup-overlay" aria-hidden="true">
             <div class="popup">
-                <a href="#" class="popup-close">
+                <a href="#" class="popup-close"
+                    onclick="PopUpUtils.hidePopUp('<?= $options->name ?>'); return false;">
                     <span class="material-icons">close</span>
                 </a>
                 <?php if (isset($options->title)): ?>

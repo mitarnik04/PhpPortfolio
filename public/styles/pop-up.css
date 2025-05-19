@@ -11,7 +11,10 @@
   display: none;
 }
 
-.popup-overlay:target {
+.popup-overlay {
+  display: none;
+}
+.popup-overlay.popup-overlay--visible {
   display: flex;
 }
 

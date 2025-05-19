@@ -29,12 +29,12 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/flexbox.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/navigation.css">
-    <link rel="stylesheet" href="styles/language-toggle.css">
-    <link rel="stylesheet" href="styles/card.css">
-    <link rel="stylesheet" href="styles/pop-up.css">
+    <link rel="stylesheet" href="public/styles/flexbox.css">
+    <link rel="stylesheet" href="public/styles/styles.css">
+    <link rel="stylesheet" href="public/styles/navigation.css">
+    <link rel="stylesheet" href="public/styles/language-toggle.css">
+    <link rel="stylesheet" href="public/styles/card.css">
+    <link rel="stylesheet" href="public/styles/pop-up.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Mitar's Portfolio</title>
 </head>
@@ -70,6 +70,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
         <?php $router->route() ?>
     </div>
 
+    <script src="public/js/pop-up.js"></script>
 </body>
 
 </html>

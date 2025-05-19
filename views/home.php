@@ -8,7 +8,7 @@ $translation = InstanceProvider::get(Translation::class);
 
 <div class="container">
     <div class="flex f-jc-c profile-pic-wrapper">
-        <img src="images/serious_pic.jpg" alt="Your Profile Picture" class="profile-pic">
+        <img src="public/images/serious_pic.jpg" alt="Your Profile Picture" class="profile-pic">
     </div>
 
     <h1><?= $translation->get('HOME_PAGE:GREETING', $language) ?></h1>
@@ -37,7 +37,9 @@ $translation = InstanceProvider::get(Translation::class);
     ));
     ?>
 
-    <a href="#<?= $popUp->name ?>" class="button-base contact-button">
+    <button type="button"
+        class="button-base contact-button"
+        onclick="PopUpUtils.showPopUp('<?= $popUp->name ?>')">
         <?= $translation->get('HOME_PAGE:GET_IN_TOUCH', $language) ?>
-    </a>
+    </button>
 </div>
