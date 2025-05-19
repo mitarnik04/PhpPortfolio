@@ -14,7 +14,7 @@
 .popup-overlay {
   display: none;
 }
-.popup-overlay.popup-overlay--visible {
+.popup-overlay.--visible {
   display: flex;
 }
 

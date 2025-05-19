@@ -6,7 +6,7 @@
 function showPopUp(popUpId) {
   const popUpOverlay = document.getElementById(popUpId);
   if (popUpOverlay) {
-    popUpOverlay.classList.add("popup-overlay--visible");
+    popUpOverlay.classList.add("--visible");
     popUpOverlay.setAttribute("aria-hidden", "false");
     // Prevent background scrolling
     document.body.style.overflow = "hidden";
@@ -16,7 +16,7 @@ function showPopUp(popUpId) {
 function hidePopUp(popUpId) {
   const popUpOverlay = document.getElementById(popUpId);
   if (popUpOverlay) {
-    popUpOverlay.classList.remove("popup-overlay--visible");
+    popUpOverlay.classList.remove("--visible");
     popUpOverlay.setAttribute("aria-hidden", "true");
     // Restore background scrolling
     document.body.style.overflow = "";
