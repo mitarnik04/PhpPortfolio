@@ -24,22 +24,7 @@ $translation = InstanceProvider::get(Translation::class);
         <a href="https://www.instagram.com/mitar_nik/">Instagram</a>
     </div>
 
-
-    <?php
-    require_once DIR_COMPONENTS . '/pop-up/pop-up.php';
-    $popUp = new PopUpComponent();
-
-    $popUp->render(new PopUpOptions(
-        'contact',
-        __DIR__ . '/pop-ups/contact.php',
-        PopUpType::Form,
-        $translation->get('CONTACT:TITLE', $language)
-    ));
-    ?>
-
-    <button type="button"
-        class="button-base contact-button"
-        onclick="PopUpUtils.showPopUp('<?= $popUp->name ?>')">
+    <a class="button-base contact-button" href="/contact">
         <?= $translation->get('HOME_PAGE:GET_IN_TOUCH', $language) ?>
-    </button>
+    </a>
 </div>

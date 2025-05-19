@@ -10,5 +10,9 @@
   "LANGUAGES": {
     "ORDER": 2,
     "MATERIAL_ICON_NAME": "code"
+  },
+  "CONTACT": {
+    "ORDER": 3,
+    "MATERIAL_ICON_NAME": "account_box"
   }
 }

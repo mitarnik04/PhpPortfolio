@@ -1,0 +1,121 @@
+<!-- 3. Add mailing logic -->
+<!--TODO: Maybe consider creating a Form Component ??? -->
+
+<?php
+require_once DIR_HELPERS . '/translation.php';
+require_once DIR_HELPERS . '/instance-provider.php';
+
+$userSettings = UserSettings::getOrCreate();
+$language = $userSettings->getLanguage();
+$translation = InstanceProvider::get(Translation::class);
+
+require_once DIR_VALIDATORS . '/contact-validator.php';
+if (isset($_POST['submit'])) {
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $reason = $_POST['reason'] ?? '';
+
+    $validator = new ContactValidator();
+    $errors = $validator->validate(new ContactValidationRequest($firstname, $lastname, $email, $message));
+    // Optionally: Validate $reason if needed
+}
+?>
+
+<div class="container contact-page">
+    <h1><?= $translation->get('CONTACT_PAGE:TITLE', $language) ?></h1>
+    <h2 class="contact-subtitle"><?= $translation->get('CONTACT_PAGE:SUBTITLE', $language) ?></h2>
+
+
+    <?php if (!empty($errors)): ?>
+        <div class="form-errors-container">
+            <ul class="flex f-dr-c f-g-6px form-errors-list">
+                <?php foreach ($errors as $error): ?>
+                    <li>
+                        <?= $translation->get("ERROR:$error->key", $language) ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+
+    <form action="" method="post">
+        <div class="form-group">
+            <label for="reason"><?= $translation->get('CONTACT_PAGE:REASON:LABEL', $language) ?></label>
+            <select
+                class="form-input"
+                id="reason"
+                name="reason"
+                required>
+                <option value=""><?= $translation->get('CONTACT_PAGE:REASON:PLACEHOLDER', $language) ?></option>
+                <option value="collaboration" <?= (isset($reason) && $reason === 'collaboration') ? 'selected' : '' ?>>
+                    <?= $translation->get('CONTACT_PAGE:REASON:COLLABORATION', $language) ?>
+                </option>
+                <option value="freelance" <?= (isset($reason) && $reason === 'freelance') ? 'selected' : '' ?>>
+                    <?= $translation->get('CONTACT_PAGE:REASON:FREELANCE', $language) ?>
+                </option>
+                <option value="techchat" <?= (isset($reason) && $reason === 'techchat') ? 'selected' : '' ?>>
+                    <?= $translation->get('CONTACT_PAGE:REASON:TECHCHAT', $language) ?>
+                </option>
+                <option value="other" <?= (isset($reason) && $reason === 'other') ? 'selected' : '' ?>>
+                    <?= $translation->get('CONTACT_PAGE:REASON:OTHER', $language) ?>
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="firstname"><?= $translation->get('CONTACT_PAGE:FIRSTNAME', $language) ?></label>
+            <input
+                class="form-input"
+                id="firstname"
+                name="firstname"
+                type="text"
+                required
+                minlength="2"
+                maxlength="50"
+                pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\- ]+$"
+                title="<?= $translation->get('CONTACT_PAGE:PROMPT:ENTER_VALID_NAME', $language) ?>"
+                value="<?= isset($firstname) ? htmlspecialchars($firstname, ENT_QUOTES) : '' ?>">
+        </div>
+        <div class="form-group">
+            <label for="lastname"><?= $translation->get('CONTACT_PAGE:LASTNAME', $language) ?></label>
+            <input
+                class="form-input"
+                id="lastname"
+                name="lastname"
+                type="text"
+                required
+                minlength="2"
+                maxlength="50"
+                pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\- ]+$"
+                title="<?= $translation->get('CONTACT_PAGE:PROMPT:ENTER_VALID_NAME', $language) ?>"
+                value="<?= isset($lastname) ? htmlspecialchars($lastname, ENT_QUOTES) : '' ?>">
+        </div>
+
+        <div class="form-group">
+            <label for="email"><?= $translation->get('CONTACT_PAGE:EMAIL', $language) ?></label>
+            <input
+                class="form-input"
+                id="email"
+                name="email"
+                type="email"
+                required
+                maxlength="100"
+                value="<?= isset($email) ? htmlspecialchars($email, ENT_QUOTES) : '' ?>">
+        </div>
+
+        <div class="form-group">
+            <label for="message"><?= $translation->get('CONTACT_PAGE:MESSAGE', $language) ?></label>
+            <textarea
+                class="form-input"
+                id="message"
+                name="message"
+                rows="5"
+                required
+                minlength="10"
+                title="<?= $translation->get('CONTACT_PAGE:PROMPT:ENTER_MESSAGE', $language) ?>"><?= isset($message) ? htmlspecialchars($message, ENT_QUOTES) : '' ?></textarea>
+        </div>
+
+        <input type="submit" name="submit" value="<?= $translation->get('CONTACT_PAGE:SEND', $language) ?>" class="button-base form-submit">
+    </form>
+</div>

@@ -1,14 +1,15 @@
 {
+  "SPA_SETUP": {
+    "HOME": "Home",
+    "LANGUAGES": "Programmiersprachen",
+    "WORK-EXPIRIENCE": "Arbeitserfahrung",
+    "CONTACT": "Kontakt"
+  },
   "HOME_PAGE": {
     "GREETING": "Hallo ich bin Mitar",
     "OCCUPATION_TITLE": "Full-Stack Entwickler mit Focus auf Backend",
     "STUFF_I_DO_DESCRIPTION": "Ich kann eine Full-Stack Webseite für Sie bauen oder neue Features hinzufügen. Ich habe eine Leidenschaft für das Programmieren und Entwickeln neuer Funktionen",
     "GET_IN_TOUCH": "Treten Sie in Kontakt"
-  },
-  "SPA_SETUP": {
-    "HOME": "Home",
-    "LANGUAGES": "Programmiersprachen",
-    "WORK-EXPIRIENCE": "Arbeitserfahrung"
   },
   "LANGUAGES_PAGE": {
     "TITLE": "Programmiersprachen",
@@ -33,13 +34,23 @@
     "FOCUS_TAGLINE": "Vertrauen von führenden Schweizer Banken",
     "FOCUS_DESC": "Beratung und Entwicklung von Softwarelösungen für einige der größten Schweizer Banken, darunter die CS Bank. Umfassende Erfahrung in der Zusammenarbeit mit verschiedenen Teams in hochsicheren und anspruchsvollen Umfeldern."
   },
-  "CONTACT": {
+  "CONTACT_PAGE": {
     "TITLE": "Kontaktformular",
+    "SUBTITLE": "Lassen Sie uns gemeinsam etwas Großartiges schaffen!",
+    "INTRO": "Ob Sie ein spannendes Projekt im Kopf haben, zusammenarbeiten möchten oder einfach nur über Technologie plaudern wollen – ich freue mich auf Ihre Nachricht. Füllen Sie das Formular unten aus und lassen Sie uns in Kontakt treten!",
     "FIRSTNAME": "Vorname",
     "LASTNAME": "Nachname",
     "EMAIL": "E-Mail",
     "MESSAGE": "Nachricht",
     "SEND": "Senden",
+    "REASON": {
+      "LABEL": "Grund für die Kontaktaufnahme",
+      "PLACEHOLDER": "Bitte wählen Sie einen Grund...",
+      "COLLABORATION": "Projektzusammenarbeit",
+      "FREELANCE": "Freelance-Anfrage",
+      "TECHCHAT": "Technik-Talk / Networking",
+      "OTHER": "Sonstiges"
+    },
     "PROMPT": {
       "ENTER_VALID_NAME": "Bitte geben Sie einen gültigen Namen ein (Buchstaben, Leerzeichen, Apostrophe und Bindestriche sind erlaubt).",
       "ENTER_MESSAGE": "Bitte geben Sie eine Nachricht ein, in der Sie die Einzelheiten Ihres Anliegens erläutern."

@@ -1,14 +1,15 @@
 {
+  "SPA_SETUP": {
+    "HOME": "Home",
+    "LANGUAGES": "Programming Languages",
+    "WORK-EXPIRIENCE": "Work Expirience",
+    "CONTACT": "Contact"
+  },
   "HOME_PAGE": {
     "GREETING": "Hello I'm Mitar",
     "OCCUPATION_TITLE": "Full stack developer with focus on backend",
     "STUFF_I_DO_DESCRIPTION": "I can build a full stack web site for you or add new features to your website or RESTful API. I am passionate about coding and building awesome new features",
     "GET_IN_TOUCH": "Get in Touch"
-  },
-  "SPA_SETUP": {
-    "HOME": "Home",
-    "LANGUAGES": "Programming Languages",
-    "WORK-EXPIRIENCE": "Work Expirience"
   },
   "LANGUAGES_PAGE": {
     "TITLE": "Programming Languages",
@@ -33,13 +34,23 @@
     "FOCUS_TAGLINE": "Trusted by Leading Swiss Banks",
     "FOCUS_DESC": "Delivered consulting and software solutions for some of the largest Swiss banks, including CS Bank. Gained extensive experience collaborating across diverse teams in high-security, high-stakes environments."
   },
-  "CONTACT": {
+  "CONTACT_PAGE": {
     "TITLE": "Contact form",
+    "SUBTITLE": "Let's Build Something Great Together!",
+    "INTRO": "Whether you have an exciting project in mind, want to collaborate, or just want to chat about technology, I'd love to hear from you. Fill out the form below and let's connect!",
     "FIRSTNAME": "First Name",
     "LASTNAME": "Last Name",
     "EMAIL": "E-Mail",
     "MESSAGE": "Message",
-    "SEND": "Senden",
+    "SEND": "Send",
+    "REASON": {
+      "LABEL": "Reason for Contact",
+      "PLACEHOLDER": "Select a reason...",
+      "COLLABORATION": "Project Collaboration",
+      "FREELANCE": "Freelance Inquiry",
+      "TECHCHAT": "Tech Chat / Networking",
+      "OTHER": "Other"
+    },
     "PROMPT": {
       "ENTER_VALID_NAME": "Please enter a valid name (letters, spaces, apostrophes, and hyphens are allowed).",
       "ENTER_MESSAGE": "Please enter a message explaining the details of your request."
