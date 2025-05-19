@@ -4,12 +4,13 @@
 <?php
 require_once DIR_HELPERS . '/translation.php';
 require_once DIR_HELPERS . '/instance-provider.php';
+require_once DIR_VALIDATORS . '/contact-validator.php';
+require_once DIR_COMPONENTS . '/pop-up/pop-up.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
 $translation = InstanceProvider::get(Translation::class);
 
-require_once DIR_VALIDATORS . '/contact-validator.php';
 if (isset($_POST['submit'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -18,14 +19,21 @@ if (isset($_POST['submit'])) {
     $reason = $_POST['reason'] ?? '';
 
     $validator = new ContactValidator();
-    $errors = $validator->validate(new ContactValidationRequest($firstname, $lastname, $email, $message));
-    // Optionally: Validate $reason if needed
+    $errors = $validator->validate(new ContactValidationRequest(
+        $firstname,
+        $lastname,
+        $email,
+        $message,
+        $reason,
+        ['collaboration', 'freelance', 'techchat', 'other']
+    ));
 }
 ?>
 
 <div class="container contact-page">
     <h1><?= $translation->get('CONTACT_PAGE:TITLE', $language) ?></h1>
     <h2 class="contact-subtitle"><?= $translation->get('CONTACT_PAGE:SUBTITLE', $language) ?></h2>
+    <p class="contact-intro"><?= $translation->get('CONTACT_PAGE:INTRO', $language) ?></p>
 
 
     <?php if (!empty($errors)): ?>
@@ -42,7 +50,8 @@ if (isset($_POST['submit'])) {
 
     <form action="" method="post">
         <div class="form-group">
-            <label for="reason"><?= $translation->get('CONTACT_PAGE:REASON:LABEL', $language) ?></label>
+            <label for="reason" class="form-label"><?= $translation->get('CONTACT_PAGE:REASON:LABEL', $language) ?></label>
+            <!-- TODO: Can this <select> be a component ? -->
             <select
                 class="form-input"
                 id="reason"
@@ -64,7 +73,7 @@ if (isset($_POST['submit'])) {
             </select>
         </div>
         <div class="form-group">
-            <label for="firstname"><?= $translation->get('CONTACT_PAGE:FIRSTNAME', $language) ?></label>
+            <label for="firstname" class="form-label"><?= $translation->get('CONTACT_PAGE:FIRSTNAME', $language) ?></label>
             <input
                 class="form-input"
                 id="firstname"
@@ -78,7 +87,7 @@ if (isset($_POST['submit'])) {
                 value="<?= isset($firstname) ? htmlspecialchars($firstname, ENT_QUOTES) : '' ?>">
         </div>
         <div class="form-group">
-            <label for="lastname"><?= $translation->get('CONTACT_PAGE:LASTNAME', $language) ?></label>
+            <label for="lastname" class="form-label"><?= $translation->get('CONTACT_PAGE:LASTNAME', $language) ?></label>
             <input
                 class="form-input"
                 id="lastname"
@@ -93,7 +102,7 @@ if (isset($_POST['submit'])) {
         </div>
 
         <div class="form-group">
-            <label for="email"><?= $translation->get('CONTACT_PAGE:EMAIL', $language) ?></label>
+            <label for="email" class="form-label"><?= $translation->get('CONTACT_PAGE:EMAIL', $language) ?></label>
             <input
                 class="form-input"
                 id="email"
@@ -105,7 +114,7 @@ if (isset($_POST['submit'])) {
         </div>
 
         <div class="form-group">
-            <label for="message"><?= $translation->get('CONTACT_PAGE:MESSAGE', $language) ?></label>
+            <label for="message" class="form-label"><?= $translation->get('CONTACT_PAGE:MESSAGE', $language) ?></label>
             <textarea
                 class="form-input"
                 id="message"

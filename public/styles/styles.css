@@ -145,6 +145,18 @@ form {
   outline: none;
 }
 
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.08em;
+  font-weight: 600;
+  color: var(--secondary-color);
+  letter-spacing: 0.01em;
+  text-align: left;
+  transition: color 0.2s;
+  cursor: text;
+}
+
 /* Form Errors */
 .form-errors-container {
   background-color: #fdecea;

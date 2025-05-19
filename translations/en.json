@@ -45,7 +45,7 @@
     "SEND": "Send",
     "REASON": {
       "LABEL": "Reason for Contact",
-      "PLACEHOLDER": "Select a reason...",
+      "PLACEHOLDER": "Please select a reason...",
       "COLLABORATION": "Project Collaboration",
       "FREELANCE": "Freelance Inquiry",
       "TECHCHAT": "Tech Chat / Networking",
@@ -66,6 +66,8 @@
     "EMAIL_EMPTY": "Please enter your email address.",
     "EMAIL_INVALID_FORMAT": "Please enter a valid email address.",
     "MESSAGE_EMPTY": "Please enter your message.",
-    "MESSAGE_TOO_SHORT": "Your message must be at least 10 characters long."
+    "MESSAGE_TOO_SHORT": "Your message must be at least 10 characters long.",
+    "REASON_EMPTY": "Please specify a reason.",
+    "REASON_INVALID": "The specified reason is invalid."
   }
 }

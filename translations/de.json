@@ -66,6 +66,8 @@
     "EMAIL_EMPTY": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
     "EMAIL_INVALID_FORMAT": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
     "MESSAGE_EMPTY": "Bitte geben Sie Ihre Nachricht ein.",
-    "MESSAGE_TOO_SHORT": "Ihre Nachricht muss mindestens 10 Zeichen lang sein."
+    "MESSAGE_TOO_SHORT": "Ihre Nachricht muss mindestens 10 Zeichen lang sein.",
+    "REASON_EMPTY": "Bitte geben sie einen Grund an.",
+    "REASON_INVALID": "Der angegebene Grund ist ungültig."
   }
 }
