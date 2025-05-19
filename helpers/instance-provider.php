@@ -32,9 +32,12 @@ class InstanceProvider
      */
     public static function add(string $class, mixed $instance): void
     {
+        if (!($instance instanceof $class)) {
+            throw new RuntimeException("Instance is not of type: $class");
+        }
 
         if (array_key_exists($class, self::$instances)) {
-            throw new RuntimeException('instance for class: ' . $class . ' already exists');
+            throw new RuntimeException("instance for class: $class already exists");
         }
 
         self::$instances[$class] = $instance;

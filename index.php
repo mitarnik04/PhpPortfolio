@@ -12,6 +12,8 @@ InstanceProvider::add(
     Router::initialize(Metadata::getLoadableViews(), 'home', fn($pageName) => __DIR__ . '/views/' . $pageName . '.php')
 );
 
+class Something {}
+
 require_once DIR_HELPERS . '/translation.php';
 
 InstanceProvider::add(
