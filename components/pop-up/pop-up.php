@@ -59,9 +59,9 @@ class PopUpComponent implements IComponent
                         <?php foreach ($options->buttons as $button): ?>
                             <button
                                 type="<?= htmlspecialchars($button->type, ENT_QUOTES) ?>"
-                                class="<?= $button->class ?>"
+                                class="<?= htmlspecialchars($button->class, ENT_QUOTES) ?>"
                                 onclick="<?= htmlspecialchars($button->onClick) ?>">
-                                <?= htmlspecialchars($button->label) ?>
+                                <?= htmlspecialchars($button->label, ENT_QUOTES) ?>
                             </button>
                         <?php endforeach; ?>
                     </div>
