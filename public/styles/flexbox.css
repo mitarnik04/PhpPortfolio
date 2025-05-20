@@ -14,6 +14,14 @@
   justify-content: center;
 }
 
+.f-jc-fe {
+  justify-content: flex-end;
+}
+
+.f-js-c {
+  justify-self: center;
+}
+
 .f-c-c {
   align-items: center;
   justify-content: center;

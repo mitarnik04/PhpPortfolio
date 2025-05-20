@@ -93,3 +93,7 @@
 .popup-error {
   color: var(error-color);
 }
+
+.popup-buttons {
+  margin-top: 28px;
+}

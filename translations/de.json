@@ -1,4 +1,8 @@
 {
+  "GENERAL": {
+    "SUCCESS": "Erfolg",
+    "OK": "Ok"
+  },
   "SPA_SETUP": {
     "HOME": "Home",
     "LANGUAGES": "Programmiersprachen",
@@ -54,7 +58,8 @@
     "PROMPT": {
       "ENTER_VALID_NAME": "Bitte geben Sie einen gültigen Namen ein (Buchstaben, Leerzeichen, Apostrophe und Bindestriche sind erlaubt).",
       "ENTER_MESSAGE": "Bitte geben Sie eine Nachricht ein, in der Sie die Einzelheiten Ihres Anliegens erläutern."
-    }
+    },
+    "SUCCESS_MESSAGE": "Ihre Nachricht wurde erfolgreich gesendet!"
   },
   "ERROR": {
     "FIRST_NAME_EMPTY": "Bitte geben Sie Ihren Vornamen ein.",

@@ -161,6 +161,7 @@ form {
 .form-errors-container {
   background-color: #fdecea;
   border-left: 4px solid var(--error-color);
+  max-width: 500px;
   padding: 12px 16px;
   border-radius: 8px;
   margin-bottom: 20px;

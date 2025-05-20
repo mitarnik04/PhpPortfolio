@@ -1,4 +1,8 @@
 {
+  "GENERAL": {
+    "SUCCESS": "Success",
+    "OK": "Ok"
+  },
   "SPA_SETUP": {
     "HOME": "Home",
     "LANGUAGES": "Programming Languages",
@@ -54,7 +58,8 @@
     "PROMPT": {
       "ENTER_VALID_NAME": "Please enter a valid name (letters, spaces, apostrophes, and hyphens are allowed).",
       "ENTER_MESSAGE": "Please enter a message explaining the details of your request."
-    }
+    },
+    "SUCCESS_MESSAGE": "Your message has been sent successfully!"
   },
   "ERROR": {
     "FIRST_NAME_EMPTY": "Please enter your first name.",

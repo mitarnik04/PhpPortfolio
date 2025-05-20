@@ -5,11 +5,13 @@
 require_once DIR_HELPERS . '/translation.php';
 require_once DIR_HELPERS . '/instance-provider.php';
 require_once DIR_VALIDATORS . '/contact-validator.php';
+require_once DIR_COMPONENTS . '/pop-up/pop-up-options-factory.php';
 require_once DIR_COMPONENTS . '/pop-up/pop-up.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
 $translation = InstanceProvider::get(Translation::class);
+$isSuccess = false;
 
 if (isset($_POST['submit'])) {
     $firstname = $_POST['firstname'];
@@ -27,18 +29,22 @@ if (isset($_POST['submit'])) {
         $reason,
         ['collaboration', 'freelance', 'techchat', 'other']
     ));
+
+    if (empty($errors)) {
+        $isSuccess = true;
+    }
 }
 ?>
 
-<div class="container contact-page">
+<div class="container">
     <h1><?= $translation->get('CONTACT_PAGE:TITLE', $language) ?></h1>
     <h2 class="contact-subtitle"><?= $translation->get('CONTACT_PAGE:SUBTITLE', $language) ?></h2>
     <p class="contact-intro"><?= $translation->get('CONTACT_PAGE:INTRO', $language) ?></p>
 
 
     <?php if (!empty($errors)): ?>
-        <div class="form-errors-container">
-            <ul class="flex f-dr-c f-g-6px form-errors-list">
+        <div class="flex f-js-c form-errors-container">
+            <ul class="flex f-dr-c f-g-20px form-errors-list">
                 <?php foreach ($errors as $error): ?>
                     <li>
                         <?= $translation->get("ERROR:$error->key", $language) ?>
@@ -127,4 +133,16 @@ if (isset($_POST['submit'])) {
 
         <input type="submit" name="submit" value="<?= $translation->get('CONTACT_PAGE:SEND', $language) ?>" class="button-base form-submit">
     </form>
+
+    <?php if ($isSuccess) {
+        $options = PopUpOptionsFactory::success(
+            'contact-success',
+            $translation->get('CONTACT_PAGE:SUCCESS_MESSAGE', $language),
+            $translation->get('GENERAL:SUCCESS', $language),
+            $translation->get('GENERAL:OK', $language),
+        );
+        $popUp = new PopUpComponent();
+        $popUp->render($options);
+        $popUp->show();
+    } ?>
 </div>
