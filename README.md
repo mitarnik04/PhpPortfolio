@@ -1,4 +1,4 @@
-# Portfolio Application
+# PhpPortfolio
 
 A modern, dynamically extensible PHP portfolio application.
 This project showcases my technical skills, maintainability philosophy, and ability to craft scalable web solutions. It features multi-language support, dynamic navigation, a robust contact system, and modular, reusable components.
