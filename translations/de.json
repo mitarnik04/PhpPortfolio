@@ -40,12 +40,13 @@
     "FOCUS_DESC": "Beratung und Entwicklung von Softwarelösungen für einige der größten Schweizer Banken, darunter die CS Bank. Umfassende Erfahrung in der Zusammenarbeit mit verschiedenen Teams in hochsicheren und anspruchsvollen Umfeldern."
   },
   "PROJECTS_PAGE": {
-    "TITLE": "Vorgestelltes Projekt: Dieses Portfolio",
-    "TAGLINE": "Warum etwas anderes zeigen?",
-    "PORTFOLIO_TITLE": "Das Portfolio, das Sie gerade betrachten",
-    "PORTFOLIO_DESC": "Sie erleben bereits mein stolzestes Projekt – ein vollständig erweiterbares, mehrsprachiges PHP-Portfolio für echte Kunden und Entwicklerkollegen. Es spiegelt meine Designprinzipien, meinen Fokus auf Wartbarkeit und fortschrittliches UI-Engineering wider.",
-    "PORTFOLIO_TAGLINE": "Modern. Dynamisch. Entwicklerorientiert.",
-    "GITHUB_BUTTON": "Projekt auf GitHub ansehen"
+    "TITLE": "Das Projekt, das Sie gerade nutzen",
+    "TAGLINE": "Ich erzähle nicht, was ich kann. Ich lasse Sie es erleben.",
+    "INTRO_PARAGRAPH": "Diese Seite ist kein typisches Portfolio. Sie ist das Produkt. Jeder Klick, jede Animation und jede Interaktion basiert auf meinem eigenen Code: schnelle Ladezeiten, saubere PHP-Architektur, modulare Komponenten und direkte Mehrsprachigkeit. Kein Schnickschnack. Nur Code, der für sich spricht.",
+    "PORTFOLIO_TITLE": "Dieses Portfolio (Genau dieses)",
+    "PORTFOLIO_DESC": "Was wäre besser, als meine Fähigkeiten direkt erlebbar zu machen? Dieses Portfolio wurde von Grund auf entwickelt, um zu zeigen, wie ich über UI, Codequalität und Nutzererfahrung denke. Keine Screenshots. Echte Software.",
+    "PORTFOLIO_TAGLINE": "Gezielt entwickelt. Eindrucksvoll umgesetzt.",
+    "GITHUB_BUTTON": "Code auf GitHub ansehen"
   },
   "CONTACT_PAGE": {
     "TITLE": "Kontaktformular",

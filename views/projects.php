@@ -10,6 +10,10 @@ $translation = InstanceProvider::get(Translation::class);
     <h1><?= $translation->get('PROJECTS_PAGE:TITLE', $language); ?></h1>
     <h2><?= $translation->get('PROJECTS_PAGE:TAGLINE', $language); ?></h2>
 
+    <p style="margin-bottom: 30px; font-size:1.1em; color:#444;">
+        <?= $translation->get('PROJECTS_PAGE:INTRO_PARAGRAPH', $language); ?>
+    </p>
+
     <div class="flex f-dr-c f-g-20px card-container">
         <?php
         require_once DIR_COMPONENTS . '/card/card.php';
