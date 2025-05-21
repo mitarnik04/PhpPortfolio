@@ -136,11 +136,7 @@ portfolio/
     └── work-experience.php
 ```
 
-- **Add a Page:** Place a `.php` file in `views/` and configure it in `nav-bar/configs/page-config.json`.  
-  --> Making sure that the JSON key matches the file name !  
-  Add a translation key to all the files under `translations/` in the `SPA_SETUP` section. This is going to be the text used for the navigation.  
-  --> Again making sure to match the JSON key with the view-file name !
-- **Add a Language:** Put a new `{lang}.json` in `translations/`.
+For insight on how to add pages, languages etc see: [Extending & Customizing](#extending--customizing).
 
 ---
 
@@ -165,18 +161,23 @@ portfolio/
 ### Contact & Validation
 
 - Contact forms use validators in `validators/` and tokenized mail templates in `mail/templates/`.
-- Secure mail sending uses the Maile class build on top of PHPMailer, with credentials externalized in the config (`mail-config.json`).
+- Secure mail sending uses the Mailer class build on top of PHPMailer, with credentials externalized in the config (`mail-config.json`).
 - Forms are validated on both client and server side.
 
 ### User Experience
 
 - Features like active-page highlighting, icons, and pop-ups are configuration-driven.
-- New content and language files integrate smoothly with the rest of the application.
+- Responsive design ensures a seamless user experience across various devices and screen sizes.
 
 ---
 
 ## Extending & Customizing
 
+- **Add a Page:** Place a `.php` file in `views/` and configure it in `nav-bar/configs/page-config.json`.  
+  &rarr Making sure that the JSON key matches the file name !  
+  Add a translation key to all the files under `translations/` in the `SPA_SETUP` section. This is going to be the text used for the navigation.  
+  &rarr Again making sure to match the JSON key with the view-file name !
+- **Add a Language:** Put a new `{lang}.json` in `translations/`.
 - **Customize Navigation**: Edit `page-config.json` to update order and icons.
 - **UI or Validation Extensions**: Write new components (implement the required interface) or validators, and add mail templates as needed.  
   Mail templates use a custom file extension (.tpl) which is basically html with tokens.
