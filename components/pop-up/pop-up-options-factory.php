@@ -1,7 +1,5 @@
 <?php
 require_once __DIR__ . '/pop-up.php';
-require_once DIR_HELPERS . '/instance-provider.php';
-require_once DIR_HELPERS . '/translation.php';
 
 class PopUpOptionsFactory
 {

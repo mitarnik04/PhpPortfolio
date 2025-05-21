@@ -1,9 +1,11 @@
-<!-- 3. Add mailing logic -->
 <!--TODO: Maybe consider creating a Form Component ??? -->
 
 <?php
 require_once DIR_HELPERS . '/translation.php';
 require_once DIR_HELPERS . '/instance-provider.php';
+require_once DIR_MAIL . '/mailer.php';
+require_once DIR_MAIL . '/mail-information.php';
+require_once DIR_MAIL . '/templates/contact-mail-template.php';
 require_once DIR_VALIDATORS . '/contact-validator.php';
 require_once DIR_COMPONENTS . '/pop-up/pop-up-options-factory.php';
 require_once DIR_COMPONENTS . '/pop-up/pop-up.php';
@@ -12,26 +14,43 @@ $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
 $translation = InstanceProvider::get(Translation::class);
 $isSuccess = false;
+$isMailError = false;
 
 if (isset($_POST['submit'])) {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
     $reason = $_POST['reason'] ?? '';
+    $firstname = $_POST['firstname'] ?? '';
+    $lastname = $_POST['lastname'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $message = $_POST['message'] ?? '';
 
     $validator = new ContactValidator();
     $errors = $validator->validate(new ContactValidationRequest(
+        $reason,
+        ['collaboration', 'freelance', 'techchat', 'other'],
         $firstname,
         $lastname,
         $email,
         $message,
-        $reason,
-        ['collaboration', 'freelance', 'techchat', 'other']
     ));
 
     if (empty($errors)) {
         $isSuccess = true;
+        $mailInformation = MailInformation::fromConfiguration();
+        $mailer = Mailer::getGmailMailer($mailInformation);
+        $isMailSendSuccessfully = $mailer->sendFromTemplate($mailInformation, new ContactMailTemplate(
+            $reason,
+            $firstname,
+            $lastname,
+            $email,
+            $message
+        ));
+
+        if (!$isMailSendSuccessfully) {
+            $isMailError = true;
+            echo "there was an error";
+            print_r($mailer->errorInfo);
+            //TODO: Use this for showing an error pop-up
+        }
     }
 }
 ?>

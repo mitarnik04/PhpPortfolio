@@ -1,0 +1,6 @@
+{
+  "USERNAME": "[YOUR EMAIL GOES HERE]",
+  "PASSWORD": "[YOUR PASSOWORD GOES HERE]",
+  "SENDER_MAIL": "[THE EMAIL SHOWN IN THE 'FROM' HEADER]",
+  "COMMENT": "To get the mailing to work replace the placeholders with your information and remove the (empty) from the filename !"
+}

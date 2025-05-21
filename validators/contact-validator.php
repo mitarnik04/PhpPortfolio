@@ -4,19 +4,19 @@ require_once __DIR__ . '/validator.php';
 class ContactValidationRequest extends ValidationRequest
 {
     public function __construct(
+        string $reason,
+        array $validReasons,
         string $firstname,
         string $lastname,
         string $email,
-        string $message,
-        string $reason,
-        array $validReasons = []
+        string $message
     ) {
+        $this->data['reason'] = trim($reason);
+        $this->data['validReasons'] = $validReasons;
         $this->data['firstname'] = trim($firstname);
         $this->data['lastname'] = trim($lastname);
         $this->data['email'] = trim($email);
         $this->data['message'] = trim($message);
-        $this->data['reason'] = trim($reason);
-        $this->data['validReasons'] = $validReasons;
     }
 }
 

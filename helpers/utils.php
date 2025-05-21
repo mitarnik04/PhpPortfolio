@@ -2,7 +2,6 @@
 function tryGetJsonContent(string $path, array &$jsonContentResult): bool
 {
     if (!file_exists($path)) {
-
         error_log("JSON-file not found. PATH: $path");
         return false;
     }
@@ -21,4 +20,15 @@ function getFileNames(string $filePattern, bool $removeFileExtension): array
         }
         return $result;
     }, glob($filePattern));
+}
+
+/** @param array<string, string> $tokens */
+function replaceTokens(string $template, string $prefix, string $suffix, array $tokens): string
+{
+    foreach ($tokens as $tokenName => $tokenValue) {
+        $token = $prefix . $tokenName . $suffix;
+        $template = str_replace($token, $tokenValue, $template);
+    }
+
+    return $template;
 }

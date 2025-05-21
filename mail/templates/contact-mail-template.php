@@ -3,22 +3,48 @@
 class ContactMailTemplate extends MailTemplate
 {
 
+    function __construct(
+        public readonly string $reason,
+        public readonly string $firstname,
+        public readonly string $lastname,
+        public readonly string $email,
+        public readonly string $message,
+    ) {}
 
-    // $firstname = $_POST['firstname'];
-    // $lastname = $_POST['lastname'];
-    // $email = $_POST['email'];
-    // $message = $_POST['message'];
-    // $reason = $_POST['reason'] ?? '';
+    protected function getTokens(): array
+    {
+        return [
+            'REASON' => $this->reason,
+            'FIRSTNAME' => $this->firstname,
+            'LASTNAME' => $this->lastname,
+            'EMAIL' => $this->email,
+            'MESSAGE' => $this->message,
+        ];
+    }
 
-    function __construct() {}
+    protected function getTokenPrefix(): string
+    {
+        return '[[[';
+    }
 
-    protected abstract function getTokens(): array {}
+    protected function getTokenSuffix(): string
+    {
+        return ']]]';
+    }
 
-    protected abstract function getTokenPrefix(): string;
+    protected function getTemplateFullPath(): string
+    {
+        return __DIR__ . '/contact.tpl';
+    }
 
-    protected abstract function getTokenSuffix(): string;
+    public function getRecipientEmails(): array
+    {
+        return ['mitar.mn5@gmail.com'];
+    }
 
-    protected abstract function getTemplateFullPath(): string;
-
-    public abstract function getSubject(): string;
+    public function getSubject(): string
+    {
+        //TODO: Maybe this shouldn't be here in plain text like this ?
+        return "New Request via Protfolio";
+    }
 }
