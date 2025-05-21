@@ -174,9 +174,9 @@ For insight on how to add pages, languages etc see: [Extending & Customizing](#e
 ## Extending & Customizing
 
 - **Add a Page:** Place a `.php` file in `views/` and configure it in `nav-bar/configs/page-config.json`.  
-  &rarr Making sure that the JSON key matches the file name !  
+  &rarr; Making sure that the JSON key matches the file name !  
   Add a translation key to all the files under `translations/` in the `SPA_SETUP` section. This is going to be the text used for the navigation.  
-  &rarr Again making sure to match the JSON key with the view-file name !
+  &rarr; Again making sure to match the JSON key with the view-file name !
 - **Add a Language:** Put a new `{lang}.json` in `translations/`.
 - **Customize Navigation**: Edit `page-config.json` to update order and icons.
 - **UI or Validation Extensions**: Write new components (implement the required interface) or validators, and add mail templates as needed.  
