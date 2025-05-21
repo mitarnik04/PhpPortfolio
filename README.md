@@ -186,7 +186,7 @@ For insight on how to add pages, languages etc see: [Extending & Customizing](#e
 
 ## License
 
-This project is released under the [MIT License](LICENSE).  
+This project is released under the [CDDL License](LICENSE).  
 You are free to use, modify, and share under these terms.
 
 ---
