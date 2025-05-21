@@ -7,8 +7,7 @@ require_once DIR_MAIL . '/mailer.php';
 require_once DIR_MAIL . '/mail-information.php';
 require_once DIR_MAIL . '/templates/contact-mail-template.php';
 require_once DIR_VALIDATORS . '/contact-validator.php';
-require_once DIR_COMPONENTS . '/pop-up/pop-up-options-factory.php';
-require_once DIR_COMPONENTS . '/pop-up/pop-up.php';
+require_once DIR_COMPONENTS . '/pop-up/pop-up-renderer.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
@@ -154,14 +153,12 @@ if (isset($_POST['submit'])) {
     </form>
 
     <?php if ($isSuccess) {
-        $options = PopUpOptionsFactory::success(
+        $popUp =  PopUpRenderer::renderSuccess(
             'contact-success',
             $translation->get('CONTACT_PAGE:SUCCESS_MESSAGE', $language),
             $translation->get('GENERAL:SUCCESS', $language),
             $translation->get('GENERAL:OK', $language),
         );
-        $popUp = new PopUpComponent();
-        $popUp->render($options);
         $popUp->show();
     } ?>
 </div>
