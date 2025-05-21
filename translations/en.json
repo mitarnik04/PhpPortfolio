@@ -7,6 +7,7 @@
     "HOME": "Home",
     "LANGUAGES": "Programming Languages",
     "WORK-EXPERIENCE": "Work Experience",
+    "PROJECTS": "Projects",
     "CONTACT": "Contact"
   },
   "HOME_PAGE": {
@@ -60,6 +61,14 @@
       "ENTER_MESSAGE": "Please enter a message explaining the details of your request."
     },
     "SUCCESS_MESSAGE": "Your message has been sent successfully!"
+  },
+  "PROJECTS_PAGE": {
+    "TITLE": "Featured Project: This Portfolio",
+    "TAGLINE": "Why showcase anything else?",
+    "PORTFOLIO_TITLE": "The Portfolio You Are Browsing",
+    "PORTFOLIO_DESC": "You're already experiencing my proudest project—a fully extensible, multi-language PHP portfolio designed for real-world clients and fellow developers. It reflects my design principles, focus on maintainability, and advanced UI engineering.",
+    "PORTFOLIO_TAGLINE": "Modern. Dynamic. Developer-focused.",
+    "GITHUB_BUTTON": "View project on GitHub"
   },
   "ERROR": {
     "FIRST_NAME_EMPTY": "Please enter your first name.",

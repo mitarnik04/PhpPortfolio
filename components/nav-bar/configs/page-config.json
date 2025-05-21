@@ -11,8 +11,12 @@
     "ORDER": 2,
     "MATERIAL_ICON_NAME": "code"
   },
-  "CONTACT": {
+  "PROJECTS": {
     "ORDER": 3,
+    "MATERIAL_ICON_NAME": "star"
+  },
+  "CONTACT": {
+    "ORDER": 4,
     "MATERIAL_ICON_NAME": "account_box"
   }
 }

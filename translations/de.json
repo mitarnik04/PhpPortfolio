@@ -7,6 +7,7 @@
     "HOME": "Home",
     "LANGUAGES": "Programmiersprachen",
     "WORK-EXPERIENCE": "Berufserfahrung",
+    "PROJECTS": "Projekte",
     "CONTACT": "Kontakt"
   },
   "HOME_PAGE": {
@@ -37,6 +38,14 @@
     "FOCUS_TITLE": "Software Consultant – Focus Consulting AG",
     "FOCUS_TAGLINE": "Vertrauen von führenden Schweizer Banken",
     "FOCUS_DESC": "Beratung und Entwicklung von Softwarelösungen für einige der größten Schweizer Banken, darunter die CS Bank. Umfassende Erfahrung in der Zusammenarbeit mit verschiedenen Teams in hochsicheren und anspruchsvollen Umfeldern."
+  },
+  "PROJECTS_PAGE": {
+    "TITLE": "Vorgestelltes Projekt: Dieses Portfolio",
+    "TAGLINE": "Warum etwas anderes zeigen?",
+    "PORTFOLIO_TITLE": "Das Portfolio, das Sie gerade betrachten",
+    "PORTFOLIO_DESC": "Sie erleben bereits mein stolzestes Projekt – ein vollständig erweiterbares, mehrsprachiges PHP-Portfolio für echte Kunden und Entwicklerkollegen. Es spiegelt meine Designprinzipien, meinen Fokus auf Wartbarkeit und fortschrittliches UI-Engineering wider.",
+    "PORTFOLIO_TAGLINE": "Modern. Dynamisch. Entwicklerorientiert.",
+    "GITHUB_BUTTON": "Projekt auf GitHub ansehen"
   },
   "CONTACT_PAGE": {
     "TITLE": "Kontaktformular",
