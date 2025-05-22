@@ -39,7 +39,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     <title>Mitar's Portfolio</title>
 </head>
 
-<body class="flex f-c-c f-dr-c">
+<body class="flex f-ai-c f-dr-c">
 
     <header class="flex f-c-c f-w header-bar">
         <?php
