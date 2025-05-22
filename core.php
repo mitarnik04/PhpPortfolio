@@ -41,7 +41,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
 
 <body class="flex f-c-c f-dr-c">
 
-    <div class="flex f-c-c f-w header-bar">
+    <header class="flex f-c-c f-w header-bar">
         <?php
         require_once DIR_COMPONENTS . '/nav-bar/nav-bar.php';
         require_once DIR_HELPERS . '/router.php';
@@ -64,11 +64,11 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
         require_once DIR_COMPONENTS . '/language-toggle/language-toggle.php';
         (new LanguageToggleComponent())->render(new LanguageToggleOptions($language, $availableLanguages));
         ?>
-    </div>
+    </header>
 
-    <div id="spa-content">
+    <main id="spa-content">
         <?php $router->route() ?>
-    </div>
+    </main>
 
     <script src="public/js/pop-up.js"></script>
 </body>
