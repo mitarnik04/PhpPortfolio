@@ -18,6 +18,7 @@
   },
   "LANGUAGES_PAGE": {
     "TITLE": "Programmiersprachen",
+    "TAGLINE": "Technologien, die ich einsetze: Sprachen, Frameworks und mehr",
     "CSHARP_NET_ECOSYSTEM": "C#- & .NET-Ökosystem",
     "CSHARP_NET_ECOSYSTEM_DESCRIPTION": "ASP.NET (Core), Entity Framework (Core), Full-Stack-Fähigkeiten",
     "FRONTEND": "Frontend",

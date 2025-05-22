@@ -18,6 +18,7 @@
   },
   "LANGUAGES_PAGE": {
     "TITLE": "Programming Languages",
+    "TAGLINE": "My Technical Toolbox: Languages, Frameworks and More",
     "CSHARP_NET_ECOSYSTEM": "C# & .NET Ecosystem",
     "CSHARP_NET_ECOSYSTEM_DESCRIPTION": "ASP.NET (Core), Entity Framework (Core), full-stack capabilities",
     "FRONTEND": "Frontend",

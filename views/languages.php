@@ -8,6 +8,7 @@ $translation = InstanceProvider::get(Translation::class);
 
 <div class="container">
     <h1><?= $translation->get('LANGUAGES_PAGE:TITLE', $language); ?></h1>
+    <h2><?= $translation->get('LANGUAGES_PAGE:TAGLINE', $language); ?></h2>
 
     <div class="flex f-dr-c f-g-20px card-container">
 
@@ -42,5 +43,4 @@ $translation = InstanceProvider::get(Translation::class);
         ?>
 
     </div>
-
 </div>
