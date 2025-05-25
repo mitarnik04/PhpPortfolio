@@ -124,6 +124,7 @@ portfolio/
 │   ├── images/
 │   ├── js/
 │   └── styles/
+├── tests/
 ├── translations/          # Translation files: de.json, en.json, etc.
 ├── user-settings.php
 ├── validators/
