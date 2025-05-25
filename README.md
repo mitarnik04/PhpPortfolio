@@ -124,7 +124,7 @@ portfolio/
 │   ├── images/
 │   ├── js/
 │   └── styles/
-├── tests/
+├── tests/                 # Contains a quick and easy way to set-up tests, run them and display the results
 ├── translations/          # Translation files: de.json, en.json, etc.
 ├── user-settings.php
 ├── validators/
