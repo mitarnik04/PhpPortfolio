@@ -4,7 +4,7 @@
   background-color: #ffffff;
   padding: 12px 24px;
   border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--secondary-shadow);
   flex-wrap: wrap;
   gap: 12px;
 }

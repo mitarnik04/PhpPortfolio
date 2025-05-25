@@ -6,6 +6,7 @@
   --error-color: #d00;
   --muted-text: #7f8c8d;
   --standard-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --secondary-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   --standard-font-size: 1rem;
 }
 
