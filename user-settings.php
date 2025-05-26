@@ -37,7 +37,6 @@ class UserSettings
 
     private static function updateOrCreateCookie(UserSettings $userSettings): void
     {
-
         //Since PHP does not support private classes we wrap the private prop in an object in order to be able to serialize it as JSON
         $userSettingsObj = [
             self::LANGUAGE_PROP_NAME => $userSettings->language,
