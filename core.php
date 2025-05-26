@@ -73,8 +73,8 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     </main>
 
     <!-- JS Utils -->
-    <script src="public/js/popUpUtils.js"></script>
-    <script type="module" src="public/js/spinnerUtils.js"></script>
+    <script src="public/js/utils/popUpUtils.js"></script>
+    <script type="module" src="public/js/utils/spinnerUtils.js"></script>
 </body>
 
 </html>
