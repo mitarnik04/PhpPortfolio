@@ -1,0 +1,26 @@
+/* Custom Scrollbar Styling */
+html {
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar-track {
+  background: #e3e3e3; /* Light grey background to match page background */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color); /* Use your primary color */
+  border-radius: 6px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(
+    --primary-hover
+  ); /* On hover, match your button hover state */
+}
+
+/* Firefox scrollbar styling (limited) */
+* {
+  scrollbar-color: var(--primary-color) #e3e3e3;
+}

@@ -31,6 +31,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/styles/flexbox.css">
     <link rel="stylesheet" href="public/styles/styles.css">
+    <link rel="stylesheet" href="public/styles/scrollbar.css">
     <link rel="stylesheet" href="public/styles/navigation.css">
     <link rel="stylesheet" href="public/styles/language-toggle.css">
     <link rel="stylesheet" href="public/styles/card.css">
