@@ -1,15 +1,13 @@
-/**
- * pop-up.js
- * Provides showPopUp and hidePopUp functions under the global PopUpUtils namespace.
- */
+import { disableBackgroundScroll, enableBackgroundScroll } from "./utils.js";
+
+//TODO: Make this modular ! (major rework required)
 
 function showPopUp(popUpId) {
   const popUpOverlay = document.getElementById(popUpId);
   if (popUpOverlay) {
     popUpOverlay.classList.add("--visible");
     popUpOverlay.setAttribute("aria-hidden", "false");
-    // Prevent background scrolling
-    document.body.style.overflow = "hidden";
+    disableBackgroundScroll();
   }
 }
 
@@ -18,8 +16,7 @@ function hidePopUp(popUpId) {
   if (popUpOverlay) {
     popUpOverlay.classList.remove("--visible");
     popUpOverlay.setAttribute("aria-hidden", "true");
-    // Restore background scrolling
-    document.body.style.overflow = "";
+    enableBackgroundScroll();
   }
 }
 
