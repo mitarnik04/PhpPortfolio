@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
         </div>
     <?php endif; ?>
 
-    <div id="spinner" class="spinner spinner-overlay hidden">
+    <div id="spinner" class="spinner spinner-overlay">
         <div class="loader"></div>
     </div>
 
