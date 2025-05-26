@@ -31,4 +31,28 @@ class PopUpRenderer
         $popUp->render($options);
         return $popUp;
     }
+
+    public static function renderError(string $name, string $message, string $title, string $closeButtonLabel): PopUpComponent
+    {
+        $options = new PopUpOptions(
+            name: $name,
+            body: '<div class="flex f-dr-c f-c-c" style="text-align:center; padding:0.2em 1em;">
+                    <span class="material-icons" style="font-size:3em; color:#e53935; margin-bottom:0.5em;">error</span>
+                    <div style="color:#e53935; font-size:1.2em;">' . htmlspecialchars($message) . '</div>
+                  </div>',
+            type: PopUpType::Error,
+            title: $title,
+            buttons: [
+                new PopUpButton(
+                    label: $closeButtonLabel,
+                    onClick: "PopUpUtils.hidePopUp('{$name}')",
+                    class: 'button-base'
+                )
+            ]
+        );
+
+        $popUp = new PopUpComponent();
+        $popUp->render($options);
+        return $popUp;
+    }
 }

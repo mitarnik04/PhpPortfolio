@@ -12,8 +12,7 @@ require_once DIR_COMPONENTS . '/pop-up/pop-up-renderer.php';
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
 $translation = InstanceProvider::get(Translation::class);
-$isSuccess = false;
-$isMailError = false;
+$mailState = MailState::IDLE;
 
 if (isset($_POST['submit'])) {
     $reason = $_POST['reason'] ?? '';
@@ -33,23 +32,15 @@ if (isset($_POST['submit'])) {
     ));
 
     if (empty($errors)) {
-        $isSuccess = true;
         $mailInformation = MailInformation::fromConfiguration();
         $mailer = Mailer::getGmailMailer($mailInformation);
-        $isMailSendSuccessfully = $mailer->sendFromTemplate($mailInformation, new ContactMailTemplate(
+        $mailState = $mailer->sendFromTemplate($mailInformation, new ContactMailTemplate(
             $reason,
             $firstname,
             $lastname,
             $email,
             $message
         ));
-
-        if (!$isMailSendSuccessfully) {
-            $isMailError = true;
-            echo "there was an error";
-            print_r($mailer->errorInfo);
-            //TODO: Use this for showing an error pop-up
-        }
     }
 }
 ?>
@@ -152,11 +143,19 @@ if (isset($_POST['submit'])) {
         <input type="submit" name="submit" value="<?= $translation->get('CONTACT_PAGE:SEND', $language) ?>" class="button-base form-submit">
     </form>
 
-    <?php if ($isSuccess) {
+    <?php if ($mailState == MailState::SUCCESS) {
         $popUp =  PopUpRenderer::renderSuccess(
             'contact-success',
             $translation->get('CONTACT_PAGE:SUCCESS_MESSAGE', $language),
             $translation->get('GENERAL:SUCCESS', $language),
+            $translation->get('GENERAL:OK', $language),
+        );
+        $popUp->show();
+    } else if ($mailState == MailState::ERROR) {
+        $popUp = PopUpRenderer::renderError(
+            "contact-error",
+            $translation->get('CONTACT_PAGE:ERROR_MESSAGE', $language),
+            $translation->get('GENERAL:ERROR', $language),
             $translation->get('GENERAL:OK', $language),
         );
         $popUp->show();

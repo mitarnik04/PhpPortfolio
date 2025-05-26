@@ -1,6 +1,7 @@
 {
   "GENERAL": {
     "SUCCESS": "Success",
+    "ERROR": "Error",
     "OK": "Ok"
   },
   "SPA_SETUP": {
@@ -61,7 +62,8 @@
       "ENTER_VALID_NAME": "Please enter a valid name (letters, spaces, apostrophes, and hyphens are allowed).",
       "ENTER_MESSAGE": "Please enter a message explaining the details of your request."
     },
-    "SUCCESS_MESSAGE": "Your message has been sent successfully!"
+    "SUCCESS_MESSAGE": "Your message has been sent successfully!",
+    "ERROR_MESSAGE": "An error has occurred. Please try again later."
   },
   "PROJECTS_PAGE": {
     "TITLE": "The Project You're Using Right Now",

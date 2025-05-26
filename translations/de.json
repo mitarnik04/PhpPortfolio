@@ -1,6 +1,7 @@
 {
   "GENERAL": {
     "SUCCESS": "Erfolg",
+    "ERROR": "Fehler",
     "OK": "Ok"
   },
   "SPA_SETUP": {
@@ -70,7 +71,8 @@
       "ENTER_VALID_NAME": "Bitte geben Sie einen gültigen Namen ein (Buchstaben, Leerzeichen, Apostrophe und Bindestriche sind erlaubt).",
       "ENTER_MESSAGE": "Bitte geben Sie eine Nachricht ein, in der Sie die Einzelheiten Ihres Anliegens erläutern."
     },
-    "SUCCESS_MESSAGE": "Ihre Nachricht wurde erfolgreich gesendet!"
+    "SUCCESS_MESSAGE": "Ihre Nachricht wurde erfolgreich gesendet!",
+    "ERROR_MESSAGE": "Ein Fehler ist aufgetreten. Bitte versuchen sie es später erneut"
   },
   "ERROR": {
     "FIRST_NAME_EMPTY": "Bitte geben Sie Ihren Vornamen ein.",
