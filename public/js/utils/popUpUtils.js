@@ -1,8 +1,7 @@
 import { disableBackgroundScroll, enableBackgroundScroll } from "./utils.js";
 
-//TODO: Make this modular ! (major rework required)
-
-function showPopUp(popUpId) {
+/** @param {string} popUpId - The ID of the popUp element */
+export function showPopUp(popUpId) {
   const popUpOverlay = document.getElementById(popUpId);
   if (popUpOverlay) {
     popUpOverlay.classList.add("--visible");
@@ -11,7 +10,8 @@ function showPopUp(popUpId) {
   }
 }
 
-function hidePopUp(popUpId) {
+/** @param {string} popUpId - The ID of the popUp element */
+export function hidePopUp(popUpId) {
   const popUpOverlay = document.getElementById(popUpId);
   if (popUpOverlay) {
     popUpOverlay.classList.remove("--visible");
@@ -19,9 +19,3 @@ function hidePopUp(popUpId) {
     enableBackgroundScroll();
   }
 }
-
-// Expose under a namespace on window
-window.PopUpUtils = {
-  showPopUp: showPopUp,
-  hidePopUp: hidePopUp,
-};

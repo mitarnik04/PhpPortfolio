@@ -147,21 +147,19 @@ if (isset($_POST['submit'])) {
 </form>
 
 <?php if ($mailState == MailState::SUCCESS) {
-    $popUp =  PopUpRenderer::renderSuccess(
+    PopUpRenderer::renderSuccess(
         'contact-success',
         $translation->get('CONTACT_PAGE:SUCCESS_MESSAGE', $language),
         $translation->get('GENERAL:SUCCESS', $language),
         $translation->get('GENERAL:OK', $language),
     );
-    $popUp->show();
 } else if ($mailState == MailState::ERROR) {
-    $popUp = PopUpRenderer::renderError(
+    PopUpRenderer::renderError(
         "contact-error",
         $translation->get('CONTACT_PAGE:ERROR_MESSAGE', $language),
         $translation->get('GENERAL:ERROR', $language),
         $translation->get('GENERAL:OK', $language),
     );
-    $popUp->show();
 } ?>
 
 <script type="module" src="/public/js/contact.js"></script>

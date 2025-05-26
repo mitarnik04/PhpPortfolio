@@ -9,7 +9,6 @@ class PopUpRenderer
 {
     public static function renderSuccess(string $name, string $message, string $title, string $closeButtonLabel): PopUpComponent
     {
-
         $options = new PopUpOptions(
             name: $name,
             body: '<div class="flex f-dr-c f-c-c" style="text-align:center; padding:0.2em 1em;">
@@ -21,10 +20,10 @@ class PopUpRenderer
             buttons: [
                 new PopUpButton(
                     label: $closeButtonLabel,
-                    onClick: "PopUpUtils.hidePopUp('{$name}')",
-                    class: 'button-base'
+                    class: 'button-base',
                 )
-            ]
+            ],
+            show: true
         );
 
         $popUp = new PopUpComponent();
@@ -45,10 +44,10 @@ class PopUpRenderer
             buttons: [
                 new PopUpButton(
                     label: $closeButtonLabel,
-                    onClick: "PopUpUtils.hidePopUp('{$name}')",
-                    class: 'button-base'
+                    class: 'button-base',
                 )
-            ]
+            ],
+            show: true
         );
 
         $popUp = new PopUpComponent();

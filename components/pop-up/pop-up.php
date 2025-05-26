@@ -10,7 +10,8 @@ class PopUpOptions implements IComponentOptions
         public readonly string $body,
         public readonly PopUpType $type,
         public readonly ?string $title = null,
-        public readonly array $buttons = []
+        public readonly array $buttons = [],
+        public readonly bool $show = false
     ) {}
 }
 
@@ -28,12 +29,11 @@ class PopUpComponent implements IComponent
         }
 
         $this->name = $options->name;
+        $showAttr = $options->show ? ' data-popup-show="true"' : '';
 ?>
-
-        <div id="<?= $options->name ?>" class="f-c-c popup-overlay" aria-hidden="true">
+        <div id="<?= htmlspecialchars($options->name) ?>" class="f-c-c popup-overlay" aria-hidden="true" <?= $showAttr ?>>
             <div class="popup">
-                <a href="#" class="popup-close"
-                    onclick="PopUpUtils.hidePopUp('<?= $options->name ?>'); return false;">
+                <a href="#" class="popup-close" data-popup-close="<?= htmlspecialchars($options->name) ?>">
                     <span class="material-icons">close</span>
                 </a>
                 <?php if (isset($options->title)): ?>
@@ -46,7 +46,7 @@ class PopUpComponent implements IComponent
                                 default => '',
                             } ?>
                         </span>
-                        <h2 class="popup-title"><?= $options->title ?></h2>
+                        <h2 class="popup-title"><?= htmlspecialchars($options->title) ?></h2>
                     </header>
                 <?php endif; ?>
                 <div class="popup-body">
@@ -55,10 +55,11 @@ class PopUpComponent implements IComponent
                 <?php if (!empty($options->buttons)): ?>
                     <div class="flex f-jc-fe f-g-6px popup-buttons">
                         <?php foreach ($options->buttons as $button): ?>
+                            <!-- TODO: Now any button defined inside the popup will automatically close it. CHANGE THAT !! -->
                             <button
                                 type="<?= htmlspecialchars($button->type, ENT_QUOTES) ?>"
                                 class="<?= htmlspecialchars($button->class, ENT_QUOTES) ?>"
-                                onclick="<?= htmlspecialchars($button->onClick) ?>">
+                                data-popup-close="<?= htmlspecialchars($options->name) ?>">
                                 <?= htmlspecialchars($button->label, ENT_QUOTES) ?>
                             </button>
                         <?php endforeach; ?>
@@ -67,17 +68,5 @@ class PopUpComponent implements IComponent
             </div>
         </div>
 <?php
-    }
-
-    public function show()
-    {
-        echo <<<JS
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        PopUpUtils.showPopUp('{$this->name}');
-                        return false; 
-                    });
-                </script>
-            JS;
     }
 }

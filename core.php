@@ -71,6 +71,8 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
         <?php $router->route(); ?>
     </main>
 
+    <!-- JS -->
+    <script type="module" src="public/js/popUp.js"></script>
     <!-- JS Utils -->
     <script type="module" src="public/js/utils/utils.js"></script>
     <script type="module" src="public/js/utils/popUpUtils.js"></script>
