@@ -42,10 +42,6 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
 </head>
 
 <body class="flex f-ai-c f-dr-c">
-    <div id="content-loading-spinner" class="spinner spinner-overlay active">
-        <div class="loader"></div>
-    </div>
-
     <header class="flex f-c-c f-w header-bar">
         <?php
         require_once DIR_COMPONENTS . '/nav-bar/nav-bar.php';
@@ -75,7 +71,6 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
         <?php $router->route(); ?>
     </main>
 
-    <script type="module" src="public/js/core.js"></script>
     <!-- JS Utils -->
     <script type="module" src="public/js/utils/utils.js"></script>
     <script type="module" src="public/js/utils/popUpUtils.js"></script>
