@@ -3,8 +3,6 @@ require_once __DIR__ . '/../component.php';
 require_once __DIR__ . '/assets/pop-up-type.php';
 require_once __DIR__ . '/assets/pop-up-button.php';
 
-
-
 class PopUpOptions implements IComponentOptions
 {
     public function __construct(

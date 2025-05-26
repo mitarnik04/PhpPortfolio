@@ -63,7 +63,11 @@ if (isset($_POST['submit'])) {
         </div>
     <?php endif; ?>
 
-    <form action="" method="post">
+    <div id="spinner" class="spinner spinner-overlay hidden">
+        <div class="loader"></div>
+    </div>
+
+    <form action="" method="post" id="contactForm">
         <div class="form-group">
             <label for="reason" class="form-label"><?= $translation->get('CONTACT_PAGE:REASON:LABEL', $language) ?></label>
             <!-- TODO: Can this <select> be a component ? -->
@@ -160,4 +164,6 @@ if (isset($_POST['submit'])) {
         );
         $popUp->show();
     } ?>
+
+    <script type="module" src="/public/js/contact.js"></script>
 </div>

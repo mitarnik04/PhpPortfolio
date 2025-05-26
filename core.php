@@ -36,6 +36,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     <link rel="stylesheet" href="public/styles/language-toggle.css">
     <link rel="stylesheet" href="public/styles/card.css">
     <link rel="stylesheet" href="public/styles/pop-up.css">
+    <link rel="stylesheet" href="public/styles/spinner.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Mitar's Portfolio</title>
 </head>
@@ -71,7 +72,9 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
         <?php $router->route() ?>
     </main>
 
-    <script src="public/js/pop-up.js"></script>
+    <!-- JS Utils -->
+    <script src="public/js/popUpUtils.js"></script>
+    <script type="module" src="public/js/spinnerUtils.js"></script>
 </body>
 
 </html>
