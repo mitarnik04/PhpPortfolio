@@ -43,7 +43,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
 </head>
 
 <body class="flex f-ai-c f-dr-c">
-    <header class="flex f-c-c f-w header-bar">
+    <header class="flex f-c-c header-bar">
         <?php
         require_once DIR_COMPONENTS . '/nav-bar/nav-bar.php';
         require_once DIR_HELPERS . '/router.php';
