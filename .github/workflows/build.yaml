@@ -1,7 +1,14 @@
+name: Deploy to AeonFree with environments
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment: Aeon
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: Aeon
+    environment: ${{ github.event.inputs.environment }}
 
     steps:
       - name: Checkout code
