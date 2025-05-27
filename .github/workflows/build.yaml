@@ -1,25 +1,15 @@
-name: Deploy to AeonFree
-
-on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: "Select deployment environment"
-        required: true
-        default: aeonfree-production
-        type: string
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create mail-config.json from secret
-        run: echo '${{ secrets.MAIL_CONFIG_JSON }}' > mail-config.json
+      - name: Prepare mail directory and mail-config.json
+        run: |
+          mkdir -p mail
+          echo '${{ secrets.MAIL_CONFIG_JSON }}' > mail/mail-config.json
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -28,7 +18,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /htdocs/
-          local-dir: ./ # This now includes mail-config.json
+          local-dir: ./ # uploads everything including mail/mail-config.json
 
-      - name: Remove mail-config.json for security
-        run: rm mail-config.json
+      - name: Clean up mail-config.json locally
+        run: rm -rf mail
