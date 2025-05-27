@@ -3,7 +3,11 @@ name: Deploy to AeonFree with environments
 on:
   workflow_dispatch:
     inputs:
-      environment: Aeon
+      environment:
+        description: "Select deployment environment"
+        required: true
+        default: Aeon
+        type: string
 
 jobs:
   deploy:
