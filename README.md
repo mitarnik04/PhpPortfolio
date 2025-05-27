@@ -98,6 +98,8 @@ This application is designed for clean presentation, professionalism, and easy e
 
 ```
 portfolio/
+├── .github/               # GitHub configuration files
+│   ├── workflows/         # GitHub Actions workflows (CI/CD pipelines)
 ├── components/            # Modular UI (card, nav-bar, pop-up, language-toggle)
 │   ├── card/
 │   ├── language-toggle/
