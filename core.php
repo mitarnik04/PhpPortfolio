@@ -34,10 +34,10 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     <link rel="stylesheet" href="public/styles/flexbox.css?v1">
     <link rel="stylesheet" href="public/styles/styles.css?v2">
     <link rel="stylesheet" href="public/styles/scrollbar.css?v1">
-    <link rel="stylesheet" href="public/styles/navigation.css?v2">
-    <link rel="stylesheet" href="public/styles/language-toggle.css?v1">
+    <link rel="stylesheet" href="public/styles/navigation.css?v3">
+    <link rel="stylesheet" href="public/styles/language-toggle.css?v2">
     <link rel="stylesheet" href="public/styles/card.css?v2">
-    <link rel="stylesheet" href="public/styles/pop-up.css?v1">
+    <link rel="stylesheet" href="public/styles/pop-up.css?v2">
     <link rel="stylesheet" href="public/styles/spinner.css?v1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Mitar's Portfolio</title>
