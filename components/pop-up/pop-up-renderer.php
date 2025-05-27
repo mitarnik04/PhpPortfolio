@@ -19,7 +19,8 @@ class PopUpRenderer
             title: $title,
             buttons: [
                 new PopUpButton(
-                    label: $closeButtonLabel,
+                    $closeButtonLabel,
+                    true,
                     class: 'button-base',
                 )
             ],
@@ -43,7 +44,8 @@ class PopUpRenderer
             title: $title,
             buttons: [
                 new PopUpButton(
-                    label: $closeButtonLabel,
+                    $closeButtonLabel,
+                    true,
                     class: 'button-base',
                 )
             ],

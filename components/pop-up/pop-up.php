@@ -5,6 +5,7 @@ require_once __DIR__ . '/assets/pop-up-button.php';
 
 class PopUpOptions implements IComponentOptions
 {
+    /** @param array<Button> $buttons */
     public function __construct(
         public readonly string $name,
         public readonly string $body,
@@ -33,7 +34,7 @@ class PopUpComponent implements IComponent
 ?>
         <div id="<?= htmlspecialchars($options->name) ?>" class="f-c-c popup-overlay" aria-hidden="true" <?= $showAttr ?>>
             <div class="popup">
-                <a href="#" class="popup-close" data-popup-close="<?= htmlspecialchars($options->name) ?>">
+                <a href="#" class="popup-close" data-popup-id="<?= htmlspecialchars($options->name) ?>" data-popup-close="true">
                     <span class="material-icons">close</span>
                 </a>
                 <?php if (isset($options->title)): ?>
@@ -55,13 +56,15 @@ class PopUpComponent implements IComponent
                 <?php if (!empty($options->buttons)): ?>
                     <div class="flex f-jc-fe f-g-6px popup-buttons">
                         <?php foreach ($options->buttons as $button): ?>
-                            <!-- TODO: Now any button defined inside the popup will automatically close it. CHANGE THAT !! -->
                             <button
                                 type="<?= htmlspecialchars($button->type, ENT_QUOTES) ?>"
                                 class="<?= htmlspecialchars($button->class, ENT_QUOTES) ?>"
-                                data-popup-close="<?= htmlspecialchars($options->name) ?>">
+                                onclick="<?= htmlspecialchars($button->onClick, ENT_QUOTES) ?>"
+                                data-popup-id="<?= htmlspecialchars($options->name) ?>"
+                                data-popup-close="<?= $button->closePopUpOnClick ? 'true' : 'false' ?>">
                                 <?= htmlspecialchars($button->label, ENT_QUOTES) ?>
                             </button>
+
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
