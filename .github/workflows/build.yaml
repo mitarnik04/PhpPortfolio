@@ -6,7 +6,7 @@ on:
       environment:
         description: "Select deployment environment"
         required: true
-        default: Aeon
+        default: aeonfree-production
         type: string
 
 jobs:
