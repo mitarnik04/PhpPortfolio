@@ -42,11 +42,11 @@ class NavBarComponent implements IComponent
             return ($left->options->order ?? PHP_INT_MAX) <=> ($right->options->order ?? PHP_INT_MAX);
         });
 ?>
-        <nav class="flex f-c-c main-nav">
+        <nav class="flex f-c-c f-w main-nav">
             <?php foreach ($pages as $page):
                 $isCurrentlyActive =  $page->path == $currentPath;
             ?>
-                <a href="<?= $page->path ?>" class="flex f-ai-c nav-link <?= $isCurrentlyActive ? 'active' : '' ?>">
+                <a href="<?= $page->path ?>" class="flex f-ai-c f-g-6px nav-link <?= $isCurrentlyActive ? 'active' : '' ?>">
                     <?php
                     $materialIconName = $page->options->materialIconName ?? '';
                     if (!empty($materialIconName)): ?>
