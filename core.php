@@ -29,6 +29,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/public/images/portfolio_fav.png">
     <link rel="stylesheet" href="public/styles/flexbox.css">
     <link rel="stylesheet" href="public/styles/styles.css">
     <link rel="stylesheet" href="public/styles/scrollbar.css">
