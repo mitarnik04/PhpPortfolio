@@ -1,0 +1,11 @@
+# Block all access by default
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Allow access to public/ only
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^.*$ - [F,L]
+</IfModule>
+
+# Block direct access via directory indexing (fallback)
+Options -Indexes
