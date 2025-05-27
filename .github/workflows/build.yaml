@@ -19,7 +19,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create mail-config.json from secret
-        run: echo '${{ secrets.MAIL_CONFIG_JSON }}' > mail-config.json
+        run: |
+          mkdir -p mail
+          echo '${{ secrets.MAIL_CONFIG_JSON }}' > mail/mail-config.json
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -28,7 +30,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /htdocs/
-          local-dir: ./ # This now includes mail-config.json
-
-      - name: Remove mail-config.json for security
-        run: rm mail-config.json
+          local-dir: ./
