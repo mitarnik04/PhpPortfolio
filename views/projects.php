@@ -9,7 +9,7 @@ $translation = InstanceProvider::get(Translation::class);
 <h1><?= $translation->get('PROJECTS_PAGE:TITLE', $language); ?></h1>
 <h2><?= $translation->get('PROJECTS_PAGE:TAGLINE', $language); ?></h2>
 
-<p style="margin-bottom: 30px; font-size:1.1em; color:#444;">
+<p>
     <?= $translation->get('PROJECTS_PAGE:INTRO_PARAGRAPH', $language); ?>
 </p>
 
@@ -23,7 +23,7 @@ $translation = InstanceProvider::get(Translation::class);
         $translation->get('PROJECTS_PAGE:PORTFOLIO_TAGLINE', $language)
     ));
     ?>
-    <div class="flex f-jc-c" style="margin-top:24px;">
+    <div class="flex f-jc-c">
         <a class="button-base github-link"
             href="https://github.com/mitarnik04/PHPPortfolio"
             target="_blank"

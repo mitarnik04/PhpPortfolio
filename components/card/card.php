@@ -45,8 +45,8 @@ class CardComponent implements IComponent
 ?>
 
         <div class="card">
-            <h3><?= $title ?></h3>
-            <p class="tagline"><?= $tagline ?></p>
+            <h1><?= $title ?></h1>
+            <h2 class="tagline"><?= $tagline ?></h2>
             <p><?= $description ?></p>
         </div>
 <?php

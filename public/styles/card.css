@@ -18,18 +18,18 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
-.card h3 {
+.card h1 {
   margin-bottom: 6px;
   color: var(--secondary-color);
-  font-size: 1.4em;
+  font-size: clamp(0.9rem, 2.75vw, 1.4em);
 }
 
 .card .tagline {
-  font-size: 0.95em;
+  font-size: clamp(0.9rem, 2.5vw, 0.95em);
   color: var(--muted-text);
   margin-bottom: 12px;
 }
 
 .card p {
-  font-size: 1.1em;
+  font-size: clamp(0.8rem, 2.7vw, 1.1em);
 }
