@@ -1,4 +1,4 @@
-/* IMPORTANT: relies on styles.css being loaded beforehand*/
+/* IMPORTANT: relies on styles.css being loaded beforehand */
 
 .language-toggle {
   background-color: #ffffff;
@@ -7,7 +7,7 @@
 }
 
 .language-toggle select {
-  font-size: 1em;
+  font-size: clamp(0.8rem, 2.8vw, 1rem);
   padding: 6px;
   border-radius: 6px;
   border: 2px solid transparent;
