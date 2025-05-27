@@ -25,7 +25,7 @@ $translation = InstanceProvider::get(Translation::class);
     ?>
     <div class="flex f-jc-c" style="margin-top:24px;">
         <a class="button-base github-link"
-            href="https://github.com/mitarnik04/portfolio"
+            href="https://github.com/mitarnik04/PHPPortfolio"
             target="_blank"
             rel="noopener noreferrer">
             <span class="material-icons" style="vertical-align:middle;">code</span>
