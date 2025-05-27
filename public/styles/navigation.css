@@ -34,7 +34,7 @@ nav .nav-link .material-icons {
   transform: scale(1.2);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 704px) {
   .main-nav {
     flex-direction: column;
     align-items: stretch;
