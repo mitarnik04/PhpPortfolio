@@ -1,3 +1,5 @@
+name: Deploy to AeonFree
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
