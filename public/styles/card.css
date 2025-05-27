@@ -1,35 +1,30 @@
-/* IMPORTANT: relies on styles.css being loaded beforehand*/
-
 .card-container {
   text-align: left;
   margin-top: 30px;
 }
-
 .card {
   background-color: rgba(255, 255, 255, 0.95);
   padding: 24px;
   border-radius: 12px;
-  box-shadow: var(--standard-shadow);
+  box-shadow: var(--shadow-standard);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
-
 .card h1 {
-  margin-bottom: 6px;
-  color: var(--secondary-color);
-  font-size: clamp(0.9rem, 2.75vw, 1.4em);
+  font-size: var(--font-size-semilarge);
+  margin-bottom: 8px;
+  color: var(--color-secondary);
 }
 
 .card .tagline {
-  font-size: clamp(0.9rem, 2.5vw, 0.95em);
-  color: var(--muted-text);
-  margin-bottom: 12px;
+  font-size: var(--font-size-small);
+  color: var(--color-muted-text);
+  margin-bottom: 14px;
 }
 
 .card p {
-  font-size: clamp(0.8rem, 2.7vw, 1.1em);
+  font-size: var(--font-size-medium);
 }

@@ -31,14 +31,14 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/public/images/portfolio_fav.png">
-    <link rel="stylesheet" href="public/styles/flexbox.css?v1">
-    <link rel="stylesheet" href="public/styles/styles.css?v2">
-    <link rel="stylesheet" href="public/styles/scrollbar.css?v1">
-    <link rel="stylesheet" href="public/styles/navigation.css?v3">
-    <link rel="stylesheet" href="public/styles/language-toggle.css?v2">
-    <link rel="stylesheet" href="public/styles/card.css?v2">
-    <link rel="stylesheet" href="public/styles/pop-up.css?v2">
-    <link rel="stylesheet" href="public/styles/spinner.css?v1">
+    <link rel="stylesheet" href="public/styles/flexbox.css?v2">
+    <link rel="stylesheet" href="public/styles/styles.css?v3">
+    <link rel="stylesheet" href="public/styles/scrollbar.css?v2">
+    <link rel="stylesheet" href="public/styles/navigation.css?v4">
+    <link rel="stylesheet" href="public/styles/language-toggle.css?v3">
+    <link rel="stylesheet" href="public/styles/card.css?v3">
+    <link rel="stylesheet" href="public/styles/pop-up.css?v3">
+    <link rel="stylesheet" href="public/styles/spinner.css?v2">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Mitar's Portfolio</title>
 </head>

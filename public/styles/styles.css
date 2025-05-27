@@ -1,13 +1,21 @@
-/* General */
 :root {
-  --primary-color: #3498db;
-  --primary-hover: #2980b9;
-  --secondary-color: #2c3e50;
-  --error-color: #d00;
-  --muted-text: #7f8c8d;
-  --standard-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  --secondary-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  --standard-font-size: clamp(0.95rem, 1vw, 1rem);
+  --color-primary: #3498db;
+  --color-primary-hover: #2980b9;
+  --color-secondary: #2c3e50;
+  --color-error: #d00;
+  --color-muted-text: #7f8c8d;
+
+  --shadow-standard: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --shadow-secondary: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+  /* Responsive Font Sizes */
+  --font-size-icon: clamp(1.25rem, 2.8vw, 1.375rem);
+
+  --font-size-small: clamp(0.9rem, 2.2vw, 1rem);
+  --font-size-medium: clamp(1rem, 2.5vw, 1.125rem);
+  --font-size-semilarge: clamp(1.25rem, 3vw, 1.43rem);
+  --font-size-large: clamp(1.2rem, 3vw, 1.8rem);
+  --font-size-xlarge: clamp(1.6rem, 5vw, 2.8rem);
 }
 
 * {
@@ -33,7 +41,6 @@ body {
   padding: 20px;
 }
 
-/* Layout Container */
 .container {
   position: relative;
   min-height: 300px;
@@ -43,15 +50,11 @@ body {
   max-width: 700px;
   width: 100%;
   text-align: center;
-  box-shadow: var(--standard-shadow);
+  box-shadow: var(--shadow-standard);
 }
 
-/* Profile Image */
 .profile-pic-wrapper {
   margin-bottom: 20px;
-  /* slightly "Nudge" the picture to the left
-   since it visually appears to not be centered.
-   However programatically it is perfectly centered */
   transform: translateX(-4px);
 }
 
@@ -63,32 +66,29 @@ body {
   border-radius: 50%;
 }
 
-/* Headings */
 h1 {
-  font-size: clamp(1.6rem, 5.5vw, 2.8em);
+  font-size: var(--font-size-xlarge);
   margin-bottom: 10px;
-  color: var(--secondary-color);
+  color: var(--color-secondary);
   word-wrap: break-word;
 }
 
 h2 {
   font-weight: 300;
-  font-size: clamp(1.1rem, 3.8vw, 1.8em);
+  font-size: var(--font-size-large);
   margin-bottom: 20px;
-  color: var(--muted-text);
+  color: var(--color-muted-text);
 }
 
-/* Paragraphs */
 p {
-  font-size: clamp(0.9rem, 2.8vw, 1.2em);
+  font-size: var(--font-size-medium);
   line-height: 1.6;
   margin-bottom: 30px;
   color: #555;
 }
 
-/* Social Links */
 .social-links a {
-  color: var(--primary-color);
+  color: var(--color-primary);
   text-decoration: none;
   margin: 0 12px;
   font-weight: bold;
@@ -96,13 +96,12 @@ p {
 }
 
 .social-links a:hover {
-  color: var(--primary-hover);
+  color: var(--color-primary-hover);
 }
 
-/* Buttons */
 .button-base {
   display: inline-block;
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -111,11 +110,11 @@ p {
   cursor: pointer;
   transition: background-color 0.3s ease;
   padding: 10px 20px;
-  font-size: var(--standard-font-size);
+  font-size: var(--font-size-small);
 }
 
 .button-base:hover {
-  background-color: var(--primary-hover);
+  background-color: var(--color-primary-hover);
 }
 
 .button-base .material-icons {
@@ -132,13 +131,11 @@ p {
   margin-top: 20px;
 }
 
-/* Header Section (Nav + Language Toggle) */
 .header-bar {
   gap: 20px;
   padding: 20px;
 }
 
-/* Forms */
 form {
   display: flex;
   flex-direction: column;
@@ -154,37 +151,36 @@ form {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: var(--standard-font-size);
+  font-size: var(--font-size-small);
   resize: vertical;
 }
 
 .form-input:focus {
-  border-color: var(--primary-color);
+  border-color: var(--color-primary);
   outline: none;
 }
 
 .form-label {
   display: block;
   margin-bottom: 6px;
-  font-size: clamp(0.95rem, 1vw, 1rem);
+  font-size: var(--font-size-small);
   font-weight: 600;
-  color: var(--secondary-color);
+  color: var(--color-secondary);
   letter-spacing: 0.01em;
   text-align: left;
   transition: color 0.2s;
   cursor: text;
 }
 
-/* Form Errors */
 .form-errors-container {
   background-color: #fdecea;
-  border-left: 4px solid var(--error-color);
+  border-left: 4px solid var(--color-error);
   max-width: 500px;
   padding: 12px 16px;
   border-radius: 8px;
   margin-bottom: 20px;
-  color: var(--error-color);
-  box-shadow: var(--standard-shadow);
+  color: var(--color-error);
+  box-shadow: var(--shadow-standard);
   line-height: 1.4;
 }
 
@@ -194,11 +190,10 @@ form {
 
 .form-errors-list > li {
   margin: 0;
-  font-size: var(--standard-font-size);
+  font-size: var(--font-size-small);
   font-weight: 500;
 }
 
-/* Responsiveness for small screens */
 @media (max-width: 600px) {
   .container {
     padding: 20px;

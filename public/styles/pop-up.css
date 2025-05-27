@@ -1,5 +1,3 @@
-/* IMPORTANT: relies on styles.css being loaded beforehand */
-
 .popup-overlay {
   position: fixed;
   z-index: 9999;
@@ -8,10 +6,6 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  display: none;
-}
-
-.popup-overlay {
   display: none;
 }
 
@@ -25,33 +19,31 @@
   border-radius: 16px;
   max-width: 500px;
   width: 90%;
-  box-shadow: var(--standard-shadow);
+  box-shadow: var(--shadow-standard);
   text-align: left;
   position: relative;
   color: #333;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Close button */
 .popup-close {
   position: absolute;
   top: 16px;
   right: 20px;
-  color: var(--secondary-color);
+  color: var(--color-secondary);
   text-decoration: none;
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-size: var(--font-size-large);
   cursor: pointer;
 }
 
 .popup-close .material-icons {
-  font-size: clamp(1.4rem, 3.5vw, 1.75rem);
+  font-size: var(--font-size-icon);
   vertical-align: middle;
 }
 
 .popup-close:hover {
   color: #d00;
 }
-
 /* Header with icon and title */
 .popup-header {
   gap: 12px;
@@ -61,14 +53,14 @@
 }
 
 .popup-header-icon {
-  font-size: clamp(1.4rem, 3.5vw, 1.75rem);
-  color: var(--primary-color);
+  font-size: var(--font-size-large);
+  color: var(--color-primary);
 }
 
 .popup-title {
-  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  font-size: var(--font-size-large);
   font-weight: 600;
-  color: var(--secondary-color);
+  color: var(--color-secondary);
   margin: 0;
 }
 
@@ -76,7 +68,7 @@
 .popup a.button {
   margin-top: 20px;
   padding: 12px 24px;
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -84,17 +76,14 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: var(--font-size-small);
 }
 
 .popup button:hover,
 .popup a.button:hover {
-  background-color: var(--primary-hover);
+  background-color: var(--color-primary-hover);
 }
 
 .popup-error {
   color: var(error-color);
-}
-
-.popup-buttons {
-  margin-top: 28px;
 }

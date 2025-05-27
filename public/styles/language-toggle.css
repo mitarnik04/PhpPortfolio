@@ -3,7 +3,7 @@
 .language-toggle {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: var(--secondary-shadow);
+  box-shadow: var(--shadow-secondary);
 }
 
 .language-toggle select {
@@ -11,11 +11,11 @@
   padding: 6px;
   border-radius: 6px;
   border: 2px solid transparent;
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 .language-toggle select:focus {
   outline: none;
-  border: 2px solid var(--primary-color);
-  color: var(--secondary-color);
+  border: 2px solid var(--color-primary);
+  color: var(--color-secondary);
 }
