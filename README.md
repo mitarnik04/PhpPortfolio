@@ -157,7 +157,7 @@ portfolio/
     └── work-experience.php
 ```
 
-For insight on how to add pages, languages etc see: [Extending & Customizing](#extending--customizing).
+For insight on how to add pages, languages, etc., see: [Extending & Customizing](#extending--customizing).
 
 ---
 
