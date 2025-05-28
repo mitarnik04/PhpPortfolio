@@ -1,7 +1,12 @@
 # PhpPortfolio
 
+[![BuildStatus](https://github.com/mitarnik04/PhpPortfolio/actions/workflows/build.yaml/badge.svg)](https://github.com/mitarnik04/PhpPortfolio/actions/workflows/build.yaml)
+![License](https://img.shields.io/badge/license-CDDL-blue.svg)
+![PHP Version](https://img.shields.io/badge/php-8.0%2B-blue)
+
 A modern, dynamically extensible PHP portfolio application.
-This project showcases my technical skills, maintainability philosophy, and ability to craft scalable web solutions. It features multi-language support, dynamic navigation, a robust contact system, and modular, reusable components.
+
+This project demonstrates my approach to building scalable and maintainable web applications in PHP, emphasizing clean architecture and modular design.
 
 ---
 
@@ -21,7 +26,16 @@ This project showcases my technical skills, maintainability philosophy, and abil
 
 ## Project Overview
 
-This application is designed for clean presentation, professionalism, and easy extensibility. Its primary purpose is to provide a flexible platform for showcasing experience, projects, and providing a way for potential clients or fellow developers to get in contact, while demonstrating modern PHP best practices and maintainable engineering.
+This application is designed for clean presentation, professionalism, and easy extensibility. Its primary purpose is to provide a flexible platform for showcasing experience, projects, and providing a way for potential clients or fellow developers to get in contact. Additionally, it reflects a conscious decision to implement core functionalities manually, enhancing my understanding of PHP's capabilities.
+
+**Why not use pre-made libraries?**
+
+To...
+
+- deepen my understanding of PHP, since it’s not my primary language.
+- challenge myself by building everything manually (excluding PHPMailer for secure email).
+- gain full control over the architecture and avoid dependencies on external frameworks or packages.
+- test my engineering discipline: building a robust, maintainable system with little to no external dependencies.
 
 ---
 
@@ -37,6 +51,8 @@ This application is designed for clean presentation, professionalism, and easy e
   Contact forms include server-side and client-side validation. Emails use template-driven, tokenized messaging via a Mailer class build on top of PHPMailer. Credentials are configurable.
 - **Simple Configuration**:  
   Project structure and configuration are separated for easy scalability and adaptation to new requirements.
+- **Framework-Free Philosophy**:  
+  The application is built from the ground up, with PHPMailer as the sole external dependency for secure email handling.
 
 ---
 
@@ -59,7 +75,11 @@ This application is designed for clean presentation, professionalism, and easy e
 
 2. **Configure Mail/SMTP:**
 
-   1. Update `mail/mail-config(empty).json` with your email credentials:
+   - Create a `mail/mail-config.json` file.
+
+   - Copy `mail/mail-config(empty).json` into your file and update it with your credentials.
+
+   It should look something like this:
 
    ```json
    {
@@ -69,9 +89,7 @@ This application is designed for clean presentation, professionalism, and easy e
    }
    ```
 
-   2. Remove the `(empty)` from the file name making it `mail-config.json`
-
-   _PHPMailer is included (mail/phpMailer) but can be updated with Composer if desired._
+_PHPMailer is included in the `mail/phpMailer` directory. For updates or customization, it can be managed via Composer._
 
 3. **Configure Web Server:**  
    Point the document root at the project root. The application is initialized via `index.php` and `core.php`.
@@ -84,7 +102,7 @@ This application is designed for clean presentation, professionalism, and easy e
 ## Usage
 
 - **Professional Presentation:**  
-  Edit or add pages and see immediate updates in navigation and UI.
+  Edit or add pages, update `page-config.json` and see immediate updates in navigation and UI.
 - **Effortless Language Switching:**  
   New languages appear immediately when a translation JSON is added; users can switch at any time. _No need to update the php code at all._
 - **Contact Form:**  
@@ -172,24 +190,52 @@ For insight on how to add pages, languages etc see: [Extending & Customizing](#e
 - Features like active-page highlighting, icons, and pop-ups are configuration-driven.
 - Responsive design ensures a seamless user experience across various devices and screen sizes.
 
----
+### Handcrafted Approach
+
+A core philosophy of this project is to minimize external dependencies and build every piece of functionality from the ground up. From routing, navigation, and dynamic discovery to validation and rendering.
+
+This approach prioritizes:
+
+- Deepening my knowledge of PHP’s language features and standard library.
+
+- Achieving precise control over architecture and performance.
+
+- Eliminating vendor lock-in and ensuring long-term flexibility.
+
+While this approach is more labor-intensive and doesn’t leverage the reliability of pre-tested libraries along with the convenience of Composer, it’s a deliberate choice to prioritize understanding and experimentation. The payoff is full control over every aspect of the application and the ability to shape it exactly as I envision.
 
 ## Extending & Customizing
 
-- **Add a Page:** Place a `.php` file in `views/` and configure it in `nav-bar/configs/page-config.json`.  
-  &rarr; Making sure that the JSON key matches the file name !  
-  Add a translation key to all the files under `translations/` in the `SPA_SETUP` section. This is going to be the text used for the navigation.  
-  &rarr; Again making sure to match the JSON key with the view-file name !
-- **Add a Language:** Put a new `{lang}.json` in `translations/`.
+- **Add a Page:** Place a `.php` file in `views/` and configure it in `nav-bar/configs/page-config.json`.
+
+  > [!Important]
+  > Ensure that the JSON key matches the filename.
+
+  For each language file in `translations/`, add a corresponding key in the `SPA_SETUP` section to specify the navigation label.
+
+  **Example of the `SPA_SETUP` section in the translation file**  
+  _(Keys must match the corresponding view filenames without the `.php` extension)_
+
+  ```json
+  {
+    "SPA_SETUP": {
+      "HOME": "Home",
+      "CONTACT": "Contact",
+      "[YOUR_VIEW_FILENAME]": "[Displayed text in navigation bar]"
+    }
+  }
+  ```
+
+- **Add a Language:** Add a new `{lang}.json` file to the `translations/` directory..
 - **Customize Navigation**: Edit `page-config.json` to update order and icons.
 - **UI or Validation Extensions**: Write new components (implement the required interface) or validators, and add mail templates as needed.  
-  Mail templates use a custom file extension (.tpl) which is basically html with tokens.
+  Mail templates are written in a custom file type (.tpl), which is basically HTML with tokens.
 
 ---
 
 ## License
 
-This project is released under the [CDDL License](LICENSE).  
+This project is released under the [CDDL License](LICENSE).
 You are free to use, modify, and share under these terms.
 
 ---
