@@ -23,6 +23,28 @@ jobs:
           mkdir -p mail
           echo '${{ secrets.MAIL_CONFIG_JSON }}' > mail/mail-config.json
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4.5"
+
+      - name: Run Tests
+        run: php tests/run-tests.php
+
+      - name: Clean up unnecessary files before deploy
+        run: |
+          echo "Removing README.md if exists..."
+          rm -f README.md
+
+          echo "Removing LICENSE if exists..."
+          rm -f LICENSE
+
+          echo "Removing .gitignore if exists..."
+          rm -f .gitignore
+
+          echo "Removing mail/mail-config(empty).json if exists..."
+          rm -f mail/mail-config\(empty\).json
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
