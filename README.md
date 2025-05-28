@@ -157,7 +157,7 @@ portfolio/
     └── work-experience.php
 ```
 
-For insight on how to add pages, languages etc see: [Extending & Customizing](#extending--customizing).
+For insight on how to add pages, languages, etc., see: [Extending & Customizing](#extending--customizing).
 
 ---
 
@@ -179,11 +179,12 @@ For insight on how to add pages, languages etc see: [Extending & Customizing](#e
 - All major UI fragments implement a common interface for plug-and-play extensibility (IComponent).
 - Custom components or layout changes can be implemented with minimal modifications.
 
-### Contact & Validation
+### Validation & Mailing
 
-- Contact forms use validators in `validators/` and tokenized mail templates in `mail/templates/`.
-- Secure mail sending uses the Mailer class build on top of PHPMailer, with credentials externalized in the config (`mail-config.json`).
 - Forms are validated on both client and server side.
+  - For server-side validations each form has a corresponding validator in `validators/`
+- The mail sending is based on tokenized mail templates in `mail/templates/`.
+- Secure mail sending uses the Mailer class build on top of PHPMailer, with credentials externalized in the config (`mail-config.json`).
 
 ### User Experience
 
