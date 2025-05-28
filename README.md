@@ -77,7 +77,7 @@ To...
 
    - Create a `mail/mail-config.json` file.
 
-   - Copy the contents of `mail/mail-config(empty).json` into your file and update it with your credentials.
+   - Copy the contents of `mail/mail-config(empty).json` into your file, then update it with your credentials.
 
    It should look something like this:
 
