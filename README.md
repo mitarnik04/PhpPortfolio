@@ -89,7 +89,7 @@ To...
    }
    ```
 
-_PHPMailer is included in the `mail/phpMailer` directory. For updates or customization, it can be managed via Composer._
+   _PHPMailer is included in the `mail/phpMailer` directory. For updates or customization, it can be managed via Composer._
 
 3. **Configure Web Server:**  
    Point the document root at the project root. The application is initialized via `index.php` and `core.php`.
