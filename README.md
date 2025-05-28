@@ -209,8 +209,8 @@ While this approach is more labor-intensive and doesn’t leverage the reliabili
 
 - **Add a Page:** Place a `.php` file in `views/` and configure it in `nav-bar/configs/page-config.json`.
 
-  > [!Important]
-  > Ensure that the JSON key matches the filename.
+> [!Important]
+> Ensure that the JSON key in `page-config.json` matches the view filename.
 
   For each language file in `translations/`, add a corresponding key in the `SPA_SETUP` section to specify the navigation label.
 
