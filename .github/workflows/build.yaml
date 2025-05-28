@@ -1,4 +1,4 @@
-name: Deploy to Aeon
+name: Deploy to AeonFree
 
 on:
   workflow_dispatch:
