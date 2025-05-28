@@ -21,13 +21,10 @@ class StringTestResultWriter implements ITestResultWriter
 
     private function writeHeader(TestResult $testResult): void
     {
-        $format = <<<EOT
-                    Test: %s
-                    Success: %s
-                    Result: %s
-                    Error: %s
-                    
-                    EOT;
+        $format = "Test: %s" . PHP_EOL
+            . "Success: %s" . PHP_EOL
+            . "Result: %s" . PHP_EOL
+            . "Error: %s" . PHP_EOL;
 
         printf(
             $format,
