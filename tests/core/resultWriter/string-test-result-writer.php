@@ -6,24 +6,46 @@ class StringTestResultWriter implements ITestResultWriter
 {
     public function write(TestResult $testResult): void
     {
-        echo "Test: $testResult->testName" . PHP_EOL;
-        echo 'Success: ' . ($testResult->isSuccess ? 'Yes' : 'No') . PHP_EOL;
-        echo 'Result: ' . var_export($testResult->result, true) . PHP_EOL;
-        echo 'Error: ' . ($testResult->errorMsg ?? 'None') . PHP_EOL;
+        $this->writeHeader($testResult);
+
         if ($testResult->isError) {
             echo 'Time: N/A' . PHP_EOL;
-            if (isset($testResult->exception)) {
-                $exception = $testResult->exception;
-                echo 'Stacktrace: ' . $exception::class . PHP_EOL
-                    . $exception->getTraceAsString();
-            } else {
-                echo 'Stacktrace: N/A' . PHP_EOL;
-            }
-        } else if (isset($testResult->time) && isset($testResult->memory)) {
+            $this->writeStacktrace($testResult->exception ?? null);
+        } elseif (isset($testResult->time)) {
             echo 'Time: ' . number_format($testResult->time * 1000, 4) . 'ms' . PHP_EOL;
+            echo 'Stack trace: N/A' . PHP_EOL;
+        }
+
+        echo str_repeat('-', 40) . PHP_EOL;
+    }
+
+    private function writeHeader(TestResult $testResult): void
+    {
+        $format = <<<EOT
+                    Test: %s
+                    Success: %s
+                    Result: %s
+                    Error: %s
+                    
+                    EOT;
+
+        printf(
+            $format,
+            $testResult->testName,
+            $testResult->isSuccess ? 'Yes' : 'No',
+            var_export($testResult->result, true),
+            $testResult->errorMsg ?? 'None'
+        );
+    }
+
+    private function writeStacktrace(?Throwable $exception): void
+    {
+        if ($exception) {
+            echo 'Stack trace: ' . $exception::class . PHP_EOL
+                . $exception->getTraceAsString() . PHP_EOL;
+        } else {
             echo 'Stacktrace: N/A' . PHP_EOL;
         }
-        echo str_repeat('-', 40) . "\n";
     }
 
     public function writeMany(array $results): void
