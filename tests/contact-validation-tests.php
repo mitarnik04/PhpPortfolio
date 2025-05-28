@@ -21,8 +21,7 @@ $tester->define("CorrectInputProducesNoErrors", function () use ($validator) {
 
 $tester->define('SUCCESS TESTING', fn() => true);
 $tester->define('SUCCESS TESTING void', function () {});
-$tester->define('ERROR TESTING', fn() => new TestError('something'));
-$tester->define('ERROR TESTING EXCEPTION', fn() => throw new RuntimeException('Something')); 
+$tester->define('ERROR TESTING', fn() => throw new TestFailedException('Something went wrong...'));
 
 
 

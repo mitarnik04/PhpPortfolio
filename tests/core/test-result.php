@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/test-error.php';
-
 
 class TestResult
 {
@@ -12,29 +10,23 @@ class TestResult
         public readonly ?string $errorMsg = null,
         public readonly mixed $result = null,
         public readonly ?float $time = null,
-        public readonly ?int $memory = null
+        public readonly ?Exception $exception = null,
     ) {
         $this->isError = isset($errorMsg);
     }
 
-    public static function Success(string $testName, $result = null)
+    public static function success(string $testName, float $time, $result = null): TestResult
     {
-        return new TestResult($testName, true, result: $result);
+        return new TestResult($testName, true, time: $time, result: $result);
     }
 
-    public static function SuccessWithMetrics(string $testName, float $time, int $memory, $result = null,)
-    {
-        return new TestResult(
-            $testName,
-            true,
-            result: $result,
-            time: $time,
-            memory: $memory
-        );
-    }
-
-    public static function Failiure(string $testName, string $errorMsg)
+    public static function failiure(string $testName, string $errorMsg): TestResult
     {
         return new TestResult($testName, false, $errorMsg);
+    }
+
+    public static function failiureFromException(string $testName, Exception $exception): TestResult
+    {
+        return new TestResult($testName, false, $exception->getMessage(), exception: $exception);
     }
 }
