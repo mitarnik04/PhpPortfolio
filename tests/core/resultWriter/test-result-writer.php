@@ -8,4 +8,7 @@ interface ITestResultWriter
     //TODO: Make this a general implementation in base class ? 
     /** @param array<TestResult> $results */
     function writeMany(array $results): void;
+
+    /** @param array<TestResult> $results */
+    function writeSummary(array $results): void;
 }

@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/test.php';
 require_once __DIR__ . '/test-result.php';
+require_once __DIR__ . '/test-case.php';
 
 class Tester
 {
@@ -19,11 +20,25 @@ class Tester
         $this->tests[] = new Test($name, $test, $args);
     }
 
+    /** @param array<TestCase> $cases */
+    public function defineGroup(string $baseName, callable $testCallable, array $cases): void
+    {
+        foreach ($cases as $case) {
+            $testName = "{$baseName}_{$case->testNameSuffix}";
+            if (is_array($case->params)) {
+                $this->tests[] = new Test($testName, $testCallable, ...$case->params);
+            } else {
+                $this->tests[] = new Test($testName, $testCallable, $case->params);
+            }
+        }
+    }
+
     public function run(): void
     {
         $this->results = array_map(fn($test) => $this->runSingleTest($test), $this->tests);
 
         $this->writer->writeMany($this->results);
+        $this->writer->writeSummary($this->results);
 
         exit($this->hasFailures() ? 1 : 0);
     }
@@ -37,9 +52,10 @@ class Tester
 
             $endTime = microtime(true);
 
-            return TestResult::success($test->name, $endTime - $startTime, $result);
+            return TestResult::success($test->name, $result, $endTime - $startTime);
         } catch (\Throwable $e) {
-            return TestResult::failiureFromException($test->name, $e);
+            $endTime = microtime(true);
+            return TestResult::failiureFromException($test->name, $e, $endTime - $startTime);
         }
     }
 

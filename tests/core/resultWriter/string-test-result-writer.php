@@ -7,16 +7,47 @@ class StringTestResultWriter implements ITestResultWriter
     public function write(TestResult $testResult): void
     {
         $this->writeHeader($testResult);
+        if (isset($testResult->time)) {
+            echo 'Time: ' . number_format($testResult->time * 1000, 4) . 'ms' . PHP_EOL;
+        } else {
+            echo 'Time: N/A' . PHP_EOL;
+        }
 
         if ($testResult->isError) {
-            echo 'Time: N/A' . PHP_EOL;
             $this->writeStacktrace($testResult->exception ?? null);
-        } elseif (isset($testResult->time)) {
-            echo 'Time: ' . number_format($testResult->time * 1000, 4) . 'ms' . PHP_EOL;
+        } else {
             echo 'Stack trace: N/A' . PHP_EOL;
         }
 
         echo str_repeat('-', 40) . PHP_EOL;
+    }
+
+    public function writeMany(array $results): void
+    {
+        foreach ($results as $result) {
+            $this->write($result);
+        }
+    }
+
+    public function writeSummary(array $results): void
+    {
+        $total = count($results);
+        $successes = 0;
+        $failures = 0;
+
+        foreach ($results as $result) {
+            if ($result->isError) {
+                $failures++;
+            } else {
+                $successes++;
+            }
+        }
+
+        echo PHP_EOL . str_repeat('=', 13) . " Test Summary " . str_repeat('=', 13) . PHP_EOL;
+        echo "Total: {$total}" . PHP_EOL;
+        echo "Succeeded: {$successes}" . PHP_EOL;
+        echo "Failed: {$failures}" . PHP_EOL;
+        echo str_repeat('=', 40) . PHP_EOL;
     }
 
     private function writeHeader(TestResult $testResult): void
@@ -41,14 +72,7 @@ class StringTestResultWriter implements ITestResultWriter
             echo 'Stack trace: ' . $exception::class . PHP_EOL
                 . $exception->getTraceAsString() . PHP_EOL;
         } else {
-            echo 'Stacktrace: N/A' . PHP_EOL;
-        }
-    }
-
-    public function writeMany(array $results): void
-    {
-        foreach ($results as $result) {
-            $this->write($result);
+            echo 'Stack trace: N/A' . PHP_EOL;
         }
     }
 }

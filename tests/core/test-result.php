@@ -15,18 +15,18 @@ class TestResult
         $this->isError = isset($errorMsg);
     }
 
-    public static function success(string $testName, float $time, $result = null): TestResult
+    public static function success(string $testName, $result = null, ?float $time = null): TestResult
     {
         return new TestResult($testName, true, time: $time, result: $result);
     }
 
-    public static function failiure(string $testName, string $errorMsg): TestResult
+    public static function failiure(string $testName, string $errorMsg, ?float $time = null): TestResult
     {
-        return new TestResult($testName, false, $errorMsg);
+        return new TestResult($testName, false, $errorMsg, time: $time);
     }
 
-    public static function failiureFromException(string $testName, Exception $exception): TestResult
+    public static function failiureFromException(string $testName, Exception $exception, ?float $time = null): TestResult
     {
-        return new TestResult($testName, false, $exception->getMessage(), exception: $exception);
+        return new TestResult($testName, false, $exception->getMessage(), time: $time, exception: $exception);
     }
 }
