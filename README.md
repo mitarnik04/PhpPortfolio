@@ -125,8 +125,9 @@ portfolio/
 │   │   └── configs/        # page-config.json: nav order/icons
 │   └── pop-up/
 ├── core.php               # App orchestrator/entry-point
+├── dependencies.php
 ├── helpers/               # Util: dynamic discovery, translation, etc.
-│   ├── instance-provider.php
+│   ├── container.php
 │   ├── metadata.php
 │   ├── timespan.php
 │   ├── translation.php
@@ -144,7 +145,7 @@ portfolio/
 │   ├── images/
 │   ├── js/
 │   └── styles/
-├── tests/                 # Contains a quick and easy way to set-up tests, run them and display the results
+├── tests/                 # Contains a quick and easy way to set-up tests, that can be run as part of the deploy process.
 ├── translations/          # Translation files: de.json, en.json, etc.
 ├── user-settings.php
 ├── validators/
@@ -212,20 +213,20 @@ While this approach is more labor-intensive and doesn’t leverage the reliabili
 > [!Important]
 > Ensure that the JSON key in `page-config.json` matches the view filename.
 
-  For each language file in `translations/`, add a corresponding key in the `SPA_SETUP` section to specify the navigation label.
+For each language file in `translations/`, add a corresponding key in the `SPA_SETUP` section to specify the navigation label.
 
-  **Example of the `SPA_SETUP` section in the translation file**  
-  _(Keys must match the corresponding view filenames without the `.php` extension)_
+**Example of the `SPA_SETUP` section in the translation file**  
+ _(Keys must match the corresponding view filenames without the `.php` extension)_
 
-  ```json
-  {
-    "SPA_SETUP": {
-      "HOME": "Home",
-      "CONTACT": "Contact",
-      "[YOUR_VIEW_FILENAME]": "[Displayed text in navigation bar]"
-    }
+```json
+{
+  "SPA_SETUP": {
+    "HOME": "Home",
+    "CONTACT": "Contact",
+    "[YOUR_VIEW_FILENAME]": "[Displayed text in navigation bar]"
   }
-  ```
+}
+```
 
 - **Add a Language:** Add a new `{lang}.json` file to the `translations/` directory..
 - **Customize Navigation**: Edit `page-config.json` to update order and icons.
