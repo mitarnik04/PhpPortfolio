@@ -122,7 +122,7 @@ portfolio/
 │   ├── card/
 │   ├── language-toggle/
 │   ├── nav-bar/
-│   │   └── configs/        # page-config.json: nav order/icons
+│   │   └── configs/       # page-config.json: nav order/icons
 │   └── pop-up/
 ├── core.php               # App orchestrator/entry-point
 ├── dependencies.php
