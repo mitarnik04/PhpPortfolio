@@ -16,5 +16,5 @@ $tester->define("RegisteredInstanceCanBeRetrieved", function ($container) {
 });
 
 $tester->define("UnregisteredInstanceThrowsException", function ($container) {
-    Assert::throws(fn() => $container->get(SomeClass::class), JsonException::class);
+    Assert::throws(fn() => $container->get(SomeClass::class), RuntimeException::class);
 });
