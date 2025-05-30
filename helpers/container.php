@@ -3,7 +3,7 @@
 /**
  * @template T
  */
-class InstanceProvider
+class Container
 {
     /**
      * @var array<class-string, object>

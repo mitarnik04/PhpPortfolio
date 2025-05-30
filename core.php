@@ -6,7 +6,7 @@ require_once DIR_HELPERS . '/metadata.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
-$instanceProvider = buildInstanceProvider();
+$container = buildContainer();
 
 $availableLanguages = Metadata::getAvailableLanguages();
 
@@ -49,8 +49,8 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
         require_once DIR_HELPERS . '/router.php';
 
         $paths = [];
-        $router = $instanceProvider->get(Router::class);
-        $translator = $instanceProvider->get(Translator::class);
+        $router = $container->get(Router::class);
+        $translator = $container->get(Translator::class);
 
         $allowedPages = Metadata::getLoadableViews();
         foreach ($allowedPages as $allowedPage) {
