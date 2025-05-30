@@ -127,7 +127,7 @@ portfolio/
 ├── core.php               # App orchestrator/entry-point
 ├── dependencies.php
 ├── helpers/               # Util: dynamic discovery, translation, etc.
-│   ├── container.php
+│   ├── container.php      # DI Container
 │   ├── metadata.php
 │   ├── timespan.php
 │   ├── translation.php
