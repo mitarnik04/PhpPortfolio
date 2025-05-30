@@ -1,13 +1,12 @@
 <?php
 
 require_once __DIR__ . '/user-settings.php';
-require_once DIR_HELPERS . '/translation.php';
+require_once __DIR__ . '/dependencies.php';
 require_once DIR_HELPERS . '/metadata.php';
-require_once DIR_HELPERS . '/instance-provider.php';
-
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
+$instanceProvider = buildInstanceProvider();
 
 $availableLanguages = Metadata::getAvailableLanguages();
 
@@ -50,14 +49,14 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
         require_once DIR_HELPERS . '/router.php';
 
         $paths = [];
-        $router = InstanceProvider::get(Router::class);
-        $translation = InstanceProvider::get(Translation::class);
+        $router = $instanceProvider->get(Router::class);
+        $translator = $instanceProvider->get(Translator::class);
 
         $allowedPages = Metadata::getLoadableViews();
         foreach ($allowedPages as $allowedPage) {
             $paths[] = new Page(
                 '/' . $allowedPage,
-                $translation->get('SPA_SETUP:' . strtoupper($allowedPage), $language),
+                $translator->get('SPA_SETUP:' . strtoupper($allowedPage), $language),
                 $allowedPage
             );
         }
@@ -70,7 +69,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], $availableLanguages)) {
     </header>
 
     <main id="main-container" class="container">
-        <?php $router->route(); ?>
+        <?php $router->route(["translator" => $translator]); ?>
     </main>
 
     <!-- JS -->

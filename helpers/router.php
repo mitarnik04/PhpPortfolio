@@ -21,17 +21,19 @@ class Router
         return new Router($routeEndpoints, $defaultEndpoint, $getFullPagePath);
     }
 
-    public function route(): void
+    public function route(array $variables = []): void
     {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         if ($uri == '/') {
+            extract($variables);
             require ($this->getFullPagePath)($this->defaultEndpoint);
             return;
         }
 
         foreach ($this->routeEndpoints as $routeEndpoint) {
             if ($uri == '/' . $routeEndpoint) {
+                extract($variables);
                 require ($this->getFullPagePath)($routeEndpoint);
                 break;
             }

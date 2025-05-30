@@ -1,20 +1,17 @@
 <?php
-require_once  DIR_HELPERS . '/translation.php';
-
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
-$translation = InstanceProvider::get(Translation::class);
 ?>
 
 <div class="flex f-jc-c profile-pic-wrapper">
     <img src="public/images/serious_pic.jpg" alt="Your Profile Picture" class="profile-pic">
 </div>
 
-<h1><?= $translation->get('HOME_PAGE:GREETING', $language) ?></h1>
+<h1><?= $translator->get('HOME_PAGE:GREETING', $language) ?></h1>
 
-<h2><?= $translation->get('HOME_PAGE:OCCUPATION_TITLE', $language) ?></h2>
+<h2><?= $translator->get('HOME_PAGE:OCCUPATION_TITLE', $language) ?></h2>
 
-<p><?= $translation->get('HOME_PAGE:STUFF_I_DO_DESCRIPTION', $language) ?></p>
+<p><?= $translator->get('HOME_PAGE:STUFF_I_DO_DESCRIPTION', $language) ?></p>
 
 <!-- //TODO: Move this into translation file ??  -->
 <div class="social-links">
@@ -24,5 +21,5 @@ $translation = InstanceProvider::get(Translation::class);
 </div>
 
 <a class="button-base contact-button" href="/contact">
-    <?= $translation->get('HOME_PAGE:GET_IN_TOUCH', $language) ?>
+    <?= $translator->get('HOME_PAGE:GET_IN_TOUCH', $language) ?>
 </a>

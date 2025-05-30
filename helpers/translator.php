@@ -4,7 +4,7 @@ require_once __DIR__ . '/utils.php';
 require_once __DIR__ . '/../user-settings.php';
 
 
-class Translation
+class Translator
 {
     private static array $translations = [];
 

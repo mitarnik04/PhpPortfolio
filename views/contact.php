@@ -1,8 +1,6 @@
 <!--TODO: Maybe consider creating a Form Component ??? -->
 
 <?php
-require_once DIR_HELPERS . '/translation.php';
-require_once DIR_HELPERS . '/instance-provider.php';
 require_once DIR_MAIL . '/mailer.php';
 require_once DIR_MAIL . '/mail-information.php';
 require_once DIR_MAIL . '/templates/contact-mail-template.php';
@@ -11,7 +9,6 @@ require_once DIR_COMPONENTS . '/pop-up/pop-up-renderer.php';
 
 $userSettings = UserSettings::getOrCreate();
 $language = $userSettings->getLanguage();
-$translation = InstanceProvider::get(Translation::class);
 $mailState = MailState::IDLE;
 
 if (isset($_POST['submit'])) {
@@ -45,9 +42,9 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<h1><?= $translation->get('CONTACT_PAGE:TITLE', $language) ?></h1>
-<h2 class="contact-subtitle"><?= $translation->get('CONTACT_PAGE:SUBTITLE', $language) ?></h2>
-<p class="contact-intro"><?= $translation->get('CONTACT_PAGE:INTRO', $language) ?></p>
+<h1><?= $translator->get('CONTACT_PAGE:TITLE', $language) ?></h1>
+<h2 class="contact-subtitle"><?= $translator->get('CONTACT_PAGE:SUBTITLE', $language) ?></h2>
+<p class="contact-intro"><?= $translator->get('CONTACT_PAGE:INTRO', $language) ?></p>
 
 
 <?php if (!empty($errors)): ?>
@@ -55,7 +52,7 @@ if (isset($_POST['submit'])) {
         <ul class="flex f-dr-c f-g-20px form-errors-list">
             <?php foreach ($errors as $error): ?>
                 <li>
-                    <?= $translation->get("ERROR:$error->key", $language) ?>
+                    <?= $translator->get("ERROR:$error->key", $language) ?>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -68,30 +65,30 @@ if (isset($_POST['submit'])) {
 
 <form action="" method="post" id="contactForm">
     <div class="form-group">
-        <label for="reason" class="form-label"><?= $translation->get('CONTACT_PAGE:REASON:LABEL', $language) ?></label>
+        <label for="reason" class="form-label"><?= $translator->get('CONTACT_PAGE:REASON:LABEL', $language) ?></label>
         <!-- TODO: Can this <select> be a component ? -->
         <select
             class="form-input"
             id="reason"
             name="reason"
             required>
-            <option value=""><?= $translation->get('CONTACT_PAGE:REASON:PLACEHOLDER', $language) ?></option>
+            <option value=""><?= $translator->get('CONTACT_PAGE:REASON:PLACEHOLDER', $language) ?></option>
             <option value="collaboration" <?= (isset($reason) && $reason === 'collaboration') ? 'selected' : '' ?>>
-                <?= $translation->get('CONTACT_PAGE:REASON:COLLABORATION', $language) ?>
+                <?= $translator->get('CONTACT_PAGE:REASON:COLLABORATION', $language) ?>
             </option>
             <option value="freelance" <?= (isset($reason) && $reason === 'freelance') ? 'selected' : '' ?>>
-                <?= $translation->get('CONTACT_PAGE:REASON:FREELANCE', $language) ?>
+                <?= $translator->get('CONTACT_PAGE:REASON:FREELANCE', $language) ?>
             </option>
             <option value="techchat" <?= (isset($reason) && $reason === 'techchat') ? 'selected' : '' ?>>
-                <?= $translation->get('CONTACT_PAGE:REASON:TECHCHAT', $language) ?>
+                <?= $translator->get('CONTACT_PAGE:REASON:TECHCHAT', $language) ?>
             </option>
             <option value="other" <?= (isset($reason) && $reason === 'other') ? 'selected' : '' ?>>
-                <?= $translation->get('CONTACT_PAGE:REASON:OTHER', $language) ?>
+                <?= $translator->get('CONTACT_PAGE:REASON:OTHER', $language) ?>
             </option>
         </select>
     </div>
     <div class="form-group">
-        <label for="firstname" class="form-label"><?= $translation->get('CONTACT_PAGE:FIRSTNAME', $language) ?></label>
+        <label for="firstname" class="form-label"><?= $translator->get('CONTACT_PAGE:FIRSTNAME', $language) ?></label>
         <input
             class="form-input"
             id="firstname"
@@ -101,11 +98,11 @@ if (isset($_POST['submit'])) {
             minlength="2"
             maxlength="50"
             pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\- ]+$"
-            title="<?= $translation->get('CONTACT_PAGE:PROMPT:ENTER_VALID_NAME', $language) ?>"
+            title="<?= $translator->get('CONTACT_PAGE:PROMPT:ENTER_VALID_NAME', $language) ?>"
             value="<?= isset($firstname) ? htmlspecialchars($firstname, ENT_QUOTES) : '' ?>">
     </div>
     <div class="form-group">
-        <label for="lastname" class="form-label"><?= $translation->get('CONTACT_PAGE:LASTNAME', $language) ?></label>
+        <label for="lastname" class="form-label"><?= $translator->get('CONTACT_PAGE:LASTNAME', $language) ?></label>
         <input
             class="form-input"
             id="lastname"
@@ -115,12 +112,12 @@ if (isset($_POST['submit'])) {
             minlength="2"
             maxlength="50"
             pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\- ]+$"
-            title="<?= $translation->get('CONTACT_PAGE:PROMPT:ENTER_VALID_NAME', $language) ?>"
+            title="<?= $translator->get('CONTACT_PAGE:PROMPT:ENTER_VALID_NAME', $language) ?>"
             value="<?= isset($lastname) ? htmlspecialchars($lastname, ENT_QUOTES) : '' ?>">
     </div>
 
     <div class="form-group">
-        <label for="email" class="form-label"><?= $translation->get('CONTACT_PAGE:EMAIL', $language) ?></label>
+        <label for="email" class="form-label"><?= $translator->get('CONTACT_PAGE:EMAIL', $language) ?></label>
         <input
             class="form-input"
             id="email"
@@ -132,7 +129,7 @@ if (isset($_POST['submit'])) {
     </div>
 
     <div class="form-group">
-        <label for="message" class="form-label"><?= $translation->get('CONTACT_PAGE:MESSAGE', $language) ?></label>
+        <label for="message" class="form-label"><?= $translator->get('CONTACT_PAGE:MESSAGE', $language) ?></label>
         <textarea
             class="form-input"
             id="message"
@@ -140,25 +137,25 @@ if (isset($_POST['submit'])) {
             rows="5"
             required
             minlength="10"
-            title="<?= $translation->get('CONTACT_PAGE:PROMPT:ENTER_MESSAGE', $language) ?>"><?= isset($message) ? htmlspecialchars($message, ENT_QUOTES) : '' ?></textarea>
+            title="<?= $translator->get('CONTACT_PAGE:PROMPT:ENTER_MESSAGE', $language) ?>"><?= isset($message) ? htmlspecialchars($message, ENT_QUOTES) : '' ?></textarea>
     </div>
 
-    <input type="submit" name="submit" value="<?= $translation->get('CONTACT_PAGE:SEND', $language) ?>" class="button-base form-submit">
+    <input type="submit" name="submit" value="<?= $translator->get('CONTACT_PAGE:SEND', $language) ?>" class="button-base form-submit">
 </form>
 
 <?php if ($mailState == MailState::SUCCESS) {
     PopUpRenderer::renderSuccess(
         'contact-success',
-        $translation->get('CONTACT_PAGE:SUCCESS_MESSAGE', $language),
-        $translation->get('GENERAL:SUCCESS', $language),
-        $translation->get('GENERAL:OK', $language),
+        $translator->get('CONTACT_PAGE:SUCCESS_MESSAGE', $language),
+        $translator->get('GENERAL:SUCCESS', $language),
+        $translator->get('GENERAL:OK', $language),
     );
 } else if ($mailState == MailState::ERROR) {
     PopUpRenderer::renderError(
         "contact-error",
-        $translation->get('CONTACT_PAGE:ERROR_MESSAGE', $language),
-        $translation->get('GENERAL:ERROR', $language),
-        $translation->get('GENERAL:OK', $language),
+        $translator->get('CONTACT_PAGE:ERROR_MESSAGE', $language),
+        $translator->get('GENERAL:ERROR', $language),
+        $translator->get('GENERAL:OK', $language),
     );
 } ?>
 
