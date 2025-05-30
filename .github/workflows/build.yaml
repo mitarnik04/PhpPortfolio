@@ -45,6 +45,9 @@ jobs:
           echo "Removing mail/mail-config(empty).json if exists..."
           rm -f mail/mail-config\(empty\).json
 
+          echo "Removing tests directory if exists..."
+          rm -rf tests
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
