@@ -1,7 +1,12 @@
 <?php
-require_once __DIR__ . '/../core/testWriter/string-test-writer.php';
-require_once __DIR__ . '/../core/assert.php';
-require_once __DIR__ . '/../core/tester-hub.php';
+const CORE_DIR = __DIR__ . '/../core';
+const ASSERT_DIR = CORE_DIR . '/assert';
+
+require_once CORE_DIR . '/testWriter/string-test-writer.php';
+require_once CORE_DIR . '/tester-hub.php';
+require_once ASSERT_DIR . '/assert.php';
+require_once ASSERT_DIR . '/assert-single.php';
+require_once ASSERT_DIR . '/assert-array.php';
 
 function getTester(string $suite): Tester
 {
