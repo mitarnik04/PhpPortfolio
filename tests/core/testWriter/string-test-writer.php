@@ -41,7 +41,7 @@ class StringTestWriter implements ITestWriter
     public function writeSuite(string $suite): void
     {
         echo str_repeat('=', 40) . PHP_EOL;
-        echo "\t\t Test Suite: $suite " . PHP_EOL;
+        echo str_repeat(' ', 9) . "Test Suite: $suite " . PHP_EOL;
         echo str_repeat('=', 40) . PHP_EOL;
     }
 
