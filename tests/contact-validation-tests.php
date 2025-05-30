@@ -1,30 +1,31 @@
 <?php
 require_once __DIR__ . '/../validators/contact-validator.php';
 
-$tester = getTester();
+$tester = getTester('Contact');
 $validator = new ContactValidator();
 
-function getValidRequest()
-{
-    return new ContactValidationRequest(
-        'some reason',
-        ['some reason', 'some other valid reason'],
-        'SomeFirstname',
-        'SomeLastName',
-        'someEmail@somedomain.com',
-        'This is a message meant for testing purposes'
-    );
-}
 
-$tester->define("CorrectInputProducesNoErrors", function () use ($validator) {
-    $errors = $validator->validate(getValidRequest());
+$tester->setUp(
+    function () {
+        return new ContactValidationRequest(
+            'some reason',
+            ['some reason', 'some other valid reason'],
+            'SomeFirstname',
+            'SomeLastName',
+            'someEmail@somedomain.com',
+            'This is a message meant for testing purposes'
+        );
+    }
+);
+
+$tester->define("CorrectInputProducesNoErrors", function (ContactValidationRequest $request) use ($validator) {
+    $errors = $validator->validate($request);
 
     Assert::empty($errors);
 });
 
 // Name
-$tester->define("MissingFirstNameProducesError", function () use ($validator) {
-    $request = getValidRequest();
+$tester->define("MissingFirstNameProducesError", function (ContactValidationRequest $request) use ($validator) {
     $request->data['firstname'] = '';
     $errors = $validator->validate($request);
 
@@ -36,9 +37,7 @@ $tester->define("MissingFirstNameProducesError", function () use ($validator) {
 
 $tester->defineGroup(
     'FirstnameInvalidCharsProduceError',
-    function (string $invalidFirstname) use ($validator) {
-        $request = getValidRequest();
-
+    function (ContactValidationRequest $request, string $invalidFirstname) use ($validator) {
         $request->data['firstname'] = $invalidFirstname;
         $errors = $validator->validate($request);
 
@@ -54,8 +53,7 @@ $tester->defineGroup(
 );
 
 
-$tester->define("MissingLastNameProducesError", function () use ($validator) {
-    $request = getValidRequest();
+$tester->define("MissingLastNameProducesError", function (ContactValidationRequest $request) use ($validator) {
     $request->data['lastname'] = '';
     $errors = $validator->validate($request);
 
@@ -66,9 +64,7 @@ $tester->define("MissingLastNameProducesError", function () use ($validator) {
 
 $tester->defineGroup(
     'LastnameInvalidCharsProduceError',
-    function (string $invalidLastname) use ($validator) {
-        $request = getValidRequest();
-
+    function (ContactValidationRequest $request, string $invalidLastname) use ($validator) {
         $request->data['lastname'] = $invalidLastname;
         $errors = $validator->validate($request);
 
@@ -84,8 +80,7 @@ $tester->defineGroup(
 );
 
 // Email
-$tester->define("MissingEmailProducesError", function () use ($validator) {
-    $request = getValidRequest();
+$tester->define("MissingEmailProducesError", function (ContactValidationRequest $request) use ($validator) {
     $request->data['email'] = '';
     $errors = $validator->validate(new ContactValidationRequest(
         'some reason',
@@ -102,16 +97,14 @@ $tester->define("MissingEmailProducesError", function () use ($validator) {
 });
 
 // Message
-$tester->define("SpecialCharsInMessageProduceNoError", function () use ($validator) {
-    $request = getValidRequest();
+$tester->define("SpecialCharsInMessageProduceNoError", function (ContactValidationRequest $request) use ($validator) {
     $request->data['message'] = '%&%/// Something djsfklsjalskfdj';
     $errors = $validator->validate($request);
 
     Assert::empty($errors);
 });
 
-$tester->define("MissingMessageProducesError", function () use ($validator) {
-    $request = getValidRequest();
+$tester->define("MissingMessageProducesError", function (ContactValidationRequest $request) use ($validator) {
     $request->data['message'] = '';
     $errors = $validator->validate($request);
 
@@ -120,8 +113,7 @@ $tester->define("MissingMessageProducesError", function () use ($validator) {
     Assert::contains(new ValidationError('MESSAGE', 'MESSAGE_EMPTY'), $errors, false);
 });
 
-$tester->define("ShortMessageProducesError", function () use ($validator) {
-    $request = getValidRequest();
+$tester->define("ShortMessageProducesError", function (ContactValidationRequest $request) use ($validator) {
     $request->data['message'] = 'Too short';
     $errors = $validator->validate($request);
 
@@ -131,8 +123,7 @@ $tester->define("ShortMessageProducesError", function () use ($validator) {
 });
 
 // Combining
-$tester->define("MultipleFieldsWrongProducesMultipleErrors", function () use ($validator) {
-    $request = getValidRequest();
+$tester->define("MultipleFieldsWrongProducesMultipleErrors", function (ContactValidationRequest $request) use ($validator) {
     $request->data['message'] = 'Too short';
     $request->data['lastname'] = 'Invalid77Lastname';
     $errors = $validator->validate($request);

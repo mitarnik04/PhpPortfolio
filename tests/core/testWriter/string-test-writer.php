@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/../test-result.php';
-require_once __DIR__ . '/test-result-writer.php';
+require_once __DIR__ . '/test-writer.php';
 
-class StringTestResultWriter implements ITestResultWriter
+class StringTestWriter implements ITestWriter
 {
-    public function write(TestResult $testResult): void
+    public function writeResult(TestResult $testResult): void
     {
         $this->writeHeader($testResult);
         if (isset($testResult->time)) {
@@ -22,31 +22,26 @@ class StringTestResultWriter implements ITestResultWriter
         echo str_repeat('-', 40) . PHP_EOL;
     }
 
-    public function writeMany(array $results): void
+    public function writeResults(array $results): void
     {
         foreach ($results as $result) {
-            $this->write($result);
+            $this->writeResult($result);
         }
     }
 
-    public function writeSummary(array $results): void
+    public function writeSummary(int $totalTests, int $successes, int $failures): void
     {
-        $total = count($results);
-        $successes = 0;
-        $failures = 0;
-
-        foreach ($results as $result) {
-            if ($result->isError) {
-                $failures++;
-            } else {
-                $successes++;
-            }
-        }
-
         echo PHP_EOL . str_repeat('=', 13) . " Test Summary " . str_repeat('=', 13) . PHP_EOL;
-        echo "Total: {$total}" . PHP_EOL;
+        echo "Total: {$totalTests}" . PHP_EOL;
         echo "Succeeded: {$successes}" . PHP_EOL;
         echo "Failed: {$failures}" . PHP_EOL;
+        echo str_repeat('=', 40) . PHP_EOL;
+    }
+
+    public function writeSuite(string $suite): void
+    {
+        echo str_repeat('=', 40) . PHP_EOL;
+        echo "\t\t Test Suite: $suite " . PHP_EOL;
         echo str_repeat('=', 40) . PHP_EOL;
     }
 

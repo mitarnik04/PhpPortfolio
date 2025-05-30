@@ -1,19 +1,18 @@
 <?php
-require_once __DIR__ . '/../core/tester.php';
-require_once __DIR__ . '/../core/resultWriter/string-test-result-writer.php';
+require_once __DIR__ . '/../core/testWriter/string-test-writer.php';
 require_once __DIR__ . '/../core/assert.php';
+require_once __DIR__ . '/../core/tester-hub.php';
 
-register_shutdown_function(function () use (&$tester) {
-    $tester->run();
-});
-
-function getTester(): Tester
+function getTester(string $suite): Tester
 {
-    static $tester;
+    static $testerHub;
+    if (!isset($testerHub)) {
+        $testerHub = new TesterHub(new StringTestWriter());
 
-    if (is_null($tester)) {
-        $tester = new Tester(new StringTestResultWriter());
+        register_shutdown_function(function () use ($testerHub) {
+            $testerHub->runAll();
+        });
     }
 
-    return $tester;
+    return $testerHub->getOrCreateTester($suite);
 }

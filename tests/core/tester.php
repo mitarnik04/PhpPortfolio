@@ -5,15 +5,35 @@ require_once __DIR__ . '/test-case.php';
 
 class Tester
 {
-    /** @var array<TestResult> */
-    private array $results = [];
-
     /** @var array<Test> */
     private array $tests = [];
 
-    public function __construct(
-        private ITestResultWriter $writer
-    ) {}
+
+    /** @var callable() */
+    private $setUp;
+
+    /** @var callable(mixed $testResult, mixed $setUpResult): void */
+    private $teardown;
+
+    /**
+     * Define a setUp function that is called once **BEFORE** every test
+     * @return callable(): void
+     */
+    public function setUp(callable $setUp)
+    {
+        $this->setUp = $setUp;
+    }
+
+    /** 
+     * Define a teardown function that is called once **AFTER** every test.
+     * The output of setup as well as the test result will be passed as arguments to the teardown method
+     * @return callable(mixed $testResult, mixed $setUpResult): void 
+     */
+    public function teardown(callable $teardown)
+    {
+        $this->teardown = $teardown;
+    }
+
 
     public function define(string $name, callable $test, ...$args): void
     {
@@ -33,39 +53,36 @@ class Tester
         }
     }
 
-    public function run(): void
+    /** @return array<TestResult> */
+    public function run(): array
     {
-        $this->results = array_map(fn($test) => $this->runSingleTest($test), $this->tests);
-
-        $this->writer->writeMany($this->results);
-        $this->writer->writeSummary($this->results);
-
-        exit($this->hasFailures() ? 1 : 0);
+        return array_map(fn($test) => $this->runSingleTest($test), $this->tests);
     }
 
     private function runSingleTest(Test $test): TestResult
     {
         try {
+            $setUpResult = isset($this->setUp) ? ($this->setUp)() : null;
+            $args = is_array($test->args) ? $test->args : [$test->args];
+
+            //If setUpResult exists, add it as first argument
+            if ($setUpResult !== null) {
+                array_unshift($args, $setUpResult);
+            }
+
             $startTime = microtime(true);
 
-            $result = ($test->testCallable)(...$test->args);
+            $result = ($test->testCallable)(...$args);
 
             $endTime = microtime(true);
 
+            if (isset($this->teardown)) {
+                ($this->teardown)($result, $setUpResult);
+            }
             return TestResult::success($test->name, $result, $endTime - $startTime);
-        } catch (\Throwable $e) {
+        } catch (Exception $e) {
             $endTime = microtime(true);
             return TestResult::failiureFromException($test->name, $e, $endTime - $startTime);
         }
-    }
-
-    private function hasFailures(): bool
-    {
-        foreach ($this->results as $result) {
-            if ($result->isError) {
-                return true;
-            }
-        }
-        return false;
     }
 }

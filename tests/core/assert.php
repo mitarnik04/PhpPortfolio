@@ -45,6 +45,37 @@ class Assert
             );
         }
     }
+
+    public static function instanceOf($expectedInstance, $object)
+    {
+        if (!($object instanceof $expectedInstance)) {
+            $objClassName = $object::class;
+            throw new TestFailedException(
+                "The object is not an instance of $expectedInstance. 
+                    Actual object type: $objClassName"
+            );
+        }
+    }
+
+    /** @param callable() $method*/
+    public static function throws(callable $method, ?string $exceptionType = null)
+    {
+        try {
+            $method();
+
+            throw new TestFailedException("Expected Method to throw exception of type: $exceptionType. 
+            Actually threw: No Excpetion");
+        } catch (\Throwable $e) {
+            if ($e instanceof TestFailedException) {
+                throw $e;
+            }
+            if (isset($exceptionType) && !($e instanceof $exceptionType)) {
+                $exceptionClassName = $e::class;
+                throw new TestFailedException("Expected Method to throw exception of type: $exceptionType. 
+                Actually threw: $exceptionClassName");
+            }
+        }
+    }
 }
 
 function asReadableOutput(mixed $source, int $indent = 0)
