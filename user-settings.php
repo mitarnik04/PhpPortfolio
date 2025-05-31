@@ -15,10 +15,9 @@ class UserSettings
 
     public function setLanguage(string $value): void
     {
-        $userSettings = self::getOrCreate();
-        if ($userSettings->language !== $value) {
-            $userSettings->language = $value;
-            self::updateOrCreateCookie($userSettings);
+        if ($this->language !== $value) {
+            $this->language = $value;
+            self::updateOrCreateCookie($this);
         }
     }
 
@@ -27,7 +26,6 @@ class UserSettings
         if (isset($_COOKIE[self::COOKIE_NAME])) {
             return self::readUserSettingsFromCookie();
         }
-
 
         $userSettings = new UserSettings();
         self::updateOrCreateCookie($userSettings);
