@@ -1,4 +1,6 @@
 <?php
+require_once DIR_HELPERS . '/timespan.php';
+
 class UserSettings
 {
     const COOKIE_NAME = 'userSettings';
@@ -27,8 +29,6 @@ class UserSettings
         }
 
 
-        require_once DIR_HELPERS . '/timespan.php';
-
         $userSettings = new UserSettings();
         self::updateOrCreateCookie($userSettings);
 
@@ -43,7 +43,6 @@ class UserSettings
         ];
         $json = json_encode($userSettingsObj);
 
-        require_once DIR_HELPERS . '/timespan.php';
         setcookie(self::COOKIE_NAME, $json, Timespan::oneYear(), '/');
     }
 

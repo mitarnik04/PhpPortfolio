@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/user-settings.php';
 require_once __DIR__ . '/dependencies.php';
 require_once DIR_HELPERS . '/metadata.php';

@@ -48,6 +48,7 @@ class Mailer
             $this->errorInfo = $mail->ErrorInfo;
             return MailState::ERROR;
         }
+
         return MailState::SUCCESS;
     }
 }

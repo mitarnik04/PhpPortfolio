@@ -12,8 +12,6 @@ class ValidationError
     ) {}
 }
 
-
-
 interface IValidator
 {
     /** @return array<ValidationError> */

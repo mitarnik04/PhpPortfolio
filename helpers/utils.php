@@ -25,10 +25,10 @@ function getFileNames(string $filePattern, bool $removeFileExtension): array
 /** @param array<string, string> $tokens */
 function replaceTokens(string $template, string $prefix, string $suffix, array $tokens): string
 {
+    $replace_pairs = [];
     foreach ($tokens as $tokenName => $tokenValue) {
-        $token = $prefix . $tokenName . $suffix;
-        $template = str_replace($token, $tokenValue, $template);
+        $replace_pairs[$prefix . $tokenName . $suffix] = $tokenValue;
     }
 
-    return $template;
+    return strtr($template, $replace_pairs);
 }

@@ -19,27 +19,21 @@ class Translator
     {
 
         if (!isset(self::$translations[$language])) {
-
             self::loadTranslation($language);
         }
 
-        if (str_contains($key, ':')) {
-            return self::getNestedTranslation($key, $language);
-        }
-
-        return self::$translations[$language][$key];
+        return str_contains($key, ':')
+            ?  self::getNestedTranslation($key, $language)
+            :  self::$translations[$language][$key];
     }
 
     private function loadTranslation(string $language): void
     {
 
         $translations = [];
-
         if (!tryGetJsonContent(($this->getTranslationFile)($language), $translations)) {
-            error_log("Could not get translation for language: $language");
-            return;
+            throw new RuntimeException("Could not get translation for language: $language");
         }
-
 
         self::$translations[$language] = $translations;
     }
@@ -48,12 +42,14 @@ class Translator
     {
         $partialKeys = explode(':', $key);
         $currentPosition = self::$translations[$language];
+
         foreach ($partialKeys as $partialKey) {
             if (!is_array($currentPosition)) {
                 throw new InvalidArgumentException("Invalid translation key: $key");
             }
             $currentPosition = $currentPosition[$partialKey];
         }
+
         return $currentPosition;
     }
 }
