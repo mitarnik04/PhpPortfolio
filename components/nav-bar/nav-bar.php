@@ -37,7 +37,6 @@ class NavBarComponent implements IComponent
         $pages = $options->getPages();
         $currentPath = $options->getCurrentPath();
 
-
         usort($pages, function ($left, $right) {
             return ($left->options->order ?? PHP_INT_MAX) <=> ($right->options->order ?? PHP_INT_MAX);
         });

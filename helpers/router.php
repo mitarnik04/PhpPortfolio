@@ -21,6 +21,14 @@ class Router
         return new Router($routeEndpoints, $defaultEndpoint, $getFullPagePath);
     }
 
+    public function getCurrentPath()
+    {
+        $urlPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        return $urlPath === '/'
+            ? '/' . $this->defaultEndpoint
+            : $urlPath;
+    }
+
     public function route(array $variables = []): void
     {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
