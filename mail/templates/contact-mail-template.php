@@ -44,7 +44,6 @@ class ContactMailTemplate extends MailTemplate
 
     public function getSubject(): string
     {
-        //TODO: Maybe this shouldn't be here in plain text like this ?
         return "New Request via Protfolio";
     }
 }
